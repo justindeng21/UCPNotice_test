@@ -18,40 +18,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 	Database connection to a mySQL database
 */
 
-const mysql = require('mysql');  //mysql node driver
+// const mysql = require('mysql');  //mysql node driver
 
-if(process.env.JAWSDB_URL)
-{
-	var connection = mysql.createConnection(process.env.JAWSDB_URL)
-}
+// if(process.env.JAWSDB_URL)
+// {
+// 	var connection = mysql.createConnection(process.env.JAWSDB_URL)
+// }
 
-else
-{
-	var connection /*This variable will be used in every query*/ = mysql.createConnection({	
-		host: 'localhost',
-		user: 'root',
-		password: 'password',
-		database: 'CUThere',
-	})
-}
+// else
+// {
+// 	var connection /*This variable will be used in every query*/ = mysql.createConnection({	
+// 		host: 'localhost',
+// 		user: 'root',
+// 		password: 'password',
+// 		database: 'CUThere',
+// 	})
+// }
 
-connection.connect() 
+// connection.connect() 
 
 ////////////////////////////////////////////////
-
-
-
-function clear(string)
-{
-    for(i = 0; i < string.length; i++)
-    {
-        if(string.charAt(i) == "'")
-        {
-			string = string.substr(0,i) + '`' + string.substr(i+1)
-        }
-    }
-    return string
-}
 
 
 
@@ -64,94 +50,36 @@ app.use(express.static('public')) // forces external files to be inside /public
 /*
 	request to home page
 */
-app.get('/',function(req,res)
-{
-	connection.query('select * from eventDetails', function(err,rows)
-	{
-			if(err)
-				throw err
-			else
-			res.render('home', { stringifedObject : JSON.stringify(rows)})
-				//console.log(rows[0])
-	})
-})
+
 
 app.get('/home',function(req,res)
 {
-	connection.query('select * from eventDetails', function(err,rows)
-	{
-			if(err)
-				throw err
-			else
-			res.render('home', { stringifedObject : JSON.stringify(rows)})
+
+	res.render('home')
 				
-	})
+
 })
-////////////////////////////////////////////////
 
 
-////////////////////////////////////////////////
-
-app.get('/events',function(req,res)
+app.get('/',function(req,res)
 {
-	connection.query('select * from eventDetails', function(err,rows)
-	{
-			if(err) throw err
-			else res.render('events', { stringifedObject : JSON.stringify(rows)})
-				
-	})
-})
 
+	res.render('home')
+				
+
+})
 ////////////////////////////////////////////////
+
+
+
 
 
 ////////////////////////////////////////////////
 /*
 	request to application html
 */
-app.get('/application',function(req,res)
-{
-	connection.query('select organizerId, organizerPassword from organizers',function(err,rows){
-		if(err)throw err
-		else res.render('application', { stringifedObject : JSON.stringify(rows)})
-	})
-})
-
-app.get('/submitted',function(req,res)
-{
-	res.render('submitted')
-})
 
 
-app.post('/application/done',function(req, res){
-
-	var address = req.body.Address
-	const lng = req.body.lng
-	const lat = req.body.lat
-	var eventName = req.body.eventName
-	const timeStart = req.body.timeStart + ':00'
-	const timeEnd = req.body.timeEnd + ':00'
-	const date = req.body.Date
-	const description = req.body.description
-	var eventID_ = Math.floor(Math.random()*100000+1)
-	var eventID = eventID_.toString()
-	var randomIndex = Math.floor(Math.random() * 6)
-	var OrganizerID = req.body.orgID
-
-	//console.log(randomIndex)
-
-	var dbQuery = "INSERT INTO eventDetails (eventID, organizerID, eventName, dateOfEvent, timeStart, timeEnd, eventDescription, address, lat, lng)" +
-	' VALUES (' +eventID+","+ OrganizerID +",'"+ clear(eventName) + "','" + date + "','" + timeStart+ "','" + timeEnd +"','" + clear(description) + "','" + clear(address) + "'," + lat + "," + lng +");"
-
-	connection.query(dbQuery, function(err,rows)
-	{
-		if(err)
-			throw(err)
-	
-	})
-	res.render('submitted')
-	res.end() 
-})
 ////////////////////////////////////////////////
 
 
