@@ -3,6 +3,8 @@
 <html>
 	<head>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 
         <!-- Google Tag Manager -->
         <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -12,11 +14,26 @@
         })(window,document,'script','dataLayer','GTM-NTW7PC5');</script>
         <!-- End Google Tag Manager -->
 		
-		
+        <script>
+            window.onload = function() {
+
+                var domain = sessionStorage.getItem("domain");
+                var company = sessionStorage.getItem("company");
+                if (domain != null && company !== null){
+                    $('#domain').val(domain);
+                    $('#company').val(company);
+                }
+
+            }
+
+            
+        </script>
 	
     </head>
     
 	<body>
+
+        
 
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTW7PC5"
@@ -30,10 +47,28 @@
             <input type="text" id="company" name="company">
         </form>
 
-        <button class="serve_notice">Serve Notice</button>
+        <button onclick="disable_button()"class="serve_notice" id="serve">Serve Notice</button><br>
 
-        
+        <button onclick="eraseCache()">Force Cookie to expire</button>
+
+
+
 
 
 	</body>
+    <script>
+        function disable_button(){
+            document.getElementById('serve').setAttribute('disabled','true')
+            sessionStorage.setItem("domain", $('#domain').val());
+            sessionStorage.setItem("company", $('#company').val());
+        }
+
+        function eraseCache(){
+            document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+            location.reload()
+        }
+
+
+    </script>
+
 </html>
