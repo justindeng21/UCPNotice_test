@@ -37,17 +37,58 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <form>
-            <input type="text" id="domain" name="domain" placeholder="Domain"><br>
-            <input type="text" id="company" name="Company" placeholder="Company"><br>
+            <input type="text" id="domain" name="domain" style=
+            "width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;" placeholder="Domain"><br>
+            <input type="text" id="company" name="Company" style=
+            "width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;" placeholder="Company"><br>
         </form>
-        <button onclick="disable_button()"class="serve_notice" id="serve">Serve Notice</button><br>
-        <button onclick="delete_cookies()">Delete cookie and reload</button><br>
+        <button onclick="disable_button()"class="serve_notice" id="serve" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Serve Notice</button><br>
+        <button onclick="delete_cookies()" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        opacity: 100%;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Delete cookie and reload</button><br>
         <div style="padding-top: 20px;">
-            <label for="auto_serve" >Auto serves UCP notice upon refresh</label><br>
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Auto serves UCP notice upon refresh</label><br>
             <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">
-            <label for="auto_serve" >Enable</label>
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Enable</label>
             <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">
-            <label for="auto_serve" >Disable</label>
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Disable</label>
         </div>
 
 
