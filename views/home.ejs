@@ -26,6 +26,22 @@
                 
             }
         </script>
+
+        <style>
+            .button {
+                background-color: #4CAF50;
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+        </style>
+
 	
     </head>
     
@@ -35,16 +51,59 @@
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
         <form>
-            <label for="domain">Domain:</label><br>
-            <input type="text" id="domain" name="domain"><br>
-            <label for="company">Company id:</label><br>
-            <input type="text" id="company" name="company"><br>
+            <input type="text" id="domain" name="domain" style=
+            "width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;" placeholder="Domain"><br>
+            <input type="text" id="company" name="Company" style=
+            "width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-family: 'Courier New', Courier, monospace;" placeholder="Company"><br>
         </form>
-        <button onclick="disable_button()"class="serve_notice" id="serve">Serve Notice</button><br>
-        <button onclick="delete_cookies()">Force Cookie to expire</button>
-        <p>Automatically Serves UCP notice upon refresh when enabled</p>&nbsp&nbsp
-        <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">Enable
-        <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">Disable
+        <button onclick="disable_button()"class="serve_notice" id="serve" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Serve Notice</button><br>
+        <button onclick="delete_cookies()" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        opacity: 100%;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Delete cookie and reload</button><br>
+        <div style="padding-top: 20px;">
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Auto serves UCP notice upon refresh</label><br>
+            <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Enable</label>
+            <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">
+            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Disable</label>
+        </div>
 
 
 
@@ -55,7 +114,8 @@
         
         
         function disable_button(){
-            document.getElementById('serve').setAttribute('disabled','true')
+            document.getElementById('serve').disabled = true
+            document.getElementById('serve').style.opacity = "0%"
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
 
@@ -70,14 +130,14 @@
 
         $(document).ready(function(){
             var radios = document.getElementsByName("auto_serve");
-            var val = localStorage.getItem('auto_serve');
+            var val = sessionStorage.getItem('auto_serve');
             for(var i=0;i<radios.length;i++){
                 if(radios[i].value == val){
                 radios[i].checked = true;
                 }
             }
             $('input[name="auto_serve"]').on('change', function(){
-                localStorage.setItem('auto_serve', $(this).val());
+                sessionStorage.setItem('auto_serve', $(this).val());
             
             });
         });
