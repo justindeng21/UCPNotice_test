@@ -16,7 +16,6 @@
 		
         <script>
             window.onload = function() {
-
                 var domain = sessionStorage.getItem("domain");
                 var company = sessionStorage.getItem("company");
                 if (domain != null && company !== null){
@@ -24,32 +23,28 @@
                     $('#company').val(company);
                 }
 
+                
             }
-
-            
         </script>
 	
     </head>
     
 	<body>
-
-        
-
         <!-- Google Tag Manager (noscript) -->
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTW7PC5"
         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- End Google Tag Manager (noscript) -->
-
         <form>
             <label for="domain">Domain:</label><br>
             <input type="text" id="domain" name="domain"><br>
             <label for="company">Company id:</label><br>
-            <input type="text" id="company" name="company">
+            <input type="text" id="company" name="company"><br>
         </form>
-
         <button onclick="disable_button()"class="serve_notice" id="serve">Serve Notice</button><br>
-
-        <button onclick="eraseCache()">Force Cookie to expire</button>
+        <button onclick="delete_cookies()">Force Cookie to expire</button>
+        <p>Automatically Serves UCP notice upon refresh when enabled</p>&nbsp&nbsp
+        <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">Enable
+        <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">Disable
 
 
 
@@ -57,16 +52,46 @@
 
 	</body>
     <script>
+        
+        
         function disable_button(){
             document.getElementById('serve').setAttribute('disabled','true')
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
+
         }
 
-        function eraseCache(){
+        function delete_cookies(){
+            sessionStorage.setItem("domain", $('#domain').val());
+            sessionStorage.setItem("company", $('#company').val());
             document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
             location.reload()
         }
+
+        $(document).ready(function(){
+            var radios = document.getElementsByName("auto_serve");
+            var val = localStorage.getItem('auto_serve');
+            for(var i=0;i<radios.length;i++){
+                if(radios[i].value == val){
+                radios[i].checked = true;
+                }
+            }
+            $('input[name="auto_serve"]').on('change', function(){
+                localStorage.setItem('auto_serve', $(this).val());
+            
+            });
+        });
+
+        
+        
+        var delayInMilliseconds = 500; //1 second
+
+        setTimeout(function() {
+            if(document.getElementById('auto_serve_enabled').checked == true){
+                document.getElementById('serve').click()
+            }
+        }, delayInMilliseconds);
+
 
 
     </script>
