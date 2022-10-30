@@ -83,6 +83,20 @@
         margin: 4px 2px;
         font-family: 'Courier New', Courier, monospace;
         cursor: pointer;">Delete cookie and reload</button><br>
+        <button onclick="reload()" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        opacity: 100%;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Reload</button><br>
         <div style="padding-top: 20px;">
             <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Auto serves UCP notice upon refresh</label><br>
             <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">
@@ -91,12 +105,19 @@
             <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Disable</label>
         </div>
 
+        <div id="notice_info" ></div>
+
+
 
 
 
 
 	</body>
     <script>
+
+        function reload(){
+            location.reload()
+        }
         
         
         function disable_button(){
@@ -104,6 +125,45 @@
             document.getElementById('serve').style.opacity = "0%"
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
+
+            setTimeout(function(){
+            const element = document.getElementById("notice_info");
+            const notice_info_p = document.createElement("p");
+            const pre = document.createElement('pre')
+            const title = document.createElement('b')
+            const consent = document.createElement('b')
+            
+            try {
+                    var vendors = ''
+                    for([key,value] of Object.entries(window.evidon.notice.vendorList)){
+                        vendors+= (value + '\n')
+                    }
+
+                    if(window.evidon.notice.consentIsGiven == true){
+                        consent.appendChild(document.createTextNode('Consent Given: True\n\n'))
+                    }
+                    else if(window.evidon.notice.consentIsGiven != true){
+                        consent.appendChild(document.createTextNode('Consent Given: False\n\n'))
+                    }
+
+                    title.appendChild(document.createTextNode('Vendors'))
+                    notice_info_p.appendChild(document.createTextNode(vendors));
+                    pre.appendChild(consent)
+                    pre.appendChild(title)
+                    pre.appendChild(notice_info_p)
+                    element.appendChild(pre);
+
+    
+                
+            } catch (error) {
+                title.appendChild(document.createTextNode('Notice not found. Please enter correct values and/or a different notices'))
+                pre.appendChild(title)
+                element.appendChild(pre)
+            }
+
+
+
+        },3000)
 
         }
 
@@ -129,6 +189,8 @@
         });
 
         
+
+        
         
         var delayInMilliseconds = 500; //1 second
 
@@ -138,7 +200,7 @@
             }
         }, delayInMilliseconds);
 
-
+        
 
     </script>
 
