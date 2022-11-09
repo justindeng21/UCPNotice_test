@@ -168,6 +168,8 @@
         }
 
         function delete_cookies(){
+            sessionStorage.clear()
+            localStorage.clear()
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
             document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
