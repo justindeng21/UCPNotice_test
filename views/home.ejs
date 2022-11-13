@@ -4,6 +4,7 @@
 	<head>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
         <!-- Google Tag Manager -->
@@ -33,81 +34,109 @@
     
 	<body>
         <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTW7PC5"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <noscript>
+            <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTW7PC5"
+            height="0" width="0" style="display:none;visibility:hidden">
+            </iframe>
+        </noscript>
         <!-- End Google Tag Manager (noscript) -->
-        <form>
-            <input type="text" id="domain" name="domain" style=
-            "width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;" placeholder="Domain"><br>
-            <input type="text" id="company" name="Company" style=
-            "width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-            font-family: 'Courier New', Courier, monospace;" placeholder="Company"><br>
-        </form>
-        <button onclick="disable_button()"class="serve_notice" id="serve" style=
-        "background-color: #505050;
-        border-radius: 10px;
-        border: none;
-        color: white;
-        padding: 10px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        font-family: 'Courier New', Courier, monospace;
-        cursor: pointer;">Serve Notice</button><br>
-        <button onclick="delete_cookies()" style=
-        "background-color: #505050;
-        border-radius: 10px;
-        opacity: 100%;
-        border: none;
-        color: white;
-        padding: 10px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        font-family: 'Courier New', Courier, monospace;
-        cursor: pointer;">Delete cookie and reload</button><br>
-        <button onclick="reload()" style=
-        "background-color: #505050;
-        border-radius: 10px;
-        opacity: 100%;
-        border: none;
-        color: white;
-        padding: 10px 32px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        font-size: 16px;
-        margin: 4px 2px;
-        font-family: 'Courier New', Courier, monospace;
-        cursor: pointer;">Reload</button><br>
-        <div style="padding-top: 20px;">
-            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Auto serves UCP notice upon refresh</label><br>
-            <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">
-            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Enable</label>
-            <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">
-            <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Disable</label>
-        </div>
 
-        <div id="notice_info" ></div>
+            <div class="row" float = "left">
+              <div class="col-sm">
+                <form>
+                    <input type="text" id="domain" name="domain" style=
+                    "width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    font-family: 'Courier New', Courier, monospace;" placeholder="Domain"><br>
+                    <input type="text" id="company" name="Company" style=
+                    "width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    border-radius: 4px;
+                    box-sizing: border-box;
+                    font-family: 'Courier New', Courier, monospace;" placeholder="Company"><br>
+                </form>
+                <button onclick="disable_button()"class="serve_notice" id="serve" style=
+                "background-color: #505050;
+                border-radius: 10px;
+                border: none;
+                color: white;
+                padding: 10px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                font-family: 'Courier New', Courier, monospace;
+                cursor: pointer;">Serve Notice</button><br>
+                <button onclick="delete_cookies()" style=
+                "background-color: #505050;
+                border-radius: 10px;
+                opacity: 100%;
+                border: none;
+                color: white;
+                padding: 10px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                font-family: 'Courier New', Courier, monospace;
+                cursor: pointer;">Delete cookie and reload</button><br>
+                <button onclick="reload()" style=
+                "background-color: #505050;
+                border-radius: 10px;
+                opacity: 100%;
+                border: none;
+                color: white;
+                padding: 10px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                font-family: 'Courier New', Courier, monospace;
+                cursor: pointer;">Reload</button><br>
+                <div style="padding-top: 20px;">
+                    <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Auto serves UCP notice upon refresh</label><br>
+                    <input type="radio" name="auto_serve" value="show" id="auto_serve_enabled">
+                    <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Enable</label>
+                    <input type="radio" name="auto_serve" value="hide"checked="checked" id="auto_serve_disabled">
+                    <label for="auto_serve" style="color: black;font-weight: 500; font-family: 'Courier New', Courier, monospace;">Disable</label>
+                </div>
+              </div>
+              <div class="col-sm">
+                <div><b>Categories</b></div>
+                <div id="notice_info"></div>
+        
+                
+              </div>
+              <div class="col-sm">
+                <div id="log" ><b>Log</b></div>
+              </div>
+            </div>
+
+        
+
+        
         <span class="evidon-notice-link" style="float:left;"></span>
-
+        <script>
+            console.log('hi')
+            setTimeout(function(){
+                if(document.getElementById('auto_serve_enabled').checked == true){
+                console.log('auto serve')
+                document.getElementById('serve').click()
+                }
+            },1000)
+            
+        </script>
 
 
 
@@ -115,61 +144,111 @@
 
 	</body>
     <script>
+        (function(){
+            if(document.getElementById('auto_serve_enabled').checked == true){
+                console.log('auto serve')
+                document.getElementById('serve').click()
+            }
+        })
 
         function reload(){
             location.reload()
         }
-        
-        
-        function disable_button(){
-            //document.getElementById('serve').disabled = true
-            //ndocument.getElementById('serve').style.opacity = "0%"
-            sessionStorage.setItem("domain", $('#domain').val());
-            sessionStorage.setItem("company", $('#company').val());
 
-            setTimeout(function(){
-            const element = document.getElementById("notice_info");
-            const notice_info_p = document.createElement("p");
-            const pre = document.createElement('pre')
-            const title = document.createElement('b')
-            const consent = document.createElement('b')
+        function getCategories(){
             
+            const notice_info = document.getElementById("notice_info");
+            notice_info.innerHTML = ''
+            const log = document.getElementById("log");
+            const pre = document.createElement('pre')
             try {
-                    var vendors = ''
-                    for([key,value] of Object.entries(window.evidon.notice.vendorList)){
-                        vendors+= (value + '\n')
+                var storedConsent = window.evidon.notice._getConsentedCategories();
+                var keys = Object.keys(window.evidon.notice.activecategorySet)
+                var categories = '';
+                for(var i = 0; i < keys.length; i++){
+                    var row = document.createElement('div')
+                    row.classList.add('row')
+                    var category = document.createElement('div')
+                    category.classList.add('col-sm')
+                    category.style.fontFamily = 'Courier New'
+                    var consent = document.createElement('div')
+                    consent.classList.add('col-sm')
+                    consent.style.fontFamily = 'Courier New'
+                    consent.id = i
+                    category.appendChild(document.createTextNode(keys[i]))
+                    if(storedConsent == null){
+                        consent.appendChild(document.createTextNode('false'))
+                        consent.style.color = 'red'
                     }
-
-                    if(window.evidon.notice.consentIsGiven == true){
-                        consent.appendChild(document.createTextNode('Consent Given: True\n\n'))
+                    else if(storedConsent == true){
+                        consent.appendChild(document.createTextNode('true'))
+                        consent.style.color = 'green'
                     }
-                    else if(window.evidon.notice.consentIsGiven != true){
-                        consent.appendChild(document.createTextNode('Consent Given: False\n\n'))
+                    else{
+                        consent.appendChild(document.createTextNode(storedConsent[keys[i]]))
+                        if(storedConsent[keys[i]] == true){consent.style.color = 'green'}
+                        else {consent.style.color = 'red'}
                     }
-
-                    title.appendChild(document.createTextNode('Vendors'))
-                    notice_info_p.appendChild(document.createTextNode(vendors));
-                    pre.appendChild(consent)
-                    pre.appendChild(title)
-                    pre.appendChild(notice_info_p)
-                    element.appendChild(pre);
-
-    
-                
-            } catch (error) {
-                title.appendChild(document.createTextNode('Notice not found. Please enter correct values and/or a different notices'))
-                pre.appendChild(title)
-                element.appendChild(pre)
+                    row.appendChild(category)
+                    row.appendChild(consent)
+                    notice_info.appendChild(row)
+                }
+            }catch (error) {
+                pre.appendChild(document.createTextNode('Notice not found'))
+                log.appendChild(pre)
             }
-
-
-
-        },3000)
 
         }
 
+        function disable_button(){
+            document.getElementById('serve').disabled = true
+            document.getElementById('serve').style.opacity = "0%"
+            sessionStorage.setItem("domain", $('#domain').val());
+            sessionStorage.setItem("company", $('#company').val());
+            setTimeout(function(){
+                const notice_info = document.getElementById("notice_info");
+                const log = document.getElementById("log");
+                const pre = document.createElement('pre')
+                try {
+                    var storedConsent = window.evidon.notice._getConsentedCategories();
+                    var keys = Object.keys(window.evidon.notice.activecategorySet)
+                    var categories = '';
+                    for(var i = 0; i < keys.length; i++){
+                        var row = document.createElement('div')
+                        row.classList.add('row')
+                        var category = document.createElement('div')
+                        category.classList.add('col-sm')
+                        category.style.fontFamily = 'Courier New'
+                        var consent = document.createElement('div')
+                        consent.classList.add('col-sm')
+                        consent.style.fontFamily = 'Courier New'
+                        consent.id = i
+                        category.appendChild(document.createTextNode(keys[i]))
+                        if(storedConsent == null){
+                            consent.appendChild(document.createTextNode('false'))
+                            consent.style.color = 'red'
+                        }
+                        else if(storedConsent == true){
+                            consent.appendChild(document.createTextNode('true'))
+                            consent.style.color = 'green'
+                        }
+                        else{
+                            consent.appendChild(document.createTextNode(storedConsent[keys[i]]))
+                            if(storedConsent[keys[i]] == true){consent.style.color = 'green'}
+                            else {consent.style.color = 'red'}
+                        }
+                        row.appendChild(category)
+                        row.appendChild(consent)
+                        notice_info.appendChild(row)
+                    }
+                }catch (error) {
+                    pre.appendChild(document.createTextNode('Notice not found'))
+                    log.appendChild(pre)
+                }
+            },2050)
+        }
+
         function delete_cookies(){
-            sessionStorage.clear()
             localStorage.clear()
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
@@ -197,12 +276,9 @@
         
         var delayInMilliseconds = 500; //1 second
 
-        setTimeout(function() {
-            if(document.getElementById('auto_serve_enabled').checked == true){
-                document.getElementById('serve').click()
-            }
-        }, delayInMilliseconds);
+    
 
+        
         
 
     </script>
