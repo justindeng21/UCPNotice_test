@@ -128,7 +128,7 @@
         
         <span class="evidon-notice-link" style="float:left;"></span>
         <script>
-            console.log('hi')
+
             setTimeout(function(){
                 if(document.getElementById('auto_serve_enabled').checked == true){
                 console.log('auto serve')
@@ -144,12 +144,6 @@
 
 	</body>
     <script>
-        (function(){
-            if(document.getElementById('auto_serve_enabled').checked == true){
-                console.log('auto serve')
-                document.getElementById('serve').click()
-            }
-        })
 
         function reload(){
             location.reload()
@@ -161,7 +155,6 @@
             notice_info.innerHTML = ''
             const log = document.getElementById("log");
             const pre = document.createElement('pre')
-            try {
                 var storedConsent = window.evidon.notice._getConsentedCategories();
                 var keys = Object.keys(window.evidon.notice.activecategorySet)
                 var categories = '';
@@ -193,10 +186,6 @@
                     row.appendChild(consent)
                     notice_info.appendChild(row)
                 }
-            }catch (error) {
-                pre.appendChild(document.createTextNode('Notice not found'))
-                log.appendChild(pre)
-            }
 
         }
 
@@ -205,47 +194,7 @@
             document.getElementById('serve').style.opacity = "0%"
             sessionStorage.setItem("domain", $('#domain').val());
             sessionStorage.setItem("company", $('#company').val());
-            setTimeout(function(){
-                const notice_info = document.getElementById("notice_info");
-                const log = document.getElementById("log");
-                const pre = document.createElement('pre')
-                try {
-                    var storedConsent = window.evidon.notice._getConsentedCategories();
-                    var keys = Object.keys(window.evidon.notice.activecategorySet)
-                    var categories = '';
-                    for(var i = 0; i < keys.length; i++){
-                        var row = document.createElement('div')
-                        row.classList.add('row')
-                        var category = document.createElement('div')
-                        category.classList.add('col-sm')
-                        category.style.fontFamily = 'Courier New'
-                        var consent = document.createElement('div')
-                        consent.classList.add('col-sm')
-                        consent.style.fontFamily = 'Courier New'
-                        consent.id = i
-                        category.appendChild(document.createTextNode(keys[i]))
-                        if(storedConsent == null){
-                            consent.appendChild(document.createTextNode('false'))
-                            consent.style.color = 'red'
-                        }
-                        else if(storedConsent == true){
-                            consent.appendChild(document.createTextNode('true'))
-                            consent.style.color = 'green'
-                        }
-                        else{
-                            consent.appendChild(document.createTextNode(storedConsent[keys[i]]))
-                            if(storedConsent[keys[i]] == true){consent.style.color = 'green'}
-                            else {consent.style.color = 'red'}
-                        }
-                        row.appendChild(category)
-                        row.appendChild(consent)
-                        notice_info.appendChild(row)
-                    }
-                }catch (error) {
-                    pre.appendChild(document.createTextNode('Notice not found'))
-                    log.appendChild(pre)
-                }
-            },2050)
+            
         }
 
         function delete_cookies(){
