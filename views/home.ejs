@@ -32,7 +32,7 @@
 	
     </head>
     
-	<body>
+	<body style="overflow-y:hidden;">
         <!-- Google Tag Manager (noscript) -->
         <noscript>
             <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NTW7PC5"
@@ -113,8 +113,10 @@
                 </div>
               </div>
               <div class="col-sm">
-                <div><b>Categories</b></div>
+                <div style="padding: 10px;"><b>Categories</b></div>
                 <div id="notice_info"></div>
+                <div style="padding: 10px;"><b>Vendors</b></div>
+                <div id="vendor_info"></div>
         
                 
               </div>
@@ -150,12 +152,14 @@
         }
 
         function getCategories(){
+            var notice_info = document.getElementById("notice_info");
             
-            const notice_info = document.getElementById("notice_info");
-            notice_info.innerHTML = ''
             const log = document.getElementById("log");
-            const pre = document.createElement('pre')
-                var storedConsent = window.evidon.notice._getConsentedCategories();
+            const pre = document.createElement('pre');
+            var storedConsent;
+            setTimeout(function(){
+                notice_info.innerHTML = ''
+                storedConsent = window.evidon.notice._getConsentedCategories();
                 var keys = Object.keys(window.evidon.notice.activecategorySet)
                 var categories = '';
                 for(var i = 0; i < keys.length; i++){
@@ -185,7 +189,42 @@
                     row.appendChild(category)
                     row.appendChild(consent)
                     notice_info.appendChild(row)
+                    notice_info.appendChild(document.createElement('hr'))
+                }   
+                var vendor_info = document.getElementById('vendor_info')
+                vendor_info.innerHTML = ''
+                var vendors = Object.keys(window.evidon.notice.vendorList)
+                for(var i = 0; i < vendors.length; i++){
+                    var row = document.createElement('div')
+                    row.classList.add('row')
+                    var vendor = document.createElement('div')
+                    vendor.classList.add('col-sm')
+                    vendor.style.fontFamily = 'Courier New'
+                    var consent = document.createElement('div')
+                    consent.classList.add('col-sm')
+                    consent.style.fontFamily = 'Courier New'
+                    vendor.appendChild(document.createTextNode(window.evidon.notice.vendorList[vendors[i]]))
+                    if(window.evidon.notice._getConsentedVendors()[vendors[i]] == true) {
+                        consent.appendChild(document.createTextNode(window.evidon.notice._getConsentedVendors()[vendors[i]]))
+                        consent.style.color = 'green'
+                    }
+                    else if(window.evidon.notice._getConsentedVendors()[vendors[i]] == false) {
+                        consent.appendChild(document.createTextNode(window.evidon.notice._getConsentedVendors()[vendors[i]]))
+                        consent.style.color = 'red'
+                    }
+                    row.appendChild(vendor)
+                    row.appendChild(consent)
+                    vendor_info.appendChild(row)
+                    vendor_info.appendChild(document.createElement('hr'))
                 }
+                
+            
+
+
+
+            },100)
+
+
 
         }
 
