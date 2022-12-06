@@ -1,6 +1,5 @@
 const http = require('http');
 const express = require('express');
-const { resolveSoa } = require('dns');
 
 var app = express();
 
