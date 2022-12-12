@@ -1,36 +1,27 @@
-const http = require('http');
 const express = require('express');
+const bodyParser = require('body-parser');
+let app = express();
+var port = process.env.PORT || 3000
+app.use(bodyParser.json());
+app.set('view engine', 'ejs')
+app.use(bodyParser.urlencoded({ extended: true }));
 
-var app = express();
 
-const hostname = '127.0.0.1';
-const port = process.env.PORT || 3000;
 
+
+
+app.use(express.static('public')) // forces external files to be inside /public
 
 app.get('/', function(req,res){
-    res.sendFile('html/home.html',{root: __dirname })
+    res.sendFile('views/home.html',{root: __dirname })
 })
 
-app.get('/home', function(req,res){
-    res.sendFile('html/home.html',{root: __dirname })
+
+
+app.get('/close',function(req,res){
+    res.send('closing');
+    server.close()
 })
 
-app.get('/projects', function(req,res){
-    res.sendFile('html/projects.html',{root: __dirname })
-})
-
-app.get('/about-me', function(req,res){
-    res.sendFile('html/about.html',{root: __dirname })
-})
-
-app.get('/home.css', function(req,res){
-    res.sendFile('css/home.css',{root: __dirname })
-})
-
-app.get('/menu', function(req,res){
-    res.sendFile('images/menu.png',{root: __dirname })
-})
-
-app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
-});
+var server = app.listen(port)
+console.log('Server is being hosted on port 3000')
