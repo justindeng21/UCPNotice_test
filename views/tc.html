@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--CU There-->
+<html>
+	<head>
+		<meta charset="utf-8">
+        
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://c.evidon.com/dg/dg.js" companyid="3714"></script>
+		
+		<script></script>
+		<!-- Google Tag Manager -->
+		<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-WFKNVCC');
+		</script>
+		<!-- End Google Tag Manager -->
+
+       
+		
+		<style>
+
+            a[href^="http://maps.google.com/maps"]{display:none !important}
+            a[href^="https://maps.google.com/maps"]{display:none !important}
+
+			.gmnoprint a, .gmnoprint span, .gm-style-cc {
+                display:none;
+            }
+            .gmnoprint div {
+                background:none !important;
+            }
+
+			html, body {
+                width: 100%;
+                height: 100%;
+            }
+            .wrapper {
+                position: relative;
+                width: 50%;
+                height: 50%;
+				margin: auto;
+
+            }
+            #map {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: #eee;
+            }
+		</style>
+	
+    </head>
+    
+	<body>
+		<!-- Google Tag Manager (noscript) -->
+		<noscript>
+			<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WFKNVCC"
+			height="0" width="0" style="display:none;visibility:hidden">
+			</iframe>
+		</noscript>
+		<!-- End Google Tag Manager (noscript) -->
+
+        <div class="wrapper"><div id="map"></div></div>
+		
+		<button onclick="delete_cookies()" style=
+        "background-color: #505050;
+        border-radius: 10px;
+        opacity: 100%;
+        border: none;
+        color: white;
+        padding: 10px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        font-family: 'Courier New', Courier, monospace;
+        cursor: pointer;">Delete cookie and reload</button><br>
+    
+  
+	<span class="evidon-notice-link"></span>
+
+	</body>
+
+
+	<script>
+		function delete_cookies(){
+			document.cookie.split(";").forEach(function(c) { document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); });
+			location.reload()
+
+		}
+	</script>
+</html>

@@ -16,6 +16,13 @@ app.get('/', function(req,res){
     res.sendFile('views/home.html',{root: __dirname })
 })
 
+app.get('/tc', function(req,res){
+    res.sendFile('views/tc.html',{root: __dirname })
+})
+
+app.get('/al', function(req,res){
+    res.sendFile('views/al.html',{root: __dirname })
+})
 
 
 app.get('/close',function(req,res){
