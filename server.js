@@ -24,6 +24,10 @@ app.get('/al', function(req,res){
     res.sendFile('views/al.html',{root: __dirname })
 })
 
+app.get('/google.js', function(req,res){
+    res.sendFile('js/google.js',{root: __dirname })
+})
+
 
 app.get('/close',function(req,res){
     res.send('closing');
