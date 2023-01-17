@@ -16,16 +16,23 @@ app.get('/', function(req,res){
     res.sendFile('views/home.html',{root: __dirname })
 })
 
-app.get('/tc', function(req,res){
-    res.sendFile('views/tc.html',{root: __dirname })
+app.get('/tagControl', function(req,res){
+    res.sendFile('views/tagControl.html',{root: __dirname })
 })
 
 app.get('/al', function(req,res){
     res.sendFile('views/al.html',{root: __dirname })
 })
+app.get('/adnotice', function(req,res){
+    res.sendFile('views/adnotice.html',{root: __dirname })
+})
 
 app.get('/google.js', function(req,res){
     res.sendFile('js/google.js',{root: __dirname })
+})
+
+app.get('/ads.js', function(req,res){
+    res.sendFile('js/ads.js',{root: __dirname })
 })
 
 
