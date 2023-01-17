@@ -35,6 +35,11 @@ app.get('/ads.js', function(req,res){
     res.sendFile('js/ads.js',{root: __dirname })
 })
 
+app.get('/style.css', function(req,res){
+    res.sendFile('styles/style.css',{root: __dirname })
+})
+
+
 
 app.get('/close',function(req,res){
     res.send('closing');
