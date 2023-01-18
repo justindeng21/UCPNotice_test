@@ -1,16 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const cors = require('cors');
 let app = express();
 var port = process.env.PORT || 3000
 app.use(bodyParser.json());
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(cors({
-    origin: '*'
-}));
-
 
 
 app.use(express.static('public')) // forces external files to be inside /public
