@@ -51,7 +51,7 @@
         if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
 
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
-            console.log(cookies);
+            console.log(Object.keys(cookies));
             
         }
 
