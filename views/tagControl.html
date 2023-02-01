@@ -53,7 +53,7 @@
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 			var cookieKeys = Object.keys(cookies);
 			for(var i = 0; i < cookieKeys.length; i++){
-				console.log(document.getElementById('prc-vendor-link-'+cookies[cookieKeys[i]]).innerText);
+				console.log('prc-vendor-link-'+cookies[cookieKeys[i]]);
 			}
             
 			
