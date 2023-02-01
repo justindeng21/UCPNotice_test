@@ -51,12 +51,10 @@
         if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
 
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
+
 			var cookieKeys = Object.keys(cookies);
-			for(var i = 0; i < cookieKeys.length; i++){
-				var documentNode = document.getElementById('prc-vendor-link-'+cookieKeys[i]);
-				var nodeText = documentNode.innerText || documentNode.innerHTML;
-				console.log(nodeText);
-			}
+		
+
             
 			
             
