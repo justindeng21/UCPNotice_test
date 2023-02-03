@@ -20,9 +20,14 @@ app.get('/tagControl', function(req,res){
 app.get('/adobelaunch', function(req,res){
     res.sendFile('views/adobelaunch.html',{root: __dirname })
 })
-app.get('/adnotice', function(req,res){
-    res.sendFile('views/adnotice.html',{root: __dirname })
+app.get('/discover-demo', function(req,res){
+    res.sendFile('views/discover.html',{root: __dirname })
 })
+
+
+
+
+
 
 app.get('/google.js', function(req,res){
     res.sendFile('js/google.js',{root: __dirname })
