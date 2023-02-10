@@ -17,8 +17,8 @@ app.get('/tagControl', function(req,res){
     res.sendFile('views/tagControl.html',{root: __dirname })
 })
 
-app.get('/adobelaunch', function(req,res){
-    res.sendFile('views/adobelaunch.html',{root: __dirname })
+app.get('/test', function(req,res){
+    res.sendFile('views/test.html',{root: __dirname })
 })
 app.get('/discover-demo', function(req,res){
     res.sendFile('views/discover.html',{root: __dirname })
