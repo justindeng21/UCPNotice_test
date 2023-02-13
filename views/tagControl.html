@@ -52,7 +52,7 @@
 
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
-			var cookieKeys = Object.keys(cookies);
+			console.log('Prior Consent Callback was Called')
             window.dataLayer = window.dataLayer || [];
             if (typeof gtag !== 'function') function gtag(){dataLayer.push(arguments);}
             gtag('set', 'developer_id.dOGRkZj', true);
