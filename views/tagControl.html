@@ -53,18 +53,8 @@
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
 			console.log('Prior Consent Callback was Called')
-            window.dataLayer = window.dataLayer || [];
-            if (typeof gtag !== 'function') function gtag(){dataLayer.push(arguments);}
-            gtag('set', 'developer_id.dOGRkZj', true);
-            gtag('consent', 'default',
-            
-            { 'ad_storage': 'granted', 'analytics_storage': 'granted', 'region': ['AT','BE','BG','CZ','DE','DK','ES','FI','FR','GB','GR','HU','IE','IT','LU','NL','PL','PT','RO','SE', 'BR', 'TH', 'TR'] }
-            );
-                
+         
 
-            
-			
-            
         }
 
         window.evidon.closeCallback = function () {
