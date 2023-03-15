@@ -24,6 +24,10 @@ app.get('/discover-demo', function(req,res){
     res.sendFile('views/discover.html',{root: __dirname })
 })
 
+app.get('/tealium', function(req,res){
+    res.sendFile('views/tealium.html',{root: __dirname })
+})
+
 app.get('/google.js', function(req,res){
     res.sendFile('js/google.js',{root: __dirname })
 })
