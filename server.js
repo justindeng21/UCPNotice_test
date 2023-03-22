@@ -25,7 +25,7 @@ app.get('/discover-demo', function(req,res){
 })
 
 app.get('/tagcontrol2', function(req,res){
-    res.sendFile('views/tagcontrol2',{root: __dirname })
+    res.sendFile('views/tagcontrol2.html',{root: __dirname })
 })
 
 app.get('/google.js', function(req,res){
