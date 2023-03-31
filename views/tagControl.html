@@ -54,7 +54,7 @@
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
 				
-				
+				window.location.reload()
 				// add the tags which need to wait for prior consent
             			// here.  This should be all your advertising tags and
             			// probably most of your social and tracking tags.
@@ -68,21 +68,22 @@
 				console.log('close callback')
 				// this is executed if the user closed a UI element without either Accepting (providing consent)
             			// or Declining (declining to provide consent).
+				
 
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
 				
+				window.location.reload()
 				
 				
-				//window.location.reload('https://youtube.com')
 				
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
 				
 			
-				
+				window.location.reload()
 				// this is executed if the user explicitly declines giving consent by
 				// using a Decline button
 			}
