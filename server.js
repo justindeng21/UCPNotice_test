@@ -21,7 +21,7 @@ app.get('/test', function(req,res){
     res.sendFile('views/test.html',{root: __dirname })
 })
 app.get('/discover-demo', function(req,res){
-    res.sendFile('views/discover.html',{root: __dirname })
+    res.sendFile('views/tagcontrol3.html',{root: __dirname })
 })
 
 app.get('/tagcontrol2', function(req,res){
