@@ -90,11 +90,14 @@ const isElementLoaded = async selector => {
       return document.querySelector(selector);
 };
 
-
+isElementLoaded('#_evidon-option-button').then(()=>{
+	var optionsButton = document.getElementById('_evidon-option-button');
+	optionsButton.onclick = 'event.preventDefault();populateText()'
+})
 
 
 function populateText(){
-	isElementLoaded('#prc-tp-cat-name-online_privacy_platform').then((selector) => {
+	isElementLoaded('#prc-tp-cat-name-online_privacy_platform').then(() => {
 		var category = document.getElementById('prc-tp-cat-name-online_privacy_platform');
 		var breakTag = document.createElement('br');
 		var newPara = document.createElement('p');
