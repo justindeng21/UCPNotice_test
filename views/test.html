@@ -88,15 +88,8 @@
 	var setLang = function(){
 		var wlh=window.location.href;
 		if(window.evidon) {  
-			if(wlh.match(/(\/de\/de|\/lu\/de|\/ch\/de|\/de)/)) {
-				lang='de';
-		} else if(wlh.match(/(\/fr\/fr|\/ch\/fr)/)) {
-				lang='fr';
-			}else if(wlh.includes('/es/es')) {
-				lang='es';
-		}else if(wlh.includes('/it/it')) {
-				lang='it';
-		}
+
+		
 		
 		var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
 		var brTag = document.createElement('br')
@@ -107,8 +100,12 @@
 		category_tag.appendChild(newParaTag); 
 
 		window.evidon.notice.activateTranslations(lang);
-		clearInterval(eviCheck);
-
+		} 
+		
+		else {
+			eviCheckCount++;
+			if(eviCheckCount>backStop) clearInterval(eviCheck);
+		}
 	}
 
 
