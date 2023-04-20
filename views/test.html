@@ -56,10 +56,6 @@
 		append('evidon-themes', noticecdn + id + '/snthemes.js', true);
 		if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
 
-
-
-
-
 		window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 		    // add the tags which need to wait for prior consent
 		    // here.  This should be all your advertising tags and
@@ -81,48 +77,49 @@
 		    // this is executed if the user explicitly declines giving consent by
 		    // using a Decline button
 		}
-	    })
+	    })(7682)
+	
 	</script>
-		
 
-	<script defer>
+<script defer>
 
-		var backStop=50,eviCheckCount=0,frequencyMs=100,lang='en-gb';
-		var eviCheck = setInterval( function(){setLang();},frequencyMs);
-		var setLang = function(){
-			var wlh=window.location.href;
-			if(window.evidon) {  
-				if(wlh.match(/(\/de\/de|\/lu\/de|\/ch\/de|\/de)/)) {
-					lang='de';
-			} else if(wlh.match(/(\/fr\/fr|\/ch\/fr)/)) {
-					lang='fr';
-				}else if(wlh.includes('/es/es')) {
-					lang='es';
-			}else if(wlh.includes('/it/it')) {
-					lang='it';
-			}
-			
-			var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
-			var brTag = document.createElement('br')
-			category_tag.appendChild(brTag)
-			var newParaTag = document.createElement('p');
-			const node = document.createTextNode("ReCaptcha - required to enter the contest.");
-			newAnchorTag.appendChild(node);
-			category_tag.appendChild(newParaTag); 
-
-
-			clearInterval(eviCheck);
-			} else {
-				eviCheckCount++;
-				if(eviCheckCount>backStop) clearInterval(eviCheck);
-			}
+	var backStop=50,eviCheckCount=0,frequencyMs=100,lang='en-gb';
+	var eviCheck = setInterval( function(){setLang();},frequencyMs);
+	var setLang = function(){
+		var wlh=window.location.href;
+		if(window.evidon) {  
+			if(wlh.match(/(\/de\/de|\/lu\/de|\/ch\/de|\/de)/)) {
+				lang='de';
+		} else if(wlh.match(/(\/fr\/fr|\/ch\/fr)/)) {
+				lang='fr';
+			}else if(wlh.includes('/es/es')) {
+				lang='es';
+		}else if(wlh.includes('/it/it')) {
+				lang='it';
 		}
+		
+		var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
+		var brTag = document.createElement('br')
+		category_tag.appendChild(brTag)
+		var newParaTag = document.createElement('p');
+		const node = document.createTextNode("ReCaptcha - required to enter the contest.");
+		newAnchorTag.appendChild(node);
+		category_tag.appendChild(newParaTag); 
+
+
+		clearInterval(eviCheck);
+		} else {
+			eviCheckCount++;
+			if(eviCheckCount>backStop) clearInterval(eviCheck);
+		}
+	}
 
 
 
 
 
-	</script>
+</script>
+		
 		
 
   	
