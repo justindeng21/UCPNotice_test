@@ -92,7 +92,8 @@ const isElementLoaded = async selector => {
 
 isElementLoaded('#_evidon-option-button').then(()=>{
 	var optionsButton = document.getElementById('_evidon-option-button');
-	optionsButton.onclick = 'event.preventDefault();populateText()'
+	optionsButton.setAttribute("onclick",populateText);
+	optionsButton.onclick = populateText
 })
 
 
