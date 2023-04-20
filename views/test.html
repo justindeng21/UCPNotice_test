@@ -79,11 +79,13 @@
 		}
 	    })(7682);
 		
-	var newAnchorTag = document.createElement('a');
-	const node = document.createTextNode("ReCaptcha - required to enter the contest.");
-	newAnchorTag.appendChild(node);
-	var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
-	category_tag.appendChild(newAnchorTag);
+	setTimeout(()=>{
+		var newAnchorTag = document.createElement('a');
+		const node = document.createTextNode("ReCaptcha - required to enter the contest.");
+		newAnchorTag.appendChild(node);
+		var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
+		category_tag.appendChild(newAnchorTag);
+	},1000)
 		
 		
 	</script>
