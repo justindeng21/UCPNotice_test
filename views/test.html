@@ -81,27 +81,20 @@
 	
 	</script>
 
-<script defer>
+<script>
+
+const isElementLoaded = async selector => {
+      while ( document.querySelector(selector) === null) {
+        await new Promise( resolve =>  requestAnimationFrame(resolve) )
+      }
+      return document.querySelector(selector);
+};
+
+isElementLoaded('.evidon-prefdiag-categoryheader').then((selector) => {
+        console.log(hi)
+});
 
 
-
-
-function editNotice(){
-	try {
-		var category_tag = document.getElementById('prc-tp-cat-name-online_privacy_platform');
-		var brTag = document.createElement('br')
-		category_tag.appendChild(brTag)
-		var newParaTag = document.createElement('p');
-		const node = document.createTextNode("ReCaptcha - required to enter the contest.");
-		newParaTag.appendChild(node);
-		category_tag.appendChild(newParaTag); 
-	} 
-	catch (error) {
-		editNotice()
-	}
-}
-
-editNotice()
 
 </script>
 		
