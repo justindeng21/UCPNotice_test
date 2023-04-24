@@ -58,35 +58,14 @@
 
 
 
-			function gtag(){dataLayer.push(arguments);}
-
-			function updateDataLater(arguments){
-				gtag('consent','update',{'functional_storage':'granted','personalised_storage':'granted'})
-			}
+			
 
 
-			function checkDatalayer(){
-				for(var i = 0; i < dataLayer.length; i++){
-					if(dataLayer[i][0] == 'consent'){
-						return true;
-					}
-				}
-				return false;
-			}
-
-			function delayedDatalayerUpdate() {
-
-				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate(), 100);  //bad practice???
-					return;
-				}
-				updateDataLater()
-			}
 
 
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
-				delayedDatalayerUpdate();
+
 			}
 
 
@@ -129,6 +108,35 @@
 
 		    })(3714);
 		</script>
+
+
+		<script>
+
+			function updateDataLater(arguments){
+				function gtag(){dataLayer.push(arguments);}
+				gtag('consent','update',{'functional_storage':'granted','personalised_storage':'granted'})
+			}
+
+
+			function checkDatalayer(){
+				for(var i = 0; i < dataLayer.length; i++){
+					if(dataLayer[i][0] == 'consent'){
+						return true;
+					}
+				}
+				return false;
+			}
+
+			function delayedDatalayerUpdate() {
+
+				if(checkDatalayer() == false) {
+					setTimeout(delayedDatalayerUpdate(), 100);  //bad practice???
+					return;
+				}
+				updateDataLater()
+			}
+		</script>
+
 
 		<meta charset="utf-8">
         
