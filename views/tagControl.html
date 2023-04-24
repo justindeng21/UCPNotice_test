@@ -51,7 +51,15 @@
 			append('evidon-themes', noticecdn + id + '/snthemes.js', true);
 			if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
 
+
+
+
+
+
+
+
 			function gtag(){dataLayer.push(arguments);}
+
 
 			function checkDatalayer(){
 				for(var i = 0; i < dataLayer.length; i++){
@@ -65,27 +73,56 @@
 			function delayedDatalayerUpdate(arguments) {
 
 				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate(arguments), 50);
+					setTimeout(delayedDatalayerUpdate(arguments), 50);  //bad practice???
 					return;
 				}
+
 				gtag('consent', 'update', arguments);
 			}
+
+
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
 				delayedDatalayerUpdate({'functional_storage':'granted','personalised_storage':'granted'});
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 			window.evidon.closeCallback = function () {
-				
+
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
-				
+
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
-				
+
 			}
+
+
+
+
+
+
 
 		    })(3714);
 		</script>
