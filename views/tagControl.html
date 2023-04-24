@@ -63,7 +63,7 @@
 
 			function checkDatalayer(){
 				for(var i = 0; i < dataLayer.length; i++){
-					if(dataLayer[i][0] === 'consent'){
+					if(dataLayer[i][0] == 'consent'){
 						return true;
 					}
 				}
@@ -73,7 +73,7 @@
 			function delayedDatalayerUpdate(arguments) {
 
 				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate(arguments), 50);  //bad practice???
+					setTimeout(delayedDatalayerUpdate(arguments), 100);  //bad practice???
 					return;
 				}
 
@@ -83,7 +83,7 @@
 
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
-				//delayedDatalayerUpdate({'functional_storage':'granted','personalised_storage':'granted'});
+				delayedDatalayerUpdate({'functional_storage':'granted','personalised_storage':'granted'});
 			}
 
 
