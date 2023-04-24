@@ -54,6 +54,13 @@
 
 
 
+
+
+
+
+
+
+
 			function checkDatalayer(){
 				for(var i = 0; i < dataLayer.length; i++){
 					if(dataLayer[i][0] === 'consent'){
@@ -64,47 +71,53 @@
 			}
 
 			function delayedDatalayerUpdate() {
-					if(checkDatalayer() == false) {//we want it to match
-						setTimeout(delayedDatalayerUpdate, 50);//wait 50 millisecnds then recheck
-						return;
 
-					}
+				if(checkDatalayer() == false) {
+					setTimeout(delayedDatalayerUpdate, 50);//bad practice
+					return;
+				}
 
-					var arguments = {
-						'hello':'world'
-					}
+				var arguments = ['consent','update',{'functional_storage':'granted','personalised_storage':'granted'}]
 
-					dataLayer.push(arguments)
+				dataLayer.push(arguments)
 			}
 
-			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
+
+			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
 				delayedDatalayerUpdate();
-
-
 			}
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
 			window.evidon.closeCallback = function () {
-				
-				
-				//console.log('close callback')
-				// this is executed if the user closed a UI element without either Accepting (providing consent)
-            			// or Declining (declining to provide consent).
-				
 
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
-				
-				//window.location.reload()
-				
-				
-				
+
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
-				// this is executed if the user explicitly declines giving consent by
-				// using a Decline button
+
 			}
 
 
