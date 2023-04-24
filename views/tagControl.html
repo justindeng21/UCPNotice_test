@@ -58,7 +58,7 @@
 
 
 
-
+			function gtag(){dataLayer.push(arguments);}
 
 
 			function checkDatalayer(){
@@ -78,6 +78,8 @@
 				}
 
 				var arguments = ['consent','update',]
+
+
 
 				gtag('consent', 'update', {'functional_storage':'granted','personalised_storage':'granted'});
 			}
