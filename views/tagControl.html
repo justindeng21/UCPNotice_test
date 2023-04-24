@@ -58,14 +58,12 @@
 				// add the tags which need to wait for prior consent
             			// here.  This should be all your advertising tags and
             			// probably most of your social and tracking tags.
-						window.dataLayer = window.dataLayer || [];
-						function gtag(){dataLayer.push(arguments);}
 
-						// Default ad_storage to 'denied'.
-						gtag('consent', 'default', {
-							'ad_storage': 'denied',
-							'ass':'cheeks'
-						});
+
+
+				for(var i = 0; i < datalayer.length; i++){
+					console.log(datalayer[i])
+				}
 
 
 			}
