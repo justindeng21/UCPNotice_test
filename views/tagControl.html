@@ -6,7 +6,8 @@
 
 		<script>
  
- window.dataLayer = window.dataLayer || [];
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
 			function updateDataLater(arguments){
 				
 				gtag('consent','update',{'functional_storage':'granted','personalised_storage':'granted'})
@@ -24,7 +25,7 @@
 
 			function delayedDatalayerUpdate() {
 
-				if(window.evidon.notice.tagManagerEventFired != false) {
+				if(window.evidon.notice.tagManagerEventFired != false || window.evidon.notice.tagManagerEventFired === undefined) {
 					setTimeout(delayedDatalayerUpdate(), 500);  //bad practice???
 					return;
 				}
