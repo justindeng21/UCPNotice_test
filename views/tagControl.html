@@ -70,48 +70,24 @@
 				return false;
 			}
 
-			function delayedDatalayerUpdate() {
+			function delayedDatalayerUpdate(arguments) {
 
 				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate, 50);  //bad practice???
+					setTimeout(delayedDatalayerUpdate(arguments), 50);  //bad practice???
 					return;
 				}
 
-				var arguments = ['consent','update',]
-
-
-
-				gtag('consent', 'update', {'functional_storage':'granted','personalised_storage':'granted'});
+				gtag('consent', 'update', arguments);
 			}
 
 
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
-				delayedDatalayerUpdate();
+				delayedDatalayerUpdate({'functional_storage':'granted','personalised_storage':'granted'});
 			}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
 			window.evidon.closeCallback = function () {
-
+				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
@@ -119,7 +95,7 @@
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
-
+				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
 			}
 
 
