@@ -6,9 +6,12 @@
 
 		<script>
 
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+
 			function updateDataLater(arguments){
-				window.dataLayer = window.dataLayer || [];
-				function gtag(){dataLayer.push(arguments);}
+				
+				
 				gtag('consent','update',{'functional_storage':'granted','personalised_storage':'granted'})
 			}
 
