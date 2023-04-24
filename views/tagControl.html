@@ -25,7 +25,7 @@
 
 			function delayedDatalayerUpdate() {
 
-				if(window.evidon.notice.tagManagerEventFired != false || window.evidon.notice.tagManagerEventFired === undefined) {
+				if(typeof window.evidon.notice.tagManagerEventFired === undefined) {
 					setTimeout(delayedDatalayerUpdate(), 500);  //bad practice???
 					return;
 				}
