@@ -51,18 +51,27 @@
 			append('evidon-themes', noticecdn + id + '/snthemes.js', true);
 			if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
 
-			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
 
 
+			function checkDatalayer(){
+				for(var i = 0; i < dataLayer.length; i++){
+					if(dataLayer[i][0] === 'consent'){
+						return true;
+					}
+				}
+				return false;
+			}
 
-				function doStuff() {
-					if(dataLayer[3][0]=='consent') {//we want it to match
+			function doStuff() {
+					if(checkDatalayer() == false) {//we want it to match
 						setTimeout(doStuff, 50);//wait 50 millisecnds then recheck
 						return;
 					}
-					something_cachedValue=something;
+					console.log('Consent Updated')
 				}
+
+			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
 				doStuff();
 
@@ -91,6 +100,9 @@
 				// this is executed if the user explicitly declines giving consent by
 				// using a Decline button
 			}
+
+
+
 
 
 
