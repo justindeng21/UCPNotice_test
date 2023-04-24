@@ -53,23 +53,26 @@
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
-				
+				var arguments = {
+					'hello':'world'
+				}
 				//window.location.reload()
 				// add the tags which need to wait for prior consent
             			// here.  This should be all your advertising tags and
             			// probably most of your social and tracking tags.
 						const myPromise = new Promise((resolve, reject) => {
 
-							while(true){
+							
 								if(dataLayer[dataLayer.length-1][0] === 'consent'){
 									resolve(dataLayer)
 								}
-								else{
-									continue
-								}
-							}
+
 							
 						});
+
+						myPromise.then(function(){
+							dataLayer.push(arguments)
+						})
 
 
 
