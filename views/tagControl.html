@@ -63,17 +63,23 @@
 				return false;
 			}
 
-			function doStuff() {
+			function delayedDatalayerUpdate() {
 					if(checkDatalayer() == false) {//we want it to match
 						setTimeout(doStuff, 50);//wait 50 millisecnds then recheck
 						return;
+
 					}
-					console.log('Consent Updated')
+
+					var arguments = {
+						'hello':'world'
+					}
+
+					dataLayer.push(arguments)
 				}
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
-				doStuff();
+				delayedDatalayerUpdate();
 
 
 			}
