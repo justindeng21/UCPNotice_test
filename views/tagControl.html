@@ -51,15 +51,7 @@
 			append('evidon-themes', noticecdn + id + '/snthemes.js', true);
 			if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
 
-
-
-
-
-
-
-
 			function gtag(){dataLayer.push(arguments);}
-
 
 			function checkDatalayer(){
 				for(var i = 0; i < dataLayer.length; i++){
@@ -79,23 +71,21 @@
 				gtag('consent', 'update', arguments);
 			}
 
-
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
 				delayedDatalayerUpdate({'functional_storage':'granted','personalised_storage':'granted'});
 			}
 
 			window.evidon.closeCallback = function () {
-				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
+				
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
-				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
+				
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
-				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
+				
 			}
-
 
 		    })(3714);
 		</script>
