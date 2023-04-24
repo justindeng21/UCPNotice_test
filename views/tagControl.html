@@ -73,13 +73,13 @@
 			function delayedDatalayerUpdate() {
 
 				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate, 50);//bad practice
+					setTimeout(delayedDatalayerUpdate, 50);  //bad practice???
 					return;
 				}
 
-				var arguments = ['consent','update',{'functional_storage':'granted','personalised_storage':'granted'}]
+				var arguments = ['consent','update',]
 
-				dataLayer.push(arguments)
+				gtag('consent', 'update', {'functional_storage':'granted','personalised_storage':'granted'});
 			}
 
 
