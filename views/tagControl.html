@@ -73,6 +73,8 @@
 					return;
 				}
 
+				//arguments can be changed here in accordance to user consent
+
 				var arguments = {
 					'functional_storage':'granted',
 					'personalized_storage':'granted'
@@ -82,9 +84,9 @@
 			}
 
 
-
+			delayedDatalayerUpdate();
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
-				delayedDatalayerUpdate();
+
 			}
 
 
