@@ -50,16 +50,12 @@
 			append('evidon-location', cdn + 'geo/country.js', true);
 			append('evidon-themes', noticecdn + id + '/snthemes.js', true);
 			if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
+			
 
 
 
-
-
-
-
-
-
-
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
 
 			function checkDatalayer(){
 				for(var i = 0; i < dataLayer.length; i++){
@@ -78,10 +74,12 @@
 				}
 
 				var arguments = {
-					'hwllo':'world'
+					'functional_storage':'granted'
 				}
 
 				dataLayer.push(arguments)
+
+				gtag('consent','update',arguments)
 			}
 
 
@@ -89,12 +87,6 @@
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
 				delayedDatalayerUpdate();
 			}
-
-
-
-
-
-
 
 
 
