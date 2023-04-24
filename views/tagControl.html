@@ -73,13 +73,11 @@
 			function delayedDatalayerUpdate(arguments) {
 
 				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate(arguments), 50);  //bad practice???
+					setTimeout(delayedDatalayerUpdate(arguments), 50);
 					return;
 				}
-
 				gtag('consent', 'update', arguments);
 			}
-
 
 
 			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
@@ -91,17 +89,12 @@
 			}
 
 			window.evidon.consentWithdrawnCallback = function () {
-
+				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
 			}
 
 			window.evidon.consentDeclinedCallback = function () {
 				delayedDatalayerUpdate({'functional_storage':'denied','personalised_storage':'denied'});
 			}
-
-
-
-
-
 
 
 		    })(3714);
