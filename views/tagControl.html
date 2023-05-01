@@ -35,10 +35,10 @@
 			function workAround(){
 				if(doesConsentCookieExist() == true)
 					return
-				console.log('Consent Cookie does not exit')
+
 				if(doesLocalStorageObjectExist() == false)
 					return
-				console.log('LSO exist')
+				
 				setCookie('_evidon_consent_cookie','justin_test',10)
 
 			}
