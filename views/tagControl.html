@@ -4,6 +4,49 @@
 	<head>
 		<script src="https://c.evidon.com/dg/dg.js" companyid="3714"></script>
 
+		<script>
+			function setCookie(name, value, daysToLive) { 
+				var cookie = name + "=" + encodeURIComponent(value); 
+				if(typeof daysToLive === "number") { 
+					cookie += "; max-age=" + (daysToLive*24*60*60) + ";path=/;SameSite=Lax"
+					document.cookie = cookie; 
+				} 
+			} 
+
+
+			function doesConsentCookieExist(){
+				const cookies = document.cookie.split(";");
+
+				for (var i = 0; i < cookies.length; i++){
+					var cookieName = cookies[i].split('=')[0];
+					if(cookieName == '_evidon_consent_cookie')
+						return true;
+				}
+				return false;
+			}
+
+			function doesLocalStorageObjectExist(){
+				var lso = localStorage.getItem('_evidon_consent_ls_96096')
+				if(lso == null)
+					return false;
+				return true;
+			}
+
+			function workAround(){
+				if(doesConsentCookieExist() == true)
+					return
+				console.log('Consent Cookie does not exit')
+				if(doesLocalStorageObjectExist() == false)
+					return
+				console.log('LSO exist')
+				setCookie('_evidon_consent_cookie','justin_test',10)
+
+			}
+
+			workAround()
+		</script>
+
+
 		<script type="text/javascript">
 		    (function (id) {
 			function append(scriptid, url, async) {
