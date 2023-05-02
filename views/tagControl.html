@@ -5,6 +5,7 @@
 		<script src="https://c.evidon.com/dg/dg.js" companyid="3714"></script>
 
 		<script>
+
 			function setCookie(name, value, daysToLive) { 
 				var cookie = name + "=" + encodeURIComponent(value); 
 				if(typeof daysToLive === "number") { 
@@ -39,14 +40,18 @@
 				if(doesLocalStorageObjectExist() == false)
 					return
 				
-				setCookie('_evidon_consent_cookie',getCookieVal(id),10)
+				setCookie('_evidon_consent_cookie','justin test',10)
 
 			}
 
 			function getCookieVal(){
-				var lso = localStorage.getItem('_evidon_consent_ls_96096')
+				var lso_string = localStorage.getItem('_evidon_consent_ls_96096')
+				var lso = json.parse(lso_string)
+
+				console.log(lso)
 				
 			}
+			getCookieVal()
 
 			workAround()
 		</script>
