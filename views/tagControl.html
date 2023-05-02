@@ -40,15 +40,19 @@
 				if(doesLocalStorageObjectExist() == false)
 					return
 				
-				setCookie('_evidon_consent_cookie','justin test',10)
+				setCookie('_evidon_consent_cookie',getCookieVal(),10)
 
 			}
 
 			function getCookieVal(){
 				var lso_string = localStorage.getItem('_evidon_consent_ls_96096')
-				var lso = json.parse(lso_string)
+				var lso = JSON.parse(lso_string);
 
-				console.log(lso)
+				return( JSON.stringify({
+					"consent_date":lso.consent_date,
+					"gpc":lso.gpc,
+					"justin":lso.consent_type
+				}))
 				
 			}
 			
