@@ -32,6 +32,7 @@
 				return true;
 			}
 
+
 			function getCookieVal(){
 				var lso = JSON.parse(localStorage.getItem('_evidon_consent_ls_96096'));
 				return( JSON.stringify({
@@ -51,9 +52,6 @@
 				setCookie('_evidon_consent_cookie',getCookieVal(),10)
 
 			}
-
-
-			
 
 			workAround()
 		</script>
