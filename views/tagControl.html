@@ -39,117 +39,20 @@
 				if(doesLocalStorageObjectExist() == false)
 					return
 				
-				setCookie('_evidon_consent_cookie','justin_test',10)
+				setCookie('_evidon_consent_cookie',getCookieVal(id),10)
 
+			}
+
+			function getCookieVal(){
+				var lso = localStorage.getItem('_evidon_consent_ls_96096')
+				
 			}
 
 			workAround()
 		</script>
 
 
-		<script type="text/javascript">
-		    (function (id) {
-			function append(scriptid, url, async) {
-			    var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
-			    if (!f) f = d.head;
-			    var s = d.createElement(sn);
-			    s.async = async;
-			    s.id = scriptid;
-			    s.src = url;
-			    s.charset = 'utf-8';
-			    f.parentNode.insertBefore(s, f);
-			}
-
-			function is2parttld(value) {
-			    var tldindicators = ['co', 'com', 'info', 'web', 'info', 'gov', 'edu', 'biz', 'net', 'org'];
-			    var countryindicators = ['uk', 'us', 'fr', 'es', 'de', 'at', 'au', 'ae', 'be', 'br', 'ca', 'ch', 'cn', 'co', 'cz', 'dk', 'eg', 'eu', 'fi', 'gb', 'gr', 'hk', 'hr', 'hu', 'ie', 'in', 'jp', 'mx', 'nl', 'no', 'nz', 'pl', 'ro', 'ru', 'se'];
-			    return (tldindicators.indexOf(value) !== -1 || countryindicators.indexOf(value) !== -1);
-			}
-
-			function getRootDomain() {
-			    var parts = window.location.hostname.split('.');
-			    if (parts.length === 2) rootDomain = parts[0];
-			    else if (parts.length > 2) {
-				// see if the next to last value is a common tld
-				var part = parts[parts.length - 2];
-				if (is2parttld(part)) {
-				    rootDomain = parts[parts.length - 3]; // go back one more
-				}
-				else {
-				    rootDomain = part;
-				}
-			    }
-
-			    return rootDomain;
-			}
-
-			window.evidon = {};
-			window.evidon.id = id;
-			window.evidon.test = false;  // set to true for non-production testing.
-			//window.evidon.userid = '';
-
-			var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
-			append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
-			append('evidon-location', cdn + 'geo/country.js', true);
-			append('evidon-themes', noticecdn + id + '/snthemes.js', true);
-			if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settings.js', true);
-			
-
-
-
-			window.dataLayer = window.dataLayer || [];
-			function gtag(){dataLayer.push(arguments);}
-
-			function checkDatalayer(){
-				for(var i = 0; i < dataLayer.length; i++){
-					if(dataLayer[i][0] === 'consent'){
-						return true;
-					}
-				}
-				return false;
-			}
-
-			function delayedDatalayerUpdate() {
-
-				if(checkDatalayer() == false) {
-					setTimeout(delayedDatalayerUpdate, 50);//bad practice
-					return;
-				}
-
-				//arguments can be changed here in accordance to user consent
-
-				var arguments = {
-					'functional_storage':'granted',
-					'personalized_storage':'granted'
-				}
-
-				gtag('consent','update',arguments)
-			}
-
-
-			delayedDatalayerUpdate();
-
-
-
-
-			window.evidon.priorConsentCallback = function (categories, vendors, cookies) { 
-
-			}
-
-			window.evidon.closeCallback = function () {
-
-			}
-
-			window.evidon.consentWithdrawnCallback = function () {
-
-			}
-
-			window.evidon.consentDeclinedCallback = function () {
-
-			}
-
-		    })(3714);
-		</script>
+		
 
 		<meta charset="utf-8">
         
