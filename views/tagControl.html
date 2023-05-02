@@ -7,13 +7,12 @@
 		<script>
 
 			function setCookie(name, value, daysToLive) { 
-				var cookie = name + "=" + encodeURIComponent(value); 
+				var cookie = name + "=" + value; 
 				if(typeof daysToLive === "number") { 
 					cookie += "; max-age=" + (daysToLive*24*60*60) + ";path=/;SameSite=Lax"
 					document.cookie = cookie; 
 				} 
 			} 
-
 
 			function doesConsentCookieExist(){
 				const cookies = document.cookie.split(";");
@@ -33,6 +32,15 @@
 				return true;
 			}
 
+			function getCookieVal(){
+				var lso = JSON.parse(localStorage.getItem('_evidon_consent_ls_96096'));
+				return( JSON.stringify({
+					"consent_date":lso.consent_date,
+					"gpc":lso.gpc,
+					"justin":lso.consent_type
+				}))
+			}
+
 			function workAround(){
 				if(doesConsentCookieExist() == true)
 					return
@@ -44,17 +52,7 @@
 
 			}
 
-			function getCookieVal(){
-				var lso_string = localStorage.getItem('_evidon_consent_ls_96096')
-				var lso = JSON.parse(lso_string);
 
-				return( JSON.stringify({
-					"consent_date":lso.consent_date,
-					"gpc":lso.gpc,
-					"justin":lso.consent_type
-				}))
-				
-			}
 			
 
 			workAround()
