@@ -23,6 +23,11 @@ app.get('/test', function(req,res){
     res.sendFile('views/test.html',{root: __dirname })
 })
 
+app.get('/test2', function(req,res){
+    res.sendFile('views/pernodricard.html',{root: __dirname })
+})
+
+
 
 
 
