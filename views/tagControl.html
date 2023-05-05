@@ -53,6 +53,14 @@
 
 			}
 
+function getRemainingDays(){
+	const lso = JSON.parse(localStorage.getItem('_evidon_consent_ls_96096'));
+	let date_array = lso.consent_date.split('-')
+	console.log(date_array);
+	var date = new Date(date_array[1] + '/' + date_array[2].split('T')[0] + '')
+}
+getRemainingDays()
+
 			workAround()
 		</script>
 
