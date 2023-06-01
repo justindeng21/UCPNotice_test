@@ -24,7 +24,7 @@ app.get('/test', function(req,res){
 })
 
 app.get('/test2', function(req,res){
-    res.sendFile('views/pernodricard.html',{root: __dirname })
+    res.sendFile('views/adnotice.html',{root: __dirname })
 })
 
 
