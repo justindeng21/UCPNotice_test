@@ -20,66 +20,6 @@
 
 		</style>
 
-		<script>
-
-			function setCookie(name, value, daysToLive) { 
-				var cookie = name + "=" + value; 
-				if(typeof daysToLive === "number") { 
-					cookie += "; max-age=" + (daysToLive*24*60*60) + ";path=/;SameSite=Lax"
-					document.cookie = cookie; 
-				} 
-			} 
-
-			function doesConsentCookieExist(){
-				const cookies = document.cookie.split(";");
-
-				for (var i = 0; i < cookies.length; i++){
-					var cookieName = cookies[i].split('=')[0];
-					if(cookieName == '_evidon_consent_cookie')
-						return true;
-				}
-				return false;
-			}
-
-			function doesLocalStorageObjectExist(){
-				var lso = localStorage.getItem('_evidon_consent_ls_96096')
-				if(lso == null)
-					return false;
-				return true;
-			}
-
-
-			function getCookieVal(){
-				var lso = JSON.parse(localStorage.getItem('_evidon_consent_ls_96096'));
-				return( JSON.stringify({
-					"consent_date":lso.consent_date,
-					"gpc":lso.gpc,
-					"justin":lso.consent_type
-				}))
-			}
-
-			function workAround(){
-				if(doesConsentCookieExist() == true)
-					return
-
-				if(doesLocalStorageObjectExist() == false)
-					return
-				
-				setCookie('_evidon_consent_cookie',getCookieVal(),10)
-
-			}
-
-function getRemainingDays(){
-	const lso = JSON.parse(localStorage.getItem('_evidon_consent_ls_96096'));
-	let date_array = lso.consent_date.split('-')
-	console.log(date_array);
-	var date = new Date(date_array[1] + '/' + date_array[2].split('T')[0] + '')
-}
-getRemainingDays()
-
-			workAround()
-		</script>
-
 
 		
 
