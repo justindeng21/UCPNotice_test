@@ -15,7 +15,7 @@
 
 
 
-            //utility function that 
+            //utility function that creates a script tag
             function append(scriptid, url, async) {
                 var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
                 if (!f) f = d.head;
@@ -27,12 +27,14 @@
                 f.parentNode.insertBefore(s, f);
             }
     
+            //check if 2 part top level domain
             function is2parttld(value) {
                 var tldindicators = ['co', 'com', 'info', 'web', 'info', 'gov', 'edu', 'biz', 'net', 'org'];
                 var countryindicators = ['uk', 'us', 'fr', 'es', 'de', 'at', 'au', 'ae', 'be', 'br', 'ca', 'ch', 'cn', 'co', 'cz', 'dk', 'eg', 'eu', 'fi', 'gb', 'gr', 'hk', 'hr', 'hu', 'ie', 'in', 'jp', 'mx', 'nl', 'no', 'nz', 'pl', 'ro', 'ru', 'se'];
                 return (tldindicators.indexOf(value) !== -1 || countryindicators.indexOf(value) !== -1);
             }
     
+            //returns root domain
             function getRootDomain() {
                 var parts = window.location.hostname.split('.');
                 if (parts.length === 2) rootDomain = parts[0];
@@ -55,7 +57,11 @@
             window.evidon.test = false;  // set to true for non-production testing.
             //window.evidon.userid = '';
     
+
+            //cdn url
             var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+
+            //
             append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
             append('evidon-location', cdn + 'geo/country.js', true);
             append('evidon-themes', noticecdn + id + '/snthemes.js', true);
@@ -69,16 +75,18 @@
             window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
                 var fireTag = (vendor) => {
-                    console.log(typeof vendor)
+                    
                     if(vendors[vendor] !== undefined){
                         tags[vendor]();
+                        console.log(`${vendor} fired`);
+                        return
                     }
 
                     console.log(`${vendor}, does not exist in the disclosure`)
 
                 }
 
-                tags = {
+                var tags = {
                     'google-analytics' : () => {
                         
                         append(0,'https://www.googletagmanager.com/gtag/js?id=G-BW2ELXDXT3')
@@ -86,13 +94,13 @@
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
                         gtag('config', 'G-BW2ELXDXT3');
-                        console.log('Google Analytics fired');
+
                     },
 
                     'youtube': () => {
                         var youtube_video = document.createElement('iframe');
                         youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
-                        document.body.appendChild(youtube_tag);
+                        document.body.appendChild(youtube_video);
                     }
 
                 };
@@ -100,53 +108,28 @@
 
 
                 var categoriesHandlers = { 
-                    'retargeter': () => {
-                        console.log('retargeter handler')
-                        return
-                    },
-
-                    'advertising': ()=>{
-                        console.log('advertising handler')
-                        return
-                    },
 
                     'analytics': () => {
-                        console.log('Analytics handler')
-                        fireTag('google-analytics')
+                        console.log('analytics handler')
+                        
                         return
                     },
 
                     'data platform': () => {
-                        console.log('Data Platform handler')
+                        console.log('data platform handler')
                         return
 
                     },
 
-                    'privacy analytics provider': () => {
-                        console.log('privacy analytics provider handler')
-                        return
-                    },
-
-                    'test category for eventbrite': () => {
-                        console.log('test category for eventbrite handler')
-                        return
-                    },
-
-                    'functional': () => {
-                        console.log('functional handler')
-                        return
-                    },
-
-                    'necessary and performance': () => {
-                        console.log('necessary and performance handler')
-                    },
-
-                    'test fitch': () => {
-                        console.log('test fitch handler')
+                    'retargeter': () => {
+                        console.log('retargeter')
+                        fireTag('google-analytics')
+                        fireTag('youtube')
                         return
                     }
-            }
 
+                }
+                
                 if(typeof categories.all !== undefined && categories.all === true){
                     for (var category in categoriesHandlers){
                         categoriesHandlers[category]()
@@ -161,7 +144,8 @@
                         }
                     }
                     return
-                }
+                }   
+
             }
     
 
@@ -171,6 +155,7 @@
             }
     
             window.evidon.consentWithdrawnCallback = function () {
+                window.location.reload()
                 // this is exeucted if the user withdraws consent and elects to
                 // no longer allow technologies to run on the site.
             }
@@ -180,9 +165,9 @@
                 // using a Decline button
             }
 
-            // setTimeout(()=>{
-            //     window.evidon.notice.setDomain('https://dg-ucp.herokuapp.com/test')
-            // },2000)
+            setTimeout(()=>{
+                window.evidon.notice.setDomain('https://dg-ucp.herokuapp.com/test')
+            },2000)
 
         })(3714);
     </script>
