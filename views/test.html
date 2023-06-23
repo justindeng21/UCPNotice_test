@@ -68,38 +68,35 @@
     
             window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
+                var fireTag = (vendor) => {
+                    console.log(typeof vendor)
+                    if(vendors[vendor] !== undefined){
+                        tags[vendor]();
+                    }
 
-                // class vendorTags{
-                //     constructor(vendors_){
-                //         this.vendors = vendors;
+                    console.log(`${Vendor}, does not exist in the disclosure`)
 
+                }
 
-                //         this.tags = {
-                //             'googleAnalytics' : ()=>{
+                tags = {
+                    'google-analytics' : () => {
+                        
+                        append(0,'https://www.googletagmanager.com/gtag/js?id=G-BW2ELXDXT3')
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-BW2ELXDXT3');
+                        console.log('Google Analytics fired');
+                    },
 
-                //             },
-                //             'youtube': () =>{
-                //                 var youtube_video = document.createElement('iframe');
-                //                 youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
-                //                 document.body.appendChild(youtube_tag);
-                //             }
-                //         }
+                    'youtube': () => {
+                        var youtube_video = document.createElement('iframe');
+                        youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
+                        document.body.appendChild(youtube_tag);
+                    }
 
-                //         return
-                //     }
+                };
 
-
-                //     doesVendorExist(vendor){
-                //         if(this.vendors[vendor] !== undefined) return false
-                //         return true
-                //     }
-
-
-
-
-                // }
-
-                console.log(vendors)
 
 
                 var categoriesHandlers = { 
@@ -115,6 +112,7 @@
 
                     'analytics': () => {
                         console.log('Analytics handler')
+                        fireTag('google-analytics')
                         return
                     },
 
@@ -181,7 +179,6 @@
                 // this is executed if the user explicitly declines giving consent by
                 // using a Decline button
             }
-
 
         })(3714);
     </script>
