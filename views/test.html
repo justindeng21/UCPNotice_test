@@ -13,8 +13,6 @@
     <script type="text/javascript">
         (function (id) {
 
-
-
             //utility function that creates a script tag
             function append(scriptid, url, async) {
                 var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
@@ -60,8 +58,7 @@
 
             //cdn url
             var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
-
-            //
+            
             append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
             append('evidon-location', cdn + 'geo/country.js', true);
             append('evidon-themes', noticecdn + id + '/snthemes.js', true);
@@ -102,7 +99,6 @@
                         youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
                         document.body.appendChild(youtube_video);
                     }
-
                 };
 
 
@@ -165,9 +161,7 @@
                 // using a Decline button
             }
 
-            setTimeout(()=>{
-                window.evidon.notice.setDomain('https://dg-ucp.herokuapp.com/test')
-            },2000)
+
 
         })(3714);
     </script>
