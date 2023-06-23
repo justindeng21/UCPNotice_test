@@ -67,7 +67,7 @@
                         console.log('advertising handler')
                     },
                     'analytics': () => {
-
+                        console.log('Analytics handler')
                         append(0, 'https://www.googletagmanager.com/gtag/js?id=G-BW2ELXDXT3'); 
 
                         window.dataLayer = window.dataLayer || [];
@@ -77,7 +77,7 @@
                         gtag('config', 'G-BW2ELXDXT3');
                     },
                     'data platform': () => {
-
+                        console.log('Data Platform handler')
                         var youtube_tag = document.createElement('iframe');
                         youtube_tag.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
                         document.body.appendChild(youtube_tag);
