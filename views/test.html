@@ -12,6 +12,10 @@
     
     <script type="text/javascript">
         (function (id) {
+
+
+
+            //utility function that 
             function append(scriptid, url, async) {
                 var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
                 if (!f) f = d.head;
@@ -56,50 +60,94 @@
             append('evidon-location', cdn + 'geo/country.js', true);
             append('evidon-themes', noticecdn + id + '/snthemes.js', true);
             if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+
+
+
+
+
     
             window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
 
-                var categoriesHandlers = {
-                    'retargeter': ()=>{
+
+                // class vendorTags{
+                //     constructor(vendors_){
+                //         this.vendors = vendors;
+
+
+                //         this.tags = {
+                //             'googleAnalytics' : ()=>{
+
+                //             },
+                //             'youtube': () =>{
+                //                 var youtube_video = document.createElement('iframe');
+                //                 youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
+                //                 document.body.appendChild(youtube_tag);
+                //             }
+                //         }
+
+                //         return
+                //     }
+
+
+                //     doesVendorExist(vendor){
+                //         if(this.vendors[vendor] !== undefined) return false
+                //         return true
+                //     }
+
+
+
+
+                // }
+
+                console.log(vendors)
+
+
+                var categoriesHandlers = { 
+                    'retargeter': () => {
                         console.log('retargeter handler')
+                        return
                     },
+
                     'advertising': ()=>{
                         console.log('advertising handler')
+                        return
                     },
+
                     'analytics': () => {
                         console.log('Analytics handler')
-                        append(0, 'https://www.googletagmanager.com/gtag/js?id=G-BW2ELXDXT3'); 
-
-                        window.dataLayer = window.dataLayer || [];
-                        function gtag(){dataLayer.push(arguments);}
-                        gtag('js', new Date());
-
-                        gtag('config', 'G-BW2ELXDXT3');
+                        return
                     },
+
                     'data platform': () => {
                         console.log('Data Platform handler')
-                        var youtube_tag = document.createElement('iframe');
-                        youtube_tag.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
-                        document.body.appendChild(youtube_tag);
                         return
 
                     },
+
                     'privacy analytics provider': () => {
                         console.log('privacy analytics provider handler')
+                        return
                     },
+
                     'test category for eventbrite': () => {
                         console.log('test category for eventbrite handler')
+                        return
                     },
+
                     'functional': () => {
                         console.log('functional handler')
+                        return
                     },
+
                     'necessary and performance': () => {
                         console.log('necessary and performance handler')
                     },
+
                     'test fitch': () => {
                         console.log('test fitch handler')
-                    },
-                }
+                        return
+                    }
+            }
 
                 if(typeof categories.all !== undefined && categories.all === true){
                     for (var category in categoriesHandlers){
@@ -114,9 +162,11 @@
                             categoriesHandlers[category]()
                         }
                     }
+                    return
                 }
             }
     
+
             window.evidon.closeCallback = function () {
                 // this is executed if the user closed a UI element without either Accepting (providing consent)
                 // or Declining (declining to provide consent).
