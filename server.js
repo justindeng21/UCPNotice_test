@@ -30,5 +30,11 @@ app.get('/test3', function(req,res){
 })
 
 
+app.get('/js/evidon.js', function(req,res){
+    res.sendFile('/js/evidon.js',{root: __dirname })
+})
+
+
+
 
 var server = app.listen(port)
