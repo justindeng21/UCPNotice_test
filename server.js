@@ -17,21 +17,16 @@ app.get('/implementation/tagControl', function(req,res){
     res.sendFile('views/tagControl.html',{root: __dirname })
 })
 
-app.get('/implementation/test/hardcode', function(req,res){
+app.get('/implementation/hardcoded', function(req,res){
+    res.sendFile('views/hardcoded.html',{root: __dirname })
+})
+
+app.get('/implementation/tealium', function(req,res){
+    res.sendFile('views/tealium.html',{root: __dirname })
+})
+
+app.get('/test', function(req,res){
     res.sendFile('views/test.html',{root: __dirname })
-})
-
-app.get('/test2', function(req,res){
-    res.sendFile('views/test2.html',{root: __dirname })
-})
-
-app.get('/test3', function(req,res){
-    res.sendFile('views/test3.html',{root: __dirname })
-})
-
-
-app.get('/js/evidon.js', function(req,res){
-    res.sendFile('/js/evidon.js',{root: __dirname })
 })
 
 

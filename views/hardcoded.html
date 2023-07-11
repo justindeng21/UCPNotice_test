@@ -1,0 +1,306 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+	
+	<link rel="shortcut icon" href="https://www.crownpeak.com/images/favicon.png?v=16102712503631">
+
+	<meta charset="utf-8">
+        
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <script type="text/javascript">
+        (function (id) {
+
+            //utility function that creates a script tag
+            function append(scriptid, url, async) {
+                var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+                if (!f) f = d.head;
+                var s = d.createElement(sn);
+                s.async = async;
+                s.id = scriptid;
+                s.src = url;
+                s.charset = 'utf-8';
+                f.parentNode.insertBefore(s, f);
+            }
+    
+            //check if 2 part top level domain
+            function is2parttld(value) {
+                var tldindicators = ['co', 'com', 'info', 'web', 'info', 'gov', 'edu', 'biz', 'net', 'org'];
+                var countryindicators = ['uk', 'us', 'fr', 'es', 'de', 'at', 'au', 'ae', 'be', 'br', 'ca', 'ch', 'cn', 'co', 'cz', 'dk', 'eg', 'eu', 'fi', 'gb', 'gr', 'hk', 'hr', 'hu', 'ie', 'in', 'jp', 'mx', 'nl', 'no', 'nz', 'pl', 'ro', 'ru', 'se'];
+                return (tldindicators.indexOf(value) !== -1 || countryindicators.indexOf(value) !== -1);
+            }
+    
+            //returns root domain
+            function getRootDomain() {
+                var parts = window.location.hostname.split('.');
+                if (parts.length === 2) rootDomain = parts[0];
+                else if (parts.length > 2) {
+                    // see if the next to last value is a common tld
+                    var part = parts[parts.length - 2];
+                    if (is2parttld(part)) {
+                        rootDomain = parts[parts.length - 3]; // go back one more
+                    }
+                    else {
+                        rootDomain = part;
+                    }
+                }
+    
+                return rootDomain;
+            }
+    
+            window.evidon = {};
+            window.evidon.id = id;
+            window.evidon.test = false;  // set to true for non-production testing.
+            //window.evidon.userid = '';
+    
+
+            //cdn url
+            var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+            
+            append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+            append('evidon-location', cdn + 'geo/country.js', true);
+            append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+            if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+
+
+
+
+
+    
+            window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
+
+                var fireTag = (vendor) => {
+                    
+                    if(tags[vendor] !== undefined){
+                        tags[vendor]();
+                        console.log(`${vendor} fired`);
+                        return
+                    }
+
+                    console.log(`${vendor}, does not exist tag dictionary object`);
+
+                }
+
+                var tags = {
+                    'google-analytics' : () => {
+                        
+                        append(0,'https://www.googletagmanager.com/gtag/js?id=G-BW2ELXDXT3')
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'G-BW2ELXDXT3');
+
+                    },
+
+                    'youtube': () => {
+                        var youtube_video = document.createElement('iframe');
+                        youtube_video.setAttribute('src','https://www.youtube.com/embed/YX40hbAHx3s?autoplay=1&mute=1');
+                        document.body.appendChild(youtube_video);
+                    },
+
+                    'vwo': () =>{
+                        window._vwo_code = window._vwo_code || (function() {
+
+                            var account_id = 608306,
+
+                                settings_tolerance = 2000,
+
+                                library_tolerance = 2500,
+
+                                use_existing_jquery = false,
+
+                                is_spa = 1,
+
+                                hide_element = 'body',
+
+                                /* DO NOT EDIT BELOW THIS LINE */
+
+                                f = false,
+
+                                d = document,
+
+                                code = {
+
+                                    use_existing_jquery: function() {
+
+                                        return use_existing_jquery;
+
+                                    },
+
+                                    library_tolerance: function() {
+
+                                        return library_tolerance;
+
+                                    },
+
+                                    finish: function() {
+
+                                        if (!f) {
+
+                                            f = true;
+
+                                            var a = d.getElementById('_vis_opt_path_hides');
+
+                                            if (a) a.parentNode.removeChild(a);
+
+                                        }
+
+                                    },
+
+                                    finished: function() {
+
+                                        return f;
+
+                                    },
+
+                                    load: function(a) {
+
+                                        var b = d.createElement('script');
+
+                                        b.src = a;
+
+                                        b.type = 'text/javascript';
+
+                                        b.innerText;
+
+                                        b.onerror = function() {
+
+                                            _vwo_code.finish();
+
+                                        };
+
+                                        d.getElementsByTagName('head')[0].appendChild(b);
+
+                                    },
+
+                                    init: function() {
+
+                                        window.settings_timer = setTimeout(function() {
+
+                                            _vwo_code.finish()
+
+                                        }, settings_tolerance);
+
+                                        var a = d.createElement('style'),
+
+                                            b = hide_element ? hide_element +
+
+                                            '{opacity:0 !important;filter:alpha(opacity=0) !important;background:none !important;}' :
+
+                                            '',
+
+                                            h = d.getElementsByTagName('head')[0];
+
+                                        a.setAttribute('id', '_vis_opt_path_hides');
+
+                                        a.setAttribute('type', 'text/css');
+
+                                        if (a.styleSheet) a.styleSheet.cssText = b;
+
+                                        else a.appendChild(d.createTextNode(b));
+
+                                        h.appendChild(a);
+
+                                        this.load('https://dev.visualwebsiteoptimizer.com/j.php?a=' + account_id + '&u=' +
+
+                                            encodeURIComponent(d.URL) + '&f=' + (+is_spa) + '&r=' + Math.random());
+
+                                        return settings_timer;
+
+                                    }
+
+                                };
+
+                            window._vwo_settings_timer = code.init();
+                                console.log('HIIII')
+                            return code;
+
+                            }());
+                    }
+                };
+
+
+
+                var categoriesHandlers = { 
+
+                    'analytics': () => {
+                        console.log('analytics handler');
+                        fireTag('vwo');
+                        return;
+                    },
+                    'data platform': () => {
+                        console.log('data platform handler');
+                        return;
+
+                    },
+                    'retargeter': () => {
+                        console.log('retargeter');
+                        fireTag('google-analytics');
+                        fireTag('youtube');
+                        return;
+                    }
+
+                }
+                
+                if(typeof categories.all !== undefined && categories.all === true){
+                    for (var category in categoriesHandlers){
+                        categoriesHandlers[category]();
+                    }
+                    return
+                }
+
+                else if(categories.all === undefined){
+                    for (var category in categories){
+                        if(categories[category] === true){
+                            categoriesHandlers[category]();
+                        }
+                    }
+                    return;
+                }   
+
+            }
+
+            window.evidon.analyticsCallback = function(){
+
+            }
+    
+
+            window.evidon.closeCallback = function () {
+                // this is executed if the user closed a UI element without either Accepting (providing consent)
+                // or Declining (declining to provide consent).
+            }
+    
+            window.evidon.consentWithdrawnCallback = function () {
+                window.location.reload()
+                // this is exeucted if the user withdraws consent and elects to
+                // no longer allow technologies to run on the site.
+            }
+    
+            window.evidon.consentDeclinedCallback = function () {
+                // this is executed if the user explicitly declines giving consent by
+                // using a Decline button
+            }
+
+
+
+        })(3714);
+    </script>
+
+    </head>
+	
+	<body>
+
+	<h1 style="font-size: 15px;text-align: center;line-height: 100px;">This is a demo site created for 1800 Contacts.</h1>
+
+	<br>
+		
+	<span class="evidon-notice-link"></span>
+
+	</body>
+
+</html>
+
+
+
