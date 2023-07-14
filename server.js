@@ -30,6 +30,12 @@ app.get('/test', function(req,res){
 })
 
 
+app.get('/dqm', function(req,res){
+    res.sendFile('dqm_ad.png',{root: __dirname })
+})
+
+
+
 
 
 var server = app.listen(port)
