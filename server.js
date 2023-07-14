@@ -34,6 +34,11 @@ app.get('/dqm', function(req,res){
     res.sendFile('images/dqm_ad.png',{root: __dirname })
 })
 
+app.get('/cp', function(req,res){
+    res.sendFile('images/cp_banner.jpg',{root: __dirname })
+})
+
+
 
 
 
