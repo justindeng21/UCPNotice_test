@@ -13,9 +13,14 @@ app.get('/', function(req,res){
     res.sendFile('views/home.html',{root: __dirname })
 })
 
-app.get('/implementation/tagControl', function(req,res){
+app.get('/implementation/tagControl/', function(req,res){
     res.sendFile('views/tagControl.html',{root: __dirname })
 })
+
+app.get('/implementation/tagControl/#', function(req,res){
+    res.sendFile('views/test.html',{root: __dirname })
+})
+
 
 app.get('/implementation/hardcoded', function(req,res){
     res.sendFile('views/hardcoded.html',{root: __dirname })
