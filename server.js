@@ -44,11 +44,11 @@ app.get('/cp', function(req,res){
 })
 
 app.get('/OCD-29010/example-of-bug', function(req,res){
-    res.sendFile('views/OCD-29010/example-of-bug.html',{root: __dirname })
+    res.sendFile('views/example-of-bug.html',{root: __dirname })
 })
 
 app.get('/OCD-29010/example-of-working-tag', function(req,res){
-    res.sendFile('views/OCD-29010/example-of-working-tag.html',{root: __dirname })
+    res.sendFile('views/example-of-working-tag.html',{root: __dirname })
 })
 
 
