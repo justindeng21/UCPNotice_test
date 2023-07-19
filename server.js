@@ -43,6 +43,10 @@ app.get('/cp', function(req,res){
     res.sendFile('images/cp_banner.jpg',{root: __dirname })
 })
 
+app.get('/durly', function(req,res){
+    res.sendFile('images/durly.png',{root: __dirname })
+})
+
 app.get('/OCD-29010/example-of-bug', function(req,res){
     res.sendFile('views/example-of-bug.html',{root: __dirname })
 })
