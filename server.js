@@ -5,7 +5,7 @@ var port = process.env.PORT || 3000
 app.use(bodyParser.json());
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')) // forces external files to be inside /public
+app.use(express.static('public')) // forces external files to be inside /public?
 
 
 //html
@@ -42,5 +42,16 @@ app.get('/dqm', function(req,res){
 app.get('/cp', function(req,res){
     res.sendFile('images/cp_banner.jpg',{root: __dirname })
 })
+
+app.get('/OCD-29010/example-of-bug', function(req,res){
+    res.sendFile('views/OCD-29010/example-of-bug.html',{root: __dirname })
+})
+
+app.get('/OCD-29010/example-of-working-tag', function(req,res){
+    res.sendFile('views/OCD-29010/example-of-working-tag.html',{root: __dirname })
+})
+
+
+
 
 var server = app.listen(port)
