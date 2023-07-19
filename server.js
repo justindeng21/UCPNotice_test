@@ -43,9 +43,4 @@ app.get('/cp', function(req,res){
     res.sendFile('images/cp_banner.jpg',{root: __dirname })
 })
 
-
-
-
-
-
 var server = app.listen(port)
