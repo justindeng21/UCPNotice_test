@@ -63,7 +63,7 @@ app.get('/OCD-29010/example-of-working-tag', function(req,res){
     res.sendFile('views/example-of-working-tag.html',{root: __dirname })
 })
 
-app.get('css', function(req,res){
+app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
 })
 
