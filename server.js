@@ -47,6 +47,10 @@ app.get('/durly', function(req,res){
     res.sendFile('images/durly.png',{root: __dirname })
 })
 
+app.get('/ocd29010', function(req,res){
+    res.sendFile('images/ocd29010.png',{root: __dirname })
+})
+
 app.get('/OCD-29010/example-of-bug', function(req,res){
     res.sendFile('views/example-of-bug.html',{root: __dirname })
 })
