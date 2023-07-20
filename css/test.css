@@ -1,0 +1,18 @@
+@font-face {
+    font-family: "GraphikETRADE";
+    src: url("https://cdn2.etrade.net/1/22060220310.0/aempros/etc/designs/responsive-etrade/styles/fonts/GraphikETRADE-Regular-Web.woff") format('woff');
+}
+  
+@font-face {
+    font-family: "GraphikETRADE";
+    src: url("https://cdn2.etrade.net/1/22060220310.0/aempros/etc/designs/responsive-etrade/styles/fonts/GraphikETRADE-Semibold-Web.woff") format('woff');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "GraphikETRADE";
+    src: url("https://cdn2.etrade.net/1/22060220310.0/aempros/etc/designs/responsive-etrade/styles/fonts/GraphikETRADE-Semibold-Web.woff") format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+  
