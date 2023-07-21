@@ -63,6 +63,14 @@ app.get('/OCD-29010/example-of-working-tag', function(req,res){
     res.sendFile('views/example-of-working-tag.html',{root: __dirname })
 })
 
+app.get('/1800/vwo-flash', function(req,res){
+    res.sendFile('views/vwo-flash.html',{root: __dirname })
+})
+
+app.get('/1800/vwo-no-flash', function(req,res){
+    res.sendFile('views/vwo-no-flash.html',{root: __dirname })
+})
+
 app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
 })

@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--CU There-->
+<html>
+	<head>
+
+<style>
+
+    body{
+        background-color: black;
+    }
+</style>
+<script>
+
+function init() {
+    window._vwo_code =
+        window._vwo_code ||
+        (function () {
+            const account_id = 697294
+            const version = 1.5
+            const settings_tolerance = 2000
+            const library_tolerance = 2500
+            const use_existing_jquery = false
+            const is_spa = 1
+            const hide_element = 'body'
+            const hide_element_style =
+                'filter:alpha(opacity=0) !important;opacity:0 !important;'
+            /* DO NOT EDIT BELOW THIS LINE */
+            let f = false
+            const d = document
+            const vwoCodeEl = d.querySelector('#vwoCode')
+            var code = {
+                use_existing_jquery() {
+                    return use_existing_jquery
+                },
+                library_tolerance() {
+                    return library_tolerance
+                },
+                hide_element_style() {
+                    return '{' + hide_element_style + '}'
+                },
+                finish() {
+                    if (!f) {
+                        f = true
+                        const e = d.getElementById('_vis_opt_path_hides')
+                        if (e) e.parentNode.removeChild(e)
+                    }
+                },
+                finished() {
+                    return f
+                },
+                load(e) {
+                    const t = d.createElement('script')
+                    t.fetchPriority = 'high'
+                    t.src = e
+                    t.type = 'text/javascript'
+                    t.onerror = function () {
+                        _vwo_code.finish()
+                    }
+                    d.getElementsByTagName('head')[0].appendChild(t)
+                },
+                getVersion() {
+                    return version
+                },
+                getMatchedCookies(e) {
+                    let t = []
+                    if (document.cookie) {
+                        t = document.cookie.match(e) || []
+                    }
+                    return t
+                },
+                getCombinationCookie() {
+                    let e = code.getMatchedCookies(
+                        /(?:^|;)\s?(_vis_opt_exp_\d+_combi=[^;$]*)/gi
+                    )
+                    e = e.map(function (e) {
+                        try {
+                            const t = decodeURIComponent(e)
+                            if (
+                                !/_vis_opt_exp_\d+_combi=(?:\d+,?)+\s*$/.test(
+                                    t
+                                )
+                            ) {
+                                return ''
+                            }
+                            return t
+                        } catch (e) {
+                            return ''
+                        }
+                    })
+                    const i = []
+                    e.forEach(function (e) {
+                        const t = e.match(/([\d,]+)/g)
+                        t && i.push(t.join('-'))
+                    })
+                    return i.join('|')
+                },
+                init() {
+                    if (d.URL.includes('__vwo_disable__')) return
+                    window.settings_timer = setTimeout(function () {
+                        _vwo_code.finish()
+                    }, settings_tolerance)
+                    const e = d.createElement('style')
+                    const t = hide_element
+                        ? hide_element + '{' + hide_element_style + '}'
+                        : ''
+                    const i = d.getElementsByTagName('head')[0]
+                    e.setAttribute('id', '_vis_opt_path_hides')
+                    vwoCodeEl && e.setAttribute('nonce', vwoCodeEl.nonce)
+                    e.setAttribute('type', 'text/css')
+                    if (e.styleSheet) e.styleSheet.cssText = t
+                    else e.appendChild(d.createTextNode(t))
+                    i.appendChild(e)
+                    const n = this.getCombinationCookie()
+                    this.load(
+                        'https://dev.visualwebsiteoptimizer.com/j.php?a=' +
+                            account_id +
+                            '&u=' +
+                            encodeURIComponent(d.URL) +
+                            '&f=' +
+                            +is_spa +
+                            '&vn=' +
+                            version +
+                            (n ? '&c=' + n : '')
+                    )
+                    return settings_timer
+                },
+            }
+            window._vwo_settings_timer = code.init()
+            return code
+        })()
+}
+</script>
+        
+<script type="text/javascript">
+    (function (id) {
+        function append(scriptid, url, async) {
+            var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+            if (!f) f = d.head;
+            var s = d.createElement(sn);
+            s.async = async;
+            s.id = scriptid;
+            s.src = url;
+            s.charset = 'utf-8';
+            f.parentNode.insertBefore(s, f);
+        }
+
+        function is2parttld(value) {
+            var tldindicators = ['co', 'com', 'info', 'web', 'info', 'gov', 'edu', 'biz', 'net', 'org'];
+            var countryindicators = ['uk', 'us', 'fr', 'es', 'de', 'at', 'au', 'ae', 'be', 'br', 'ca', 'ch', 'cn', 'co', 'cz', 'dk', 'eg', 'eu', 'fi', 'gb', 'gr', 'hk', 'hr', 'hu', 'ie', 'in', 'jp', 'mx', 'nl', 'no', 'nz', 'pl', 'ro', 'ru', 'se'];
+            return (tldindicators.indexOf(value) !== -1 || countryindicators.indexOf(value) !== -1);
+        }
+
+        function getRootDomain() {
+            var parts = window.location.hostname.split('.');
+            if (parts.length === 2) rootDomain = parts[0];
+            else if (parts.length > 2) {
+                // see if the next to last value is a common tld
+                var part = parts[parts.length - 2];
+                if (is2parttld(part)) {
+                    rootDomain = parts[parts.length - 3]; // go back one more
+                }
+                else {
+                    rootDomain = part;
+                }
+            }
+
+            return rootDomain;
+        }
+
+        window.evidon = {};
+        window.evidon.id = id;
+        window.evidon.test = false;  // set to true for non-production testing.
+        //window.evidon.userid = '';
+
+        var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+        append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+        append('evidon-location', cdn + 'geo/country.js', true);
+        append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+        if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+
+        window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
+            setTimeout(()=>{
+                init()
+            },2000)
+            
+            
+            
+        }
+
+        window.evidon.closeCallback = function () {
+            // this is executed if the user closed a UI element without either Accepting (providing consent)
+            // or Declining (declining to provide consent).
+        }
+
+        window.evidon.consentWithdrawnCallback = function () {
+            // this is exeucted if the user withdraws consent and elects to
+            // no longer allow technologies to run on the site.
+        }
+
+        window.evidon.consentDeclinedCallback = function () {
+            // this is executed if the user explicitly declines giving consent by
+            // using a Decline button
+        }
+    })(3714);
+</script>
+
+
+
+		<meta charset="utf-8">
+        
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    </head>
+    
+	<body>
+	
+
+	<span class="evidon-notice-link"></span>
+
+
+	</body>
+
+</html>
