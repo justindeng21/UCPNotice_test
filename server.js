@@ -71,6 +71,10 @@ app.get('/1800/vwo-no-flash', function(req,res){
     res.sendFile('views/vwo-no-flash.html',{root: __dirname })
 })
 
+app.get('/publicis/CIT2_ACLF_OBTL_FY23_US_AA Lower Funnel_H3L', function(req,res){
+    res.sendFile('views/CIT2_ACLF_OBTL_FY23_US_AA Lower Funnel_H3L.html',{root: __dirname })
+})
+
 app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
 })
