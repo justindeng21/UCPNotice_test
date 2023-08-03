@@ -34,6 +34,10 @@ app.get('/test', function(req,res){
     res.sendFile('views/test.html',{root: __dirname })
 })
 
+app.get('/discover-demo', function(req,res){
+    res.sendFile('views/discover-demo.html',{root: __dirname })
+})
+
 
 app.get('/dqm', function(req,res){
     res.sendFile('images/dqm_ad.png',{root: __dirname })
