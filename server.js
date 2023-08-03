@@ -79,6 +79,10 @@ app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
 })
 
+app.get('/ba.js', function(req,res){
+    res.sendFile('js/ba.js',{root: __dirname })
+})
+
 
 
 
