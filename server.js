@@ -71,6 +71,11 @@ app.get('/1800/vwo-flash', function(req,res){
     res.sendFile('views/vwo-flash.html',{root: __dirname })
 })
 
+
+app.get('/test', function(req,res){
+    res.sendFile('views/test.html',{root: __dirname })
+})
+
 app.get('/1800/vwo-no-flash', function(req,res){
     res.sendFile('views/vwo-no-flash.html',{root: __dirname })
 })
