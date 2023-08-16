@@ -12,7 +12,19 @@
 
 
 
-    <script src=https://assets.adobedtm.com/22baa8e94be8/2808c106b47e/launch-48f6fb3ca85a-development.min.js async></script>
+    <script not="scripts" id="script_injected_1691105569293_26">
+        window.addEventListener('load-complete' || 'load', function () {
+            if(!document.querySelector(".CPRA") && !document.querySelector("#AnsiraAdChoicesOptOut")) {
+    var ev = document.createElement('script'); ev.type = 'text/javascript'; ev.async = true; ev.setAttribute('data-ev-tag-pid', 22486); ev.setAttribute('data-ev-tag-ocid', 6896);
+    ev.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'c.betrad.com/pub/tag.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ev, s);
+  } else {
+    if(document.querySelector(".AdChoices")) {
+        document.querySelector(".AdChoices").parentElement.removeChild(document.querySelector(".AdChoices"));
+    }
+  }
+        });
+    </script>
 
   	
     </head>
