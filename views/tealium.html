@@ -59,7 +59,7 @@
     
             var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
 
-            if(navigator.userAgent != 'NDGEmbeddedViewiOS' && navigator.userAgent != 'NDGEmbeddedViewAndroid'){
+            if(navigator.userAgent != 'NDGEmbeddedViewiOS' || navigator.userAgent != 'NDGEmbeddedViewAndroid'){
                 append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
                 append('evidon-location', cdn + 'geo/country.js', true);
                 append('evidon-themes', noticecdn + id + '/snthemes.js', true);
