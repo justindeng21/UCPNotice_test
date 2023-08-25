@@ -67,22 +67,13 @@ app.get('/OCD-29010/example-of-working-tag', function(req,res){
     res.sendFile('views/example-of-working-tag.html',{root: __dirname })
 })
 
-app.get('/1800/vwo-flash', function(req,res){
-    res.sendFile('views/vwo-flash.html',{root: __dirname })
+
+
+app.get('/first-american', function(req,res){
+    res.sendFile('views/firstAmerican.html',{root: __dirname })
 })
 
 
-app.get('/test', function(req,res){
-    res.sendFile('views/test.html',{root: __dirname })
-})
-
-app.get('/1800/vwo-no-flash', function(req,res){
-    res.sendFile('views/vwo-no-flash.html',{root: __dirname })
-})
-
-app.get('/publicis/CIT2_ACLF_OBTL_FY23_US_AALowerFunnel_H3L', function(req,res){
-    res.sendFile('views/CIT2_ACLF_OBTL_FY23_US_AA Lower Funnel_H3L.html',{root: __dirname })
-})
 
 app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
