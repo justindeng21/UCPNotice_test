@@ -13,27 +13,17 @@ app.get('/', function(req,res){
     res.sendFile('views/home.html',{root: __dirname })
 })
 
-app.get('/implementation/googleTagManager', function(req,res){
+app.get('/implementation/opt-out', function(req,res){
     res.sendFile('views/gtm.html',{root: __dirname })
 })
 
-
-app.get('/implementation/hardcoded', function(req,res){
-    res.sendFile('views/hardcoded.html',{root: __dirname })
-})
-
-app.get('/implementation/tealium', function(req,res){
-    res.sendFile('views/tealium.html',{root: __dirname })
-})
-
-app.get('/test', function(req,res){
-    res.sendFile('views/test.html',{root: __dirname })
+app.get('/implementation/opt-in', function(req,res){
+    res.sendFile('views/gtm.html',{root: __dirname })
 })
 
 app.get('/discover-demo', function(req,res){
     res.sendFile('views/discover-demo.html',{root: __dirname })
 })
-
 
 app.get('/dqm', function(req,res){
     res.sendFile('images/dqm_ad.png',{root: __dirname })
@@ -63,13 +53,9 @@ app.get('/OCD-29010/example-of-working-tag', function(req,res){
     res.sendFile('views/example-of-working-tag.html',{root: __dirname })
 })
 
-
-
 app.get('/first-american', function(req,res){
     res.sendFile('views/firstAmerican.html',{root: __dirname })
 })
-
-
 
 app.get('/css', function(req,res){
     res.sendFile('css/test.css',{root: __dirname })
