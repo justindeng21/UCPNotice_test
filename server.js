@@ -13,12 +13,8 @@ app.get('/', function(req,res){
     res.sendFile('views/home.html',{root: __dirname })
 })
 
-app.get('/implementation/tagControl/', function(req,res){
-    res.sendFile('views/tagControl.html',{root: __dirname })
-})
-
-app.get('/implementation/tagControl/#', function(req,res){
-    res.sendFile('views/test.html',{root: __dirname })
+app.get('/implementation/googleTagManager', function(req,res){
+    res.sendFile('views/gtm.html',{root: __dirname })
 })
 
 
