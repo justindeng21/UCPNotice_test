@@ -50,19 +50,38 @@
     
             window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
                 
-                var handlers = { 
-
-                    categories: { 
-
-                        'advertising': 'handleAdvertising', 
-
-                        'analytics': 'handleAnalytics',
-
-                    }, 
-
-                    vendors: {} 
-
-                };
+            var handlers = {
+                categories: {
+                    'advertiser': 'handleAdvertiser',
+                    'ad exchange': 'handleAdExchange',
+                    'ad network': 'handleAdNetwork',
+                    'ad server': 'handleAdServer',
+                    'ad verification': 'handleAdVerification',
+                    'agency': 'handleAgency',
+                    'analytics provider': 'handleAnalyticsProvider',
+                    'business intelligence': 'handleBusinessIntelligence',
+                    'content management/saas': 'handleContentManagementSaaS',
+                    'creative/ad format technology': 'handleCreativeAdFormatTechnology',
+                    'data aggregator/supplier': 'handleDataAggregatorSupplier',
+                    'data management platform': 'handleDataManagementPlatform',
+                    'demand side platform': 'handleDemandSidePlatform',
+                    'marketing solutions': 'handleMarketingSolutions',
+                    'mobile': 'handleMobile',
+                    'online privacy platform': 'handleOnlinePrivacyPlatform',
+                    'optimizer': 'handleOptimizer',
+                    'other': 'handleOther',
+                    'publisher': 'handlePublisher',
+                    'research provider': 'handleResearchProvider',
+                    'retargeter': 'handleRetargeter',
+                    'sensitive personal information': 'handleSensitivePersonalInformation',
+                    'social media': 'handleSocialMedia',
+                    'supply side platform': 'handleSupplySidePlatform',
+                    'tag manager': 'handleTagManager',
+                    'video': 'handleVideo',
+                    'website optimization': 'handleWebsiteOptimization',
+                },
+                vendors: {}
+            };
                 for (var category in categories) { 
 
                     if (!categories[category]) continue; 
