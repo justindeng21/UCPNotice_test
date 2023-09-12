@@ -1,5 +1,125 @@
 
-<!DOCTYPE html><html lang="FR" class="no-js"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="google-site-verification" content="RUSbM9aHOcgGZrOXrb4xT22Bhx6G5ZCjEs4csMMyA8w"><title>CIBC Mellon | Principal fournisseur de services d’actifs au Canada</title><meta name="title" content="CIBC Mellon Home"><meta name="description" content="CIBC Mellon est une société canadienne qui se concentre exclusivement à répondre aux besoins en services de placement des investisseurs institutionnels canadiens et des investisseurs institutionnels étrangers qui investissent au Canada. Fondée en 1996, CIBC Mellon est détenue à parts égales par The Bank of New York Mellon (BNY Mellon) et la Banque Canadienne Impériale de Commerce (CIBC). Les solutions de services de placement de CIBC Mellon sont offertes aux institutions et aux sociétés en étroite collaboration avec nos sociétés mères et comprennent des services de garde, de comptabilité en devises multiples, d'administration de fonds, de tenue des dossiers, de retraite, de prêt de titres, de règlement en monnaies étrangères et de trésorerie."><meta name="keywords" content="CIBC Mellon, services d’actifs, gestion des relations, services d’actifs canadiens, comptabilité d’investissement, rapports d’investissement, services de régime de retraite, analyse du rendement et des risques, FNB, change, prêt de titres"><meta name="site" content="CIBC Mellon"><meta name="asset_id" content="1120377"><meta name="asset_label" content="Home"><meta name="template_label" content="Homepage"><meta name="page_country" content="CA"><meta name="page_language" content="FR"><meta name="search_show_on_search" content="all"><meta name="cp_noindex" content=""><meta name="by" content="By"><meta name="foresight_imagelink" content=""><meta name="detail_date" content=""><meta name="detail_date_sort" content=""><meta name="detail_date_formatted" content=""><meta name="detail_date_formatted_mmmmyyyy" content=""><meta name="details_title" content="Prendre le Contrôle : Les propriétaires d’actifs canadiens se transforment pour faire face à l’incertitude"><meta name="details_short_description" content=""><meta name="detail_year" content=""><meta name="detail_doctype" content="all"><meta name="detail_doctype" content="company-profile"><meta name="solutionsIndexUrl" content="https://www.cibcmellon.com/fr/what-we-do/solutions/index.jsp"><meta http-equiv="X-Frame-Options" content="sameorigin"><style id="antiClickjack">body{display:none !important;}</style><script type="text/javascript">
+<!DOCTYPE html><html lang="FR" class="no-js"><head>
+    
+    <script type="text/javascript">
+        (function (id) {
+            function append(scriptid, url, async) {
+                var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+                if (!f) f = d.head;
+                var s = d.createElement(sn);
+                s.async = async;
+                s.id = scriptid;
+                s.src = url;
+                s.charset = 'utf-8';
+                f.parentNode.insertBefore(s, f);
+            }
+    
+            function is2parttld(value) {
+                var tldindicators = ['co', 'com', 'info', 'web', 'info', 'gov', 'edu', 'biz', 'net', 'org'];
+                var countryindicators = ['uk', 'us', 'fr', 'es', 'de', 'at', 'au', 'ae', 'be', 'br', 'ca', 'ch', 'cn', 'co', 'cz', 'dk', 'eg', 'eu', 'fi', 'gb', 'gr', 'hk', 'hr', 'hu', 'ie', 'in', 'jp', 'mx', 'nl', 'no', 'nz', 'pl', 'ro', 'ru', 'se'];
+                return (tldindicators.indexOf(value) !== -1 || countryindicators.indexOf(value) !== -1);
+            }
+    
+            function getRootDomain() {
+                var parts = window.location.hostname.split('.');
+                if (parts.length === 2) rootDomain = parts[0];
+                else if (parts.length > 2) {
+                    // see if the next to last value is a common tld
+                    var part = parts[parts.length - 2];
+                    if (is2parttld(part)) {
+                        rootDomain = parts[parts.length - 3]; // go back one more
+                    }
+                    else {
+                        rootDomain = part;
+                    }
+                }
+    
+                return rootDomain;
+            }
+    
+            window.evidon = {};
+            window.evidon.id = id;
+            window.evidon.test = false;  // set to true for non-production testing.
+            //window.evidon.userid = '';
+    
+            var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
+            append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+            append('evidon-location', cdn + 'geo/country.js', true);
+            append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+            if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+    
+            window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
+                
+                var handlers = { 
+
+                    categories: { 
+
+                        'advertising': 'handleAdvertising', 
+
+                        'analytics': 'handleAnalytics',
+
+                    }, 
+
+                    vendors: {} 
+
+                };
+                for (var category in categories) { 
+
+                    if (!categories[category]) continue; 
+
+                    if (category === 'all') { 
+
+                        for (var callback in handlers.categories) { 
+
+                            var handler = window.evidon[handlers.categories[callback]]; 
+
+                            if (typeof handler === 'function') handler(); 
+
+                        } 
+
+                    } 
+
+                    else { 
+
+                        var handler = window.evidon[handlers.categories[category]]; 
+
+                        if (typeof handler === 'function') handler(); 
+
+                    } 
+
+                }  
+                
+            }
+
+            window.evidon.handleAnalytics = function () { 
+                (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-71291926-1', 'auto');
+                ga('send', 'pageview');
+            }
+    
+            window.evidon.closeCallback = function () {
+                // this is executed if the user closed a UI element without either Accepting (providing consent)
+                // or Declining (declining to provide consent).
+            }
+    
+            window.evidon.consentWithdrawnCallback = function () {
+                // this is exeucted if the user withdraws consent and elects to
+                // no longer allow technologies to run on the site.
+            }
+    
+            window.evidon.consentDeclinedCallback = function () {
+                // this is executed if the user explicitly declines giving consent by
+                // using a Decline button
+            }
+        })(3714);
+    </script>
+    
+    <meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="user-scalable=yes, width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="google-site-verification" content="RUSbM9aHOcgGZrOXrb4xT22Bhx6G5ZCjEs4csMMyA8w"><title>CIBC Mellon | Principal fournisseur de services d’actifs au Canada</title><meta name="title" content="CIBC Mellon Home"><meta name="description" content="CIBC Mellon est une société canadienne qui se concentre exclusivement à répondre aux besoins en services de placement des investisseurs institutionnels canadiens et des investisseurs institutionnels étrangers qui investissent au Canada. Fondée en 1996, CIBC Mellon est détenue à parts égales par The Bank of New York Mellon (BNY Mellon) et la Banque Canadienne Impériale de Commerce (CIBC). Les solutions de services de placement de CIBC Mellon sont offertes aux institutions et aux sociétés en étroite collaboration avec nos sociétés mères et comprennent des services de garde, de comptabilité en devises multiples, d'administration de fonds, de tenue des dossiers, de retraite, de prêt de titres, de règlement en monnaies étrangères et de trésorerie."><meta name="keywords" content="CIBC Mellon, services d’actifs, gestion des relations, services d’actifs canadiens, comptabilité d’investissement, rapports d’investissement, services de régime de retraite, analyse du rendement et des risques, FNB, change, prêt de titres"><meta name="site" content="CIBC Mellon"><meta name="asset_id" content="1120377"><meta name="asset_label" content="Home"><meta name="template_label" content="Homepage"><meta name="page_country" content="CA"><meta name="page_language" content="FR"><meta name="search_show_on_search" content="all"><meta name="cp_noindex" content=""><meta name="by" content="By"><meta name="foresight_imagelink" content=""><meta name="detail_date" content=""><meta name="detail_date_sort" content=""><meta name="detail_date_formatted" content=""><meta name="detail_date_formatted_mmmmyyyy" content=""><meta name="details_title" content="Prendre le Contrôle : Les propriétaires d’actifs canadiens se transforment pour faire face à l’incertitude"><meta name="details_short_description" content=""><meta name="detail_year" content=""><meta name="detail_doctype" content="all"><meta name="detail_doctype" content="company-profile"><meta name="solutionsIndexUrl" content="https://www.cibcmellon.com/fr/what-we-do/solutions/index.jsp"><meta http-equiv="X-Frame-Options" content="sameorigin"><style id="antiClickjack">body{display:none !important;}</style><script type="text/javascript">
     if (self === top) {
         var antiClickjack = document.getElementById("antiClickjack");
         antiClickjack.parentNode.removeChild(antiClickjack);
@@ -459,8 +579,7 @@ $(document).ready(function () {
 <script type="text/javascript">if (typeof _satellite != 'undefined') { _satellite.pageBottom(); }</script>
 <script type="text/javascript">var test = 1;</script>	
 
-<!--
-   Google Analytics 
+<!-- Google Analytics 
     
     -->
     
@@ -477,3 +596,6 @@ $(document).ready(function () {
 
 
     </body></html>
+
+
+
