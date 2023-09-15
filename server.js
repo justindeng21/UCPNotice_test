@@ -45,8 +45,8 @@ app.get('/OCD-29010/example-of-bug', function(req,res){
     res.sendFile('views/example-of-bug.html',{root: __dirname })
 })
 
-app.get('/OCD-29010/example-of-basic-tag', function(req,res){
-    res.sendFile('views/example-of-basic-tag.html',{root: __dirname })
+app.get('/fordcs', function(req,res){
+    res.sendFile('views/fordca.html',{root: __dirname })
 })
 
 app.get('/OCD-29010/example-of-working-tag', function(req,res){
