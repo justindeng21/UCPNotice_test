@@ -9,65 +9,32 @@ app.use(express.static('public')) // forces external files to be inside /public?
 
 
 //html
+
+
 app.get('/', function(req,res){
-    res.sendFile('views/home.html',{root: __dirname })
-})
-
-app.get('/implementation/opt-out', function(req,res){
     res.sendFile('views/gtm.html',{root: __dirname })
 })
 
-app.get('/implementation/opt-in', function(req,res){
-    res.sendFile('views/gtm.html',{root: __dirname })
+app.get('/country.js', function(req,res){
+    res.sendFile('js/country.js',{root: __dirname })
 })
 
-app.get('/discover-demo', function(req,res){
-    res.sendFile('views/discover-demo.html',{root: __dirname })
+app.get('/en.js', function(req,res){
+    res.sendFile('js/en.js',{root: __dirname })
 })
-
-app.get('/dqm', function(req,res){
-    res.sendFile('images/dqm_ad.png',{root: __dirname })
+app.get('/evidon-banner.js', function(req,res){
+    res.sendFile('js/evidon-banner.js',{root: __dirname })
 })
-
-app.get('/cp', function(req,res){
-    res.sendFile('images/cp_banner.jpg',{root: __dirname })
+app.get('/evidon-sitenotice-tag.js', function(req,res){
+    res.sendFile('js/evidon-sitenotice-tag.js',{root: __dirname })
 })
-
-app.get('/durly', function(req,res){
-    res.sendFile('images/durly.png',{root: __dirname })
+app.get('/settingsV2.js', function(req,res){
+    res.sendFile('js/settingsV2.js',{root: __dirname })
 })
-
-app.get('/ocd29010', function(req,res){
-    res.sendFile('images/ocd29010.png',{root: __dirname })
-})
-
-app.get('/OCD-29010/example-of-bug', function(req,res){
-    res.sendFile('views/example-of-bug.html',{root: __dirname })
-})
-
-app.get('/fordca', function(req,res){
-    res.sendFile('views/fordca.html',{root: __dirname })
-})
-
-app.get('/OCD-29010/example-of-working-tag', function(req,res){
-    res.sendFile('views/example-of-working-tag.html',{root: __dirname })
-})
-
-app.get('/first-american', function(req,res){
-    res.sendFile('views/firstAmerican.html',{root: __dirname })
-})
-
-app.get('/css', function(req,res){
-    res.sendFile('css/test.css',{root: __dirname })
-})
-
-app.get('/ba.js', function(req,res){
-    res.sendFile('js/ba.js',{root: __dirname })
+app.get('/snthemes.js', function(req,res){
+    res.sendFile('js/snthemes.js',{root: __dirname })
 })
 
 
-
-app.get('/cibcmellon', function(req,res){
-    res.sendFile('views/cibcmellon.html',{root: __dirname })
-})
 var server = app.listen(port)
+
