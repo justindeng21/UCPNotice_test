@@ -34,6 +34,13 @@
                     // this is executed if the user explicitly declines giving consent by
                     // using a Decline button
                 }
+
+                if(window.location.hostname == 'localhost'){
+                    setTimeout(()=>{
+                        window.evidon.notice.setDomain('dg-ucp.herokuapp.com')
+                    },2000)
+                }
+
             })(3714);
         </script>
 
