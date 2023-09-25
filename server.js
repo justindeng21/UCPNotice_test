@@ -35,6 +35,12 @@ app.get('/snthemes.js', function(req,res){
     res.sendFile('js/snthemes.js',{root: __dirname })
 })
 
+app.get('/evidon-preferences-dialog.js', function(req,res){
+    res.sendFile('js/evidon-preferences-dialog.js',{root: __dirname })
+})
+
+
+
 
 var server = app.listen(port)
 
