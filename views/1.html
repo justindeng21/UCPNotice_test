@@ -71,6 +71,8 @@
         }
 
         window.evidon.consentDeclinedCallback = function () {
+
+            window.evidon.notice.dropSuppressionCookie(30);
             // this is executed if the user explicitly declines giving consent by
             // using a Decline button
         }
