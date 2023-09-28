@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<!--CU There-->
+<html>
+	<head>
+
+        <script type="text/javascript">
+            (function(a,b,c,d){
+            a='https://tags.tiqcdn.com/utag/crownpeak/justin-testing/prod/utag.js';
+            b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+            a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            })();
+        </script>
+        <script type="text/javascript">
+            (function (id) {
+               
+                window.evidon = {};
+                window.evidon.id = id;
+                window.evidon.test = false;  // set to true for non-production testing.
+                //window.evidon.userid = '';
+        
+        
+                window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
+                    // add the tags which need to wait for prior consent
+                    // here.  This should be all your advertising tags and
+                    // probably most of your social and tracking tags.
+                    
+                }
+        
+                window.evidon.closeCallback = function () {
+                    // this is executed if the user closed a UI element without either Accepting (providing consent)
+                    // or Declining (declining to provide consent).
+                }
+        
+                window.evidon.consentWithdrawnCallback = function () {
+                    // this is exeucted if the user withdraws consent and elects to
+                    // no longer allow technologies to run on the site.
+                }
+        
+                window.evidon.consentDeclinedCallback = function () {
+                    // this is executed if the user explicitly declines giving consent by
+                    // using a Decline button
+                }
+
+                if(window.location.hostname == 'localhost'){
+                    setTimeout(()=>{
+                        window.evidon.notice.setDomain('dg-ucp.herokuapp.com')
+                    },2000)
+                }
+
+            })(3714);
+        </script>
+
+        <script  src="/evidon-sitenotice-tag.js" charset="utf-8"></script>
+        <script  src="/evidon-banner.js" charset="utf-8"></script>
+        <script  src="/en.js" charset="utf-8"></script>
+        <script  id="evidon-settings" src="/settingsV2.js" charset="utf-8"></script>
+        <script  id="evidon-themes" src="/snthemes.js" charset="utf-8"></script>
+        <script  id="evidon-location" src="/country.js" charset="utf-8"></script>
+        <script  src="/evidon-preferences-dialog.js" charset="utf-8"></script>
+
+		<meta charset="utf-8">
+        
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    </head>
+    
+	<body>
+	
+
+	<span class="evidon-notice-link"></span>
+
+
+	</body>
+
+</html>

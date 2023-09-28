@@ -12,6 +12,10 @@ app.use(express.static('public')) // forces external files to be inside /public?
 
 
 app.get('/', function(req,res){
+    res.sendFile('views/1.html',{root: __dirname })
+})
+
+app.get('/onprem', function(req,res){
     res.sendFile('views/onprem.html',{root: __dirname })
 })
 app.get('/tealium', function(req,res){
