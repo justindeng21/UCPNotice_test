@@ -12,7 +12,7 @@ app.use(express.static('public')) // forces external files to be inside /public?
 
 
 app.get('/setDomain', function(req,res){
-    res.sendFile('views/1.html',{root: __dirname })
+    res.sendFile('views/setDomain.html',{root: __dirname })
 })
 
 app.get('/', function(req,res){
