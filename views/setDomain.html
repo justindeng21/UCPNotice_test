@@ -77,7 +77,10 @@
             // using a Decline button
         }
 
-        setTimeout(()=>{window.evidon.notice.setDomain('www.shell.com')},2000)
+        setTimeout(()=>{
+            window.evidon.notice.setDomain('www.shell.com');
+            window.evidon.notice._setActiveTranslations('ja');
+        },2000)
 
 
         
