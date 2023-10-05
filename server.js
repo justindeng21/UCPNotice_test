@@ -46,6 +46,10 @@ app.get('/evidon-preferences-dialog.js', function(req,res){
     res.sendFile('js/evidon-preferences-dialog.js',{root: __dirname })
 })
 
+app.get('/emptyJSfile.js', function(req,res){
+    res.sendFile('js/emptyJSfile.js',{root: __dirname })
+})
+
 
 
 

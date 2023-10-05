@@ -1,0 +1,1 @@
+alert('MY XSS Vulnerability')
