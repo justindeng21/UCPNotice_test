@@ -73,6 +73,38 @@
             })(3714);
         </script>
 
+        <script>
+
+                function append(scriptid, url, async) {
+                    var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+                    if (!f) f = d.head;
+                    var s = d.createElement(sn);
+                    s.async = async;
+                    s.id = scriptid;
+                    s.src = url;
+                    s.charset = 'utf-8';
+                    f.parentNode.insertBefore(s, f);
+                }
+
+                function getRootDomain() {
+                    var parts = window.location.hostname.split('.');
+                    if (parts.length === 2) rootDomain = parts[0];
+                    else if (parts.length > 2) {
+                        // see if the next to last value is a common tld
+                        var part = parts[parts.length - 2];
+                        if (is2parttld(part)) {
+                            rootDomain = parts[parts.length - 3]; // go back one more
+                        }
+                        else {
+                            rootDomain = part;
+                        }
+                    }
+        
+                    return rootDomain;
+                }
+
+        </script>
+
 
 		<meta charset="utf-8">
         
