@@ -79,13 +79,12 @@
 <script>
 
     function changeLangugae(){
-        const button = document.getElementById('changelanguageid')
+        var button = document.getElementById('changelanguageid')
         if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
             window.evidon.notice.activateTranslations('fr')  
             button.innerHTML = 'English'     
         }
         else {window.evidon.notice.activateTranslations('en-us')
-
             
             button.innerHTML = 'French'
         }
