@@ -76,6 +76,23 @@
             })(3714);
         </script>
 
+<script>
+
+    function changeLangugae(){
+        const button = document.getElementById('changelanguageid')
+        if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
+            window.evidon.notice.activateTranslations('fr')  
+            button.innerHTML = 'English'     
+        }
+        else {window.evidon.notice.activateTranslations('en-us')
+
+            
+            button.innerHTML = 'French'
+        }
+    }
+
+</script>
+
 		<meta charset="utf-8">
         
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -85,40 +102,11 @@
 	<body>
 	
 
-	<button class="language"  onclick="changeLangugae();"> English </button>
+	<button class="language" id="changelangugaeid"  onclick="changeLangugae();"> English </button>
 
 
 	</body>
 
-    <script>
-
-        function changeLangugae(){
-                     
-            if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
-                console.log('hi')
-                window.evidon.notice.activateTranslations('fr')       
-            }
-                
-
-            else window.evidon.notice.activateTranslations('en-us')
-
-
-            const overlay = document.getElementById('evidon-prefdiag-overlay')
-            const background = document.getElementById('evidon-prefdiag-background')
-
-            overlay.remove()
-            background.remove()
-
-            var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
-            if (!f) f = d.head;
-            var s = d.createElement(sn);
-            s.src = 'https://c.evidon.com/sitenotice/evidon-preferences-dialog.js'
-            s.charset = 'utf-8';
-            f.parentNode.insertBefore(s, f);
-            
-
-        }
-
-    </script>
+ 
 
 </html>
