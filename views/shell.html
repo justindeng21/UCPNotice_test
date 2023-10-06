@@ -85,9 +85,21 @@
 	<body>
 	
 
-	<button class="language"> English </button>
+	<button class="language"  onclick="changeLangugae();"> English </button>
 
 
 	</body>
+
+    <script>
+
+        function changeLangugae(){
+
+            if (window.evidon.notice.activeTranslations.languageCode === 'en-us')
+                window.evidon.notice.activateTranslations('ko')
+
+            else window.evidon.notice.activateTranslations('en-us')
+        }
+
+    </script>
 
 </html>
