@@ -58,6 +58,13 @@ app.get('/shell', function(req,res){
 
 
 
+app.get('/adnotice', function(req,res){
+    res.sendFile('views/adnotice.html',{root: __dirname })
+})
+
+
+
+
 
 var server = app.listen(port)
 
