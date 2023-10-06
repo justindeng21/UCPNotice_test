@@ -52,6 +52,12 @@ app.get('/style.css', function(req,res){
 
 
 
+app.get('/shell', function(req,res){
+    res.sendFile('views/shell.html',{root: __dirname })
+})
+
+
+
 
 var server = app.listen(port)
 
