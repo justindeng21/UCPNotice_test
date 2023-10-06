@@ -93,24 +93,27 @@
     <script>
 
         function changeLangugae(){
-
-            fetch('https://optoutapi.evidon.com/site/vendor/3714/98302/1?lang=fr',{
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            }).then(()=>{
-                if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
-                    console.log('hi')
-                    window.evidon.notice.activateTranslations('fr')       
-                }
+                     
+            if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
+                console.log('hi')
+                window.evidon.notice.activateTranslations('fr')       
+            }
                 
 
-                else window.evidon.notice.activateTranslations('en-us')
-            })
-                     
-            
+            else window.evidon.notice.activateTranslations('en-us')
 
+
+            const overlay = document.getElementById('evidon-prefdiag-overlay')
+            const background = document.getElementById('id="evidon-prefdiag-background"')
+            overlay.remove()
+            background.remove()
+
+            var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+            if (!f) f = d.head;
+            var s = d.createElement(sn);
+            s.src = 'https://c.evidon.com/sitenotice/evidon-preferences-dialog.js'
+            s.charset = 'utf-8';
+            f.parentNode.insertBefore(s, f);
             
 
         }
