@@ -76,21 +76,6 @@
             })(3714);
         </script>
 
-<script>
-
-    function changeLangugae(){
-        var button = document.getElementById('changelanguageid')
-        if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
-            window.evidon.notice.activateTranslations('fr')  
-            button.innerHTML = 'English'     
-        }
-        else {window.evidon.notice.activateTranslations('en-us')
-            
-            button.innerHTML = 'French'
-        }
-    }
-
-</script>
 
 		<meta charset="utf-8">
         
@@ -104,8 +89,24 @@
 	<button class="language" id="changelangugaeid"  onclick="changeLangugae();"> English </button>
 
 
+    <script>
+
+        function changeLangugae(){
+            var button = document.getElementById('changelangugaeid')
+            if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
+                window.evidon.notice.activateTranslations('fr')  
+                button.innerHTML = 'English'     
+            }
+            else {window.evidon.notice.activateTranslations('en-us')
+                
+                button.innerHTML = 'French'
+            }
+        }
+    
+    </script>
+    
 	</body>
 
- 
+    
 
 </html>
