@@ -101,6 +101,17 @@
                 
 
             else window.evidon.notice.activateTranslations('en-us')
+
+
+            var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+            const urlParams = new URLSearchParams(window.location.search);
+            if (!f) f = d.head;
+            var s = d.createElement(sn);
+            s.src = 'https://c.evidon.com/sitenotice/evidon-preferences-dialog.js'
+            s.charset = 'utf-8';
+            f.parentNode.insertBefore(s, f);
+            
+
         }
 
     </script>
