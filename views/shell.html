@@ -93,9 +93,12 @@
     <script>
 
         function changeLangugae(){
-            print('hi')                
-            if (window.evidon.notice.activeTranslations.languageCode === 'en-us')
-                window.evidon.notice.activateTranslations('ko')
+                     
+            if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
+                console.log('hi')
+                window.evidon.notice.activateTranslations('ko')       
+            }
+                
 
             else window.evidon.notice.activateTranslations('en-us')
         }
