@@ -57,6 +57,12 @@ app.get('/shell', function(req,res){
 })
 
 
+app.get('/shell2', function(req,res){
+    res.sendFile('views/shell.html',{root: __dirname })
+})
+
+
+
 
 app.get('/adnotice', function(req,res){
     res.sendFile('views/adnotice.html',{root: __dirname })
