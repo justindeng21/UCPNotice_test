@@ -58,7 +58,7 @@ app.get('/shell', function(req,res){
 
 
 app.get('/shell2', function(req,res){
-    res.sendFile('views/shell.html',{root: __dirname })
+    res.sendFile('views/shell2.html',{root: __dirname })
 })
 
 
