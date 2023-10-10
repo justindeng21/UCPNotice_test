@@ -100,10 +100,12 @@
             }
             else {window.evidon.notice.activateTranslations('en-us')
                 
-                button.innerHTML = 'Cahnge Language to: French'
+                button.innerHTML = 'Change Language to: French'
             }
 
-            window.evidon.notice.getOptOutCategories()
+            window.evidon.notice._pullOptOutDetails(()=>{
+                var aN = this;
+            })
             
         }
     
