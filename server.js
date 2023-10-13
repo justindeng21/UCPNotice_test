@@ -61,6 +61,9 @@ app.get('/tealium-testing', function(req,res){
     res.sendFile('views/tealium-testing.html',{root: __dirname })
 })
 
+app.get('/tealium.js', function(req,res){
+    res.sendFile('test/tealium.js',{root: __dirname })
+})
 
 
 
