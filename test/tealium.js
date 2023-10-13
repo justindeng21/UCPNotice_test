@@ -9,4 +9,4 @@ var utag_data = {
 utag_data.consent_categories.push('analytics')
 
 
-console.log(utag_data.test_10_13)
+console.log(utag_data)
