@@ -4,7 +4,7 @@ var utag_data = {
     tealium_event : "", // Identifies the unique names of tracked events.
     page_type : "", // Tealium variable to identify page types/templates eg. home, category, search, product, etc.
     test_10_13 : "" // 
-  }
+}
 
 
-  console.log(utag_data)
+console.log(utag_data.test_10_13)
