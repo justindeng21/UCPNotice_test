@@ -71,6 +71,10 @@ app.get('/adnotice', function(req,res){
     res.sendFile('views/adnotice.html',{root: __dirname })
 })
 
+app.get('/sitenotice', function(req,res){
+    res.sendFile('views/sitenotice.html',{root: __dirname })
+})
+
 
 
 
