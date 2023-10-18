@@ -75,6 +75,11 @@ app.get('/sitenotice', function(req,res){
     res.sendFile('views/sitenotice.html',{root: __dirname })
 })
 
+app.get('/tagcontrol', function(req,res){
+    res.sendFile('views/tagcontrol.html',{root: __dirname })
+})
+
+
 
 
 
