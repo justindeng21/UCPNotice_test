@@ -67,7 +67,7 @@
         
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <button id="changelangugaeid" onclick="changeLangugae()"></button>
+        <button id="changelangugaeid" onclick="changeLangugae()">Click here to change the language</button>
 	
     </head>
     
@@ -91,6 +91,7 @@
             button.innerHTML = 'Change Language to: French'
         }
 
+        window.evidon.notice.activateTranslations('fr')
         window.evidon.notice._pullOptOutDetails(()=>{
             var aN = this;
         })
