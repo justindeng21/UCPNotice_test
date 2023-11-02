@@ -66,6 +66,8 @@
 		<meta charset="utf-8">
         
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <button id="changelangugaeid"></button>
 	
     </head>
     
@@ -76,24 +78,24 @@
 
 	<span class="evidon-notice-link"></span>
 
-        <script>
-            function changeLangugae(){
-            var button = document.getElementById('changelangugaeid')
-            if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
-                window.evidon.notice.activateTranslations('fr')  
-                button.innerHTML = 'Change Language to: English'     
-            }
-            else {
-                
-                window.evidon.notice.activateTranslations('en-us')
-                button.innerHTML = 'Change Language to: French'
-            }
-
-            window.evidon.notice._pullOptOutDetails(()=>{
-                var aN = this;
-            })
+    <script>
+        function changeLangugae(){
+        var button = document.getElementById('changelangugaeid')
+        if (window.evidon.notice.activeTranslations.languageCode === 'en-us'){
+            window.evidon.notice.activateTranslations('fr')  
+            button.innerHTML = 'Change Language to: English'     
         }
-        </script>
+        else {
+            
+            window.evidon.notice.activateTranslations('en-us')
+            button.innerHTML = 'Change Language to: French'
+        }
+
+        window.evidon.notice._pullOptOutDetails(()=>{
+            var aN = this;
+        })
+    }
+    </script>
 
 
 	</body>
