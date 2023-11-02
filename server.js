@@ -87,6 +87,10 @@ app.get('/tagcontrol', function(req,res){
     res.sendFile('views/tagcontrol.html',{root: __dirname })
 })
 
+app.get('/bug', function(req,res){
+    res.sendFile('views/bugtesting.html',{root: __dirname })
+})
+
 
 
 
