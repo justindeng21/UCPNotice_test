@@ -1,1 +1,0 @@
-alert('MY XSS Vulnerability')
