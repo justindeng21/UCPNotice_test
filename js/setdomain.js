@@ -78,4 +78,4 @@ class noticeLoader{
 
 }
 
-noticeLoader.loadNotice(2025, 'elranatamabandmecom-stage.pfizersite.io')
+
