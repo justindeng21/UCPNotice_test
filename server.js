@@ -28,6 +28,9 @@ app.get('/setdomain.js', function(req,res){
     res.sendFile('js/setdomain.js',{root: __dirname })
 })
 
+app.get('/ucp.js', function(req,res){
+    res.sendFile('js/ucp.js',{root: __dirname })
+})
 
 
 
