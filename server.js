@@ -9,9 +9,12 @@ app.use(express.static('public')) // forces external files to be inside /public?
 
 
 //html
-
-
 app.get('/', function(req,res){
+    res.sendFile('views/ucp.html',{root: __dirname })
+})
+
+
+app.get('/setDomain', function(req,res){
     res.sendFile('views/set-domain.html',{root: __dirname })
 })
 
@@ -24,7 +27,6 @@ app.get('/styles', function(req,res){
 app.get('/setdomain.js', function(req,res){
     res.sendFile('js/setdomain.js',{root: __dirname })
 })
-
 
 
 
