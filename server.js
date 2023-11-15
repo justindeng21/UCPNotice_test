@@ -18,6 +18,11 @@ app.get('/setDomain', function(req,res){
     res.sendFile('views/set-domain.html',{root: __dirname })
 })
 
+app.get('/pfizer', function(req,res){
+    res.sendFile('views/pfizer.html',{root: __dirname })
+})
+
+
 
 app.get('/styles', function(req,res){
     res.sendFile('css/style.css',{root: __dirname })
