@@ -18,8 +18,8 @@ app.get('/setDomain', function(req,res){
     res.sendFile('views/set-domain.html',{root: __dirname })
 })
 
-app.get('/gm', function(req,res){
-    res.sendFile('views/gm.html',{root: __dirname })
+app.get('/tealium', function(req,res){
+    res.sendFile('views/tealium.html',{root: __dirname })
 })
 
 
