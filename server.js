@@ -37,11 +37,14 @@ app.get('/ucp.js', function(req,res){
     res.sendFile('js/ucp.js',{root: __dirname })
 })
 
+app.get('/onprem/:fileName',function(req,res){
+    var fileName = req.params.fileName
+    res.sendFile('onprem/'+fileName,{root: __dirname })
+})
 
-
-
-
-
+app.get('/tealium/onprem',function(req,res){
+    res.sendFile('views/onprem.html',{root: __dirname })
+})
 
 
 
