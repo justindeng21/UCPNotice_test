@@ -1735,20 +1735,20 @@
             if (window.utag) {
 
                 //Evidon Proprietary code
-                window.utag.link({
-                    event_name: aJ,
-                    consent_categories: aN,
-                    
-                    consent_vendors: aY
-                })
-
-                //Justin 's Code
-                // window.utag.view({
+                // window.utag.link({
                 //     event_name: aJ,
                 //     consent_categories: aN,
                     
                 //     consent_vendors: aY
                 // })
+
+                //Justin 's Code
+                window.utag.view({
+                    event_name: aJ,
+                    consent_categories: aN,
+                    
+                    consent_vendors: aY
+                })
 
 
             }
