@@ -8,24 +8,27 @@
         <link rel="shortcut icon" type="image/png" href="https://crownpeak.com/layout/icons/favicon.png">
         
         <script>
-        (function (id) {
-
-    
-        window.evidon = {};
-        window.evidon.id = id;
-        window.evidon.test = false;
+            (function (id) {
 
         
-        })(3714);
+            window.evidon = {};
+            window.evidon.id = id;
+            window.evidon.test = false;
+
+
+            //LOCAL HOST DEVELOPMENT
+            if(window.location.hostname == 'localhost'){
+                        setTimeout(()=>{window.evidon.notice.setDomain('dg-ucp.herokuapp.com')},2000)
+            }
+            
+            })(3714);
         </script>
 
 
         
-        
 <script defer src="/onprem/evidon-sitenotice-tag.js" charset="utf-8"></script>
+        
         <script defer src="/onprem/evidon-banner.js" charset="utf-8"></script>
-        <script defer src="/onprem/en.js" charset="utf-8"></script>
-        <script defer id="evidon-settings" src="/onprem/settingsV2.js" charset="utf-8"></script>
         <script defer id="evidon-themes" src="/onprem/snthemes.js" charset="utf-8"></script>
         <script defer id="evidon-location" src="/onprem/country.js" charset="utf-8"></script>
         

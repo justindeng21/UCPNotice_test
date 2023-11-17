@@ -1733,12 +1733,24 @@
         }
         try {
             if (window.utag) {
+
+                //Evidon Proprietary code
                 window.utag.link({
                     event_name: aJ,
                     consent_categories: aN,
                     
                     consent_vendors: aY
                 })
+
+                //Justin 's Code
+                // window.utag.view({
+                //     event_name: aJ,
+                //     consent_categories: aN,
+                    
+                //     consent_vendors: aY
+                // })
+
+
             }
         } catch (aQ) {}
         try {
@@ -2452,7 +2464,7 @@
     aH.prototype.showPreferencesDialog = function(aN, aO) {
         var aM = this;
         if (!window.evidon.preferencesDialog) {
-            this.appendScript(aG + aw, function() {
+            this.appendScript('/onprem/evidon-preferences-dialog.js', function() {
                 aM.showPreferencesDialog(aN, aO)
             });
             window.evidon.events.subscribe("l2closed", function() {
@@ -2917,7 +2929,7 @@
             }
             var aN = (typeof window.evidon.usegranulartranslations === "undefined") ? false : window.evidon.usegranulartranslations;
             if (!aN) {
-                var aP = B + "/translations/" + this.languageRoot + ".js";
+                var aP = '/onprem/en.js';
                 this.appendScript(aP);
                 this.activeTranslations = null
             } else {
@@ -3006,7 +3018,7 @@
             var aP = this._getRootDomain(this.domain);
             aP = aP.replace(".", "");
             var aR = (window.evidon.test !== undefined) ? window.evidon.test : false;
-            var aS = B + "/" + aP + ((aR) ? "/test" : "") + "/settingsV2.js";
+            var aS = "/onprem/settingsV2.js"
             this.appendScript(aS)
         }
         this.showNotice()
