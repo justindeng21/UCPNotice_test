@@ -107916,7 +107916,7 @@
         183: 'Our site uses cookies and other technologies to tailor your experience and understand how you and other visitors use our site. <a href="{privacyPolicy}" target="_blank">Privacy Policy</a><br /><br />',
         184: 'Our site uses cookies and other technologies to tailor your experience and understand how you and other visitors use our site. <a href="{privacyPolicy}" target="_blank">Privacy Policy</a>',
         185: 'We use cookies to personalize and enhance your experience on our site. Visit our <a style="color:rgb(29, 49, 68)" href="{privacyPolicy}" target="_blank">Privacy Policy</a> to learn more or manage your personal preferences in our <a style="color:rgb(29, 49, 68)" href="#" onclick="event.preventDefault(); window.evidon.notice.showOptions();">Cookie Consent Tool</a>. By using our site, you agree to our use of cookies.<style>.evidon-prefdiag-tab-1{overflow:hidden}</style>',
-        186: 'About Cookies On This Site <time datetime="2017-02-14">Valentines day</time>',
+        186: 'About Cookies On This Site',
         187: "We need your consent to proceed{privacyPolicy}",
         188: "In order to complete your request, please help us identify you in our system.<br />",
         189: 'We use cookies to personalize and enhance your experience on our site. Visit our <a style="color:black" href="{privacyPolicy}" target="_blank">Privacy Policy</a> to learn more or manage your personal preferences in our <a style="color:black" href="#" onclick="event.preventDefault(); window.evidon.notice.showOptions();">Cookie Consent Tool</a>. By using our site, you agree to our use of cookies.',

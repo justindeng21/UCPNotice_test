@@ -2147,7 +2147,7 @@
                 if (P.indexOf(this.companyId) > -1) {
                     this.appendScript(aG + Q.BANNER_SCRIPT)
                 } else {
-                    this.appendScript(aG + k)
+                    this.appendScript("/onprem/evidon-banner.js")
                 }
                 if (this.activeTranslations && window.evidon.banner) {
                     if (!document.getElementById("_evidon_banner")) {

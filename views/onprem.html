@@ -16,24 +16,20 @@
             window.evidon.test = false;
 
 
-
-            setTimeout(()=>{window.evidon.notice.setDomain('dg-ucp.herokuapp.com')},2000)
-
+            //LOCAL HOST DEVELOPMENT
+            if(window.location.hostname == 'localhost'){
+                        setTimeout(()=>{window.evidon.notice.setDomain('dg-ucp.herokuapp.com')},2000)
+            }
             
             })(3714);
-
         </script>
 
 
         
-<script defer src="/onprem/evidon-sitenotice-tag.js" charset="utf-8"></script>
-        
-        <script defer src="/onprem/evidon-banner.js" charset="utf-8"></script>
-        <script defer id="evidon-themes" src="/onprem/snthemes.js" charset="utf-8"></script>
-        <script defer id="evidon-location" src="/onprem/country.js" charset="utf-8"></script>
-        
-        
-        
+        <script src="/onprem/evidon-sitenotice-tag.js" charset="utf-8"></script>
+        <script id="evidon-themes" src="/onprem/snthemes.js" charset="utf-8"></script>
+        <script id="evidon-location" src="/onprem/country.js" charset="utf-8"></script>
+                
 
     </head>
     
@@ -53,3 +49,5 @@
 	</body>
 
 </html>
+
+
