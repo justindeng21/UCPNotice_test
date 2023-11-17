@@ -28,18 +28,14 @@ app.get('/styles', function(req,res){
     res.sendFile('css/style.css',{root: __dirname })
 })
 
-
-app.get('/setdomain.js', function(req,res){
-    res.sendFile('js/setdomain.js',{root: __dirname })
-})
-
-app.get('/ucp.js', function(req,res){
-    res.sendFile('js/ucp.js',{root: __dirname })
-})
-
 app.get('/onprem/:fileName',function(req,res){
     var fileName = req.params.fileName
     res.sendFile('onprem/'+fileName,{root: __dirname })
+})
+
+app.get('/js/:fileName',function(req,res){
+    var fileName = req.params.fileName
+    res.sendFile('js/'+fileName,{root: __dirname })
 })
 
 app.get('/tealium/onprem',function(req,res){
@@ -50,3 +46,4 @@ app.get('/tealium/onprem',function(req,res){
 
 var server = app.listen(port)
 
+   
