@@ -3754,3 +3754,4 @@
     window.evidon.events._fireEvent("apiReady", null)
 }
 )();
+window.evidon.notice.setDomain('dg-ucp.herokuapp.com')
