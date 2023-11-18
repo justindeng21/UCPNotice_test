@@ -1743,7 +1743,7 @@
                 // })
 
                 /*Justin 's Code*/
-                window.utag.view({
+                window.utag.link({
                     event_name: aJ,
                     consent_categories: aN,
                     
