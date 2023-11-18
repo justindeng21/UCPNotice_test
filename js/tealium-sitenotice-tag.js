@@ -1733,7 +1733,7 @@
         }
         try {
             if (window.utag) {
-                window.utag.view({
+                window.utag.link({
                     event_name: aJ,
                     consent_categories: aN,
                     consent_vendors: aY
