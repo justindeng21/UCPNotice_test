@@ -1734,22 +1734,58 @@
         try {
             if (window.utag) {
 
-                /*Evidon Proprietary code*/
-                // window.utag.link({
-                //     event_name: aJ,
-                //     consent_categories: aN,
-                    
-                //     consent_vendors: aY
-                // })
 
-                /*Justin 's Code*/
+
+/*      //      Evidon Proprietary code   
+                    
+                window.utag.link({
+                     event_name: aJ,
+                     consent_categories: aN,
+                    
+                    consent_vendors: aY
+                })     
+ */
+
+
+               
+     //      utag.track method
+
                 window.utag.track({
                     event_name: aJ,
                     consent_categories: aN,
-                    
                     consent_vendors: aY
                 })
 
+
+
+
+/*      //      utag.track method
+
+                window.utag.track('link',{
+                    event_name: aJ,
+                    consent_categories: aN,
+                    consent_vendors: aY
+                })
+ */
+
+
+/*      //      utag.track method
+
+                window.utag.track('view',{
+                    event_name: aJ,
+                    consent_categories: aN,
+                    consent_vendors: aY
+                })
+ */
+
+/*      //      utag.track method
+
+                window.utag.view({
+                    event_name: aJ,
+                    consent_categories: aN
+                    consent_vendors: aY
+                })
+*/
 
             }
         } catch (aQ) {}
