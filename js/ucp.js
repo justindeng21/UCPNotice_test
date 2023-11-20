@@ -40,10 +40,15 @@ function loadNotice(){
         //window.evidon.userid = '';
     
         var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
-        append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
-        append('evidon-location', cdn + 'geo/country.js', true);
-        append('evidon-themes', noticecdn + id + '/snthemes.js', true);
-        if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+
+        if ( navigator.userAgent != 'ipad' || navigator.userAgent != 'iphone'){
+            append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
+            append('evidon-location', cdn + 'geo/country.js', true);
+            append('evidon-themes', noticecdn + id + '/snthemes.js', true);
+            if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
+        }
+
+
     
         window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
             // add the tags which need to wait for prior consent
