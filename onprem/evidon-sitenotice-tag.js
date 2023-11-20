@@ -1431,7 +1431,9 @@
         var aQ = this._getConsentCookieDomain();
         if (aV) {
             aP.consent_date = aV.toISOString()
-        }
+        }5
+        history
+        
         aP.consent_type = aN;
         if (!aP.hasOwnProperty("consent_date")) {
             aP.consent_date = new Date()
@@ -1746,46 +1748,14 @@
                 })     
  */
 
-
-               
-     //      utag.track method
-
                 window.utag.track({
                     event_name: aJ,
                     consent_categories: aN,
-                    consent_vendors: aY
-                })
+                   
+                   consent_vendors: aY
+               })   
+               
 
-
-
-
-/*      //      utag.track method
-
-                window.utag.track('link',{
-                    event_name: aJ,
-                    consent_categories: aN,
-                    consent_vendors: aY
-                })
- */
-
-
-/*      //      utag.track method
-
-                window.utag.track('view',{
-                    event_name: aJ,
-                    consent_categories: aN,
-                    consent_vendors: aY
-                })
- */
-
-/*      //      utag.track method
-
-                window.utag.view({
-                    event_name: aJ,
-                    consent_categories: aN
-                    consent_vendors: aY
-                })
-*/
 
             }
         } catch (aQ) {}
