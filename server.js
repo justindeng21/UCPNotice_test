@@ -13,9 +13,6 @@ app.get('/', function(req,res){
     res.sendFile('views/ucp.html',{root: __dirname })
 })
 
-app.get('/styles', function(req,res){
-    res.sendFile('css/style.css',{root: __dirname })
-})
 
 app.get('/onprem/:fileName',function(req,res){
     var fileName = req.params.fileName
@@ -31,6 +28,11 @@ app.get('/views/:fileName',function(req,res){
     var fileName = req.params.fileName
     res.sendFile('views/'+fileName+'.html',{root: __dirname })
 })
+
+
+
+
+
 
 app.get('/tealium/onprem',function(req,res){
     res.sendFile('views/'+fileName+'.html',{root: __dirname })
