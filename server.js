@@ -13,17 +13,6 @@ app.get('/', function(req,res){
     res.sendFile('views/ucp.html',{root: __dirname })
 })
 
-
-app.get('/setDomain', function(req,res){
-    res.sendFile('views/set-domain.html',{root: __dirname })
-})
-
-app.get('/tealium', function(req,res){
-    res.sendFile('views/tealium.html',{root: __dirname })
-})
-
-
-
 app.get('/styles', function(req,res){
     res.sendFile('css/style.css',{root: __dirname })
 })
@@ -38,8 +27,13 @@ app.get('/js/:fileName',function(req,res){
     res.sendFile('js/'+fileName,{root: __dirname })
 })
 
+app.get('/views/:fileName',function(req,res){
+    var fileName = req.params.fileName
+    res.sendFile('views/'+fileName+'.html',{root: __dirname })
+})
+
 app.get('/tealium/onprem',function(req,res){
-    res.sendFile('views/onprem.html',{root: __dirname })
+    res.sendFile('views/'+fileName+'.html',{root: __dirname })
 })
 
 
