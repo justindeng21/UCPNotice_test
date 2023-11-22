@@ -1738,23 +1738,16 @@
 
 
 
-/*      //      Evidon Proprietary code   
+     //      Evidon Proprietary code   
                     
-                window.utag.link({
+                window.utag.view({
                      event_name: aJ,
                      consent_categories: aN,
                     
                     consent_vendors: aY
                 })     
- */
 
-                window.utag.track({
-                    event_name: aJ,
-                    consent_categories: aN,
-                   
-                   consent_vendors: aY
-               })   
-               
+
 
 
             }
