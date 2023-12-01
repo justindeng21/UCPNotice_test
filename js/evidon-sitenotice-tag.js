@@ -1760,6 +1760,9 @@
                     consent_categories: aN,
                     consent_vendors: aY
                 })
+
+
+                window.utag.track = {}
             }
         } catch (aQ) {}
         try {
