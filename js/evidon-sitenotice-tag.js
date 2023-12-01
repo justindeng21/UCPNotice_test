@@ -1,4 +1,7 @@
 (function() {
+    if (typeof window.evidon.notice != "undefined") {
+        return
+    }
     var ab = {
         en: {
             monthvar: "months",
