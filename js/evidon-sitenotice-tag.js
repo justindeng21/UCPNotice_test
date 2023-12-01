@@ -1766,7 +1766,7 @@
                 })
 
 
-                window.utag.track = {}
+
             }
         } catch (aQ) {}
         try {
