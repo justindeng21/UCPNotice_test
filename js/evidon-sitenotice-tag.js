@@ -1385,9 +1385,13 @@
     }
     ;
     aH.prototype.getConsentData = function() {
-        var aM = this._getConsentLocalStorage();
-        if (!aM) {
+        var aN = this.activeSettings.hasOwnProperty("includeSubdomains") ? this.activeSettings.includeSubdomains : 0;
+        var aM;
+        if (aN == 1) {
             aM = this._getConsentCookie()
+        }
+        if (!aM) {
+            aM = this._getConsentLocalStorage()
         }
         if (!aM) {
             aM = {
@@ -1431,9 +1435,7 @@
         var aQ = this._getConsentCookieDomain();
         if (aV) {
             aP.consent_date = aV.toISOString()
-        }5
-        history
-        
+        }
         aP.consent_type = aN;
         if (!aP.hasOwnProperty("consent_date")) {
             aP.consent_date = new Date()
@@ -1525,6 +1527,21 @@
                                     }
                                 }
                             })
+                        } else {
+                            a0.forEach(function(a3) {
+                                for (var a4 in a1) {
+                                    if (a1[a4] == a3.CompanyIdentifier) {
+                                        aZ = aZ + 1;
+                                        if (aW[a4] == true) {
+                                            aP = aP + 1
+                                        }
+                                    }
+                                }
+                            });
+                            aM[aV] = false;
+                            if (aP / aZ * 100 > aY) {
+                                aM[aV] = true
+                            }
                         }
                     }
                 }
@@ -1736,18 +1753,13 @@
         try {
             if (window.utag) {
 
+                console.log('Hello world')
 
-
-     //      Evidon Proprietary code   
-                    
                 window.utag.track({
-                     event_name: aJ,
-                     consent_categories: aN,
-                    
+                    event_name: aJ,
+                    consent_categories: aN,
                     consent_vendors: aY
-                })     
-
-                
+                })
             }
         } catch (aQ) {}
         try {
@@ -2072,7 +2084,7 @@
             }
         } else {
             var aS = this.activeSettings;
-            if (window.evidon && (window.evidon.id === 6367 || window.evidon.id === 2020)) {
+            if (window.evidon && window.evidon.usegranulartranslations !== false) {
                 window.evidon.usegranulartranslations = true
             }
             var aO = (typeof window.evidon.usegranulartranslations === "undefined") ? false : window.evidon.usegranulartranslations;
@@ -2144,7 +2156,7 @@
                 if (P.indexOf(this.companyId) > -1) {
                     this.appendScript(aG + Q.BANNER_SCRIPT)
                 } else {
-                    this.appendScript("/onprem/evidon-banner.js")
+                    this.appendScript(aG + k)
                 }
                 if (this.activeTranslations && window.evidon.banner) {
                     if (!document.getElementById("_evidon_banner")) {
@@ -2461,7 +2473,7 @@
     aH.prototype.showPreferencesDialog = function(aN, aO) {
         var aM = this;
         if (!window.evidon.preferencesDialog) {
-            this.appendScript('/onprem/evidon-preferences-dialog.js', function() {
+            this.appendScript(aG + aw, function() {
                 aM.showPreferencesDialog(aN, aO)
             });
             window.evidon.events.subscribe("l2closed", function() {
@@ -2597,6 +2609,14 @@
         this.activeCountryId = this.country.id;
         this.activeStateId = (this.country.hasOwnProperty("stateId")) ? this.country.stateId : null;
         var aQ = this._getActiveCountryObject();
+        var aU = this.activeSettings.hasOwnProperty("includeSubdomains") ? this.activeSettings.includeSubdomains : 0;
+        if (aU == 1) {
+            var aR = this._getConsentCookie();
+            if (aR) {
+                this._removeLocalStorageItem(D + this.activeSettings.id);
+                this._writeLocalStorage(D + this.activeSettings.id, JSON.stringify(aR.value))
+            }
+        }
         if (!aQ) {
             console.log("No consent settings found for the country: " + this.activeCountryId);
             return
@@ -2621,53 +2641,53 @@
         if (!this.activecategorySet) {
             if (this.activeSettings.vendorCategory && window.evidon.activeCategory) {
                 var aN = {};
-                var aY = window.Prototype;
+                var a0 = window.Prototype;
                 var aM = window.evidon.activeCategory;
                 this.activecategorySet = this.activeSettings.vendorCategory[aQ.vendorCategory] !== undefined ? this.activeSettings.vendorCategory[aQ.vendorCategory] : null;
                 if (this.activecategorySet !== null) {
-                    for (var aT in aM) {
-                        var aU = aM[aT];
-                        if (typeof aU.cName === "string") {
-                            bucketid = aU.cName.toLowerCase()
+                    for (var aV in aM) {
+                        var aW = aM[aV];
+                        if (typeof aW.cName === "string") {
+                            bucketid = aW.cName.toLowerCase()
                         }
                         if (bucketid === null) {
                             continue
                         }
-                        var aV = {};
-                        for (var aS = 0; aS < aU.catId.length; aS++) {
-                            var aW = this.activecategorySet.find(function(a4) {
-                                if (a4.catid === aU.catId[aS]) {
-                                    return a4
+                        var aX = {};
+                        for (var aT = 0; aT < aW.catId.length; aT++) {
+                            var aY = this.activecategorySet.find(function(a6) {
+                                if (a6.catid === aW.catId[aT]) {
+                                    return a6
                                 }
                             });
-                            if (aW !== undefined) {
-                                function a3(a5, a4) {
-                                    return function(a6, a7) {
-                                        a6[a7] = {
-                                            vEss: a5,
-                                            catid: a4
+                            if (aY !== undefined) {
+                                function a5(a7, a6) {
+                                    return function(a8, a9) {
+                                        a8[a9] = {
+                                            vEss: a7,
+                                            catid: a6
                                         };
-                                        return a6
+                                        return a8
                                     }
                                 }
-                                if (aY && parseFloat(aY.Version) < 1.7 && Array.prototype.reduce) {
-                                    var a1 = aW.rqdVndr.mVendorObjectReduce(a3(1, aU.catId[aS]), {});
-                                    var aX = aW.optnlVndr.mVendorObjectReduce(a3(0, aU.catId[aS]), {})
+                                if (a0 && parseFloat(a0.Version) < 1.7 && Array.prototype.reduce) {
+                                    var a3 = aY.rqdVndr.mVendorObjectReduce(a5(1, aW.catId[aT]), {});
+                                    var aZ = aY.optnlVndr.mVendorObjectReduce(a5(0, aW.catId[aT]), {})
                                 } else {
-                                    var a1 = aW.rqdVndr.reduce(a3(1, aU.catId[aS]), {});
-                                    var aX = aW.optnlVndr.reduce(a3(0, aU.catId[aS]), {})
+                                    var a3 = aY.rqdVndr.reduce(a5(1, aW.catId[aT]), {});
+                                    var aZ = aY.optnlVndr.reduce(a5(0, aW.catId[aT]), {})
                                 }
-                                aV = Object.assign({}, a1, aX, aV)
+                                aX = Object.assign({}, a3, aZ, aX)
                             }
                         }
-                        if (Object.keys(aV).length !== 0) {
+                        if (Object.keys(aX).length !== 0) {
                             aN[bucketid] = {
-                                CategoryBucketId: aT,
-                                name: aU.cName,
-                                defaultCategoryId: aU.catId,
-                                cEss: (aU.cEstnl === true ? 1 : 0),
-                                vendors: aV,
-                                dataSharing: (aU.dataSharing === true ? 1 : 0)
+                                CategoryBucketId: aV,
+                                name: aW.cName,
+                                defaultCategoryId: aW.catId,
+                                cEss: (aW.cEstnl === true ? 1 : 0),
+                                vendors: aX,
+                                dataSharing: (aW.dataSharing === true ? 1 : 0)
                             }
                         }
                     }
@@ -2683,13 +2703,13 @@
             this._loadSettings(aQ)
         }
         this.dataRightsType = aQ.dataRightsType === undefined ? 0 : aQ.dataRightsType;
-        var a0 = (aQ.rightslinkId === undefined) ? 0 : aQ.rightslinkId;
-        if (a0 === 0) {
+        var a2 = (aQ.rightslinkId === undefined) ? 0 : aQ.rightslinkId;
+        if (a2 === 0) {
             this.rightsLink = ""
         } else {
             if (this.activeSettings.hasOwnProperty("rightsLinks")) {
-                if (this.activeSettings.rightsLinks.hasOwnProperty(a0)) {
-                    this.rightsLink = this._fixurl(this.activeSettings.rightsLinks[a0])
+                if (this.activeSettings.rightsLinks.hasOwnProperty(a2)) {
+                    this.rightsLink = this._fixurl(this.activeSettings.rightsLinks[a2])
                 } else {
                     this.rightsLink = ""
                 }
@@ -2699,13 +2719,13 @@
         }
         this.dnsRightsType = (aQ.hasOwnProperty("dnsRightsType")) ? aQ.dnsRightsType : 1;
         if (this.dnsRightsType == 0) {
-            var aR = (aQ.dnslinkId === undefined) ? 0 : aQ.dnslinkId;
-            if (aR === 0) {
+            var aS = (aQ.dnslinkId === undefined) ? 0 : aQ.dnslinkId;
+            if (aS === 0) {
                 this.dnsLink = ""
             } else {
                 if (this.activeSettings.hasOwnProperty("dnsLinks")) {
-                    if (this.activeSettings.dnsLinks.hasOwnProperty(aR)) {
-                        this.dnsLink = this._fixurl(this.activeSettings.dnsLinks[aR])
+                    if (this.activeSettings.dnsLinks.hasOwnProperty(aS)) {
+                        this.dnsLink = this._fixurl(this.activeSettings.dnsLinks[aS])
                     } else {
                         this.dnsLink = ""
                     }
@@ -2716,11 +2736,11 @@
         } else {
             this.dnsLink = ""
         }
-        var aZ = (aQ.pubvendorsLinkId === undefined) ? 0 : aQ.pubvendorsLinkId;
-        if (aZ === 0) {
+        var a1 = (aQ.pubvendorsLinkId === undefined) ? 0 : aQ.pubvendorsLinkId;
+        if (a1 === 0) {
             this.pubvendorsLink = null
         } else {
-            this.pubvendorsLink = this.activeSettings.pubvendorsLinks[aZ]
+            this.pubvendorsLink = this.activeSettings.pubvendorsLinks[a1]
         }
         this.activeVendorId = aQ.vendor;
         this.categorySetId = (aQ.hasOwnProperty("categorySetId") && aQ.categorySetId != 0) ? aQ.categorySetId : 0;
@@ -2753,18 +2773,18 @@
                 }
             }
             this.appendScript(aG + A[this.iabVersion]);
-            var a2 = this._getSuppressionCookie();
+            var a4 = this._getSuppressionCookie();
             switch (this.iabVersion) {
             case 1:
                 if (window.__cmp) {
-                    window.__cmp("setSuppression", a2 !== null)
+                    window.__cmp("setSuppression", a4 !== null)
                 } else {
                     console.error("unable to find __cmp stub")
                 }
                 break;
             case 2:
                 if (window.__tcfapi) {
-                    window.__tcfapi("setSuppression", a2 !== null)
+                    window.__tcfapi("setSuppression", a4 !== null)
                 } else {
                     console.error("unable to find __tcfapi stub")
                 }
@@ -2811,17 +2831,29 @@
         return this._getConsentDataSpecific("vendors")
     }
     ;
-    aH.prototype._getConsentDataSpecific = function(aN) {
-        var aM = this._getConsentDataFromLocalStorage(aN);
-        if (!aM) {
-            aM = this._getConsentDataFromCookie(aN)
+    aH.prototype._getConsentDataSpecific = function(aO) {
+        var aP = this.activeSettings.hasOwnProperty("includeSubdomains") ? this.activeSettings.includeSubdomains : 0;
+        if (aP == 1) {
+            var aM = this._getConsentCookie();
+            var aN = this._getConsentDataFromCookie(aO);
+            if (aN) {
+                this._removeLocalStorageItem(D + this.activeSettings.id);
+                aM.value[aO][this.activeCountryId] = aN;
+                this._writeLocalStorage(D + this.activeSettings.id, JSON.stringify(aM))
+            }
         }
-        if (!aM && this.regulationConsentTypeId === aB && !this.isOptedOut()) {
-            aM = {
+        if (!aN) {
+            aN = this._getConsentDataFromLocalStorage(aO)
+        }
+        if (!aN) {
+            aN = this._getConsentDataFromCookie(aO)
+        }
+        if (!aN && this.regulationConsentTypeId === aB && !this.isOptedOut()) {
+            aN = {
                 all: true
             }
         }
-        return aM
+        return aN
     }
     ;
     aH.prototype._getConsentDataFromLocalStorage = function(aN) {
@@ -2921,12 +2953,12 @@
             this._setActiveTranslations();
             this.showNotice()
         } else {
-            if (window.evidon && (window.evidon.id === 6367 || window.evidon.id === 2020) && window.evidon.usegranulartranslations !== false) {
+            if (window.evidon && window.evidon.usegranulartranslations !== false) {
                 window.evidon.usegranulartranslations = true
             }
             var aN = (typeof window.evidon.usegranulartranslations === "undefined") ? false : window.evidon.usegranulartranslations;
             if (!aN) {
-                var aP = '/onprem/en.js';
+                var aP = B + "/translations/" + this.languageRoot + ".js";
                 this.appendScript(aP);
                 this.activeTranslations = null
             } else {
@@ -3015,7 +3047,7 @@
             var aP = this._getRootDomain(this.domain);
             aP = aP.replace(".", "");
             var aR = (window.evidon.test !== undefined) ? window.evidon.test : false;
-            var aS = "/onprem/settingsV2.js"
+            var aS = B + "/" + aP + ((aR) ? "/test" : "") + "/settingsV2.js";
             this.appendScript(aS)
         }
         this.showNotice()
@@ -3751,4 +3783,3 @@
     window.evidon.events._fireEvent("apiReady", null)
 }
 )();
-window.evidon.notice.setDomain('dg-ucp.herokuapp.com')
