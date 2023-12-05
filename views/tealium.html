@@ -13,146 +13,23 @@
 	<body>
         <script type="text/javascript">
             var utag_data = {
-              activity_id : "", // Sizmek Activity ID
-              brand : "", // Brand
-              _utag_event : "", // Utag event (link or view)
-              activity_id_lookup : "", // 
-              pfw_userLanguage : "", // 
-              pfw_devicePlatform : "", // 
-              pfw_deviceOS : "", // 
-              pfw_userTime : "", // time user visited site (hour)
-              pfw_pageRefURL : "", // referrer URL
-              pfw_pageURL : "", // 
-              pfw_pageName : "", // 
-              pfw_siteName : "", // 
-              pfw_userDate : "", // date user came to the site
-              pfw_siteBrand : "", // brand of site
-              pfw_pageCategory : "", // type of page category
-              pfw_prodLegalBrand : "", // legal brand of product, i.e. Campbell's
-              pfw_prodSecondaryBrand : "", // secondary brand of product, i.e. Chunky
-              pfw_prodCompleteBrand : "", // legal brand + secondary brand
-              pfw_prodName : "", // Campbell's product name
-              pfw_prodCategory : "", // product category, i.e. soups
-              url : "", // PII removal
-              referrer : "", // PII Removal
-              activityID : "", // 
-              articleTitle : "", // 
-              blogComment : "", // 
-              clickedTerm : "", // 
-              cm100 : "", // Scroll Tracking
-              cm25 : "", // Scroll Tracking
-              cm50 : "", // Scroll Tracking
-              cm75 : "", // Scroll Tracking
-              cm_login : "", // tracks number of logins to custom metric (GA)
-              cm_recipe_page : "", // sets custom metric when page loads
-              cm_video_25 : "", // 
-              cm_video_50 : "", // 
-              cm_video_75 : "", // 
-              cm_videoComplete : "", // used with youtube plugin to pass custom metric
-              cm_videoStart : "", // used with youtube plugin to pass custom metric
-              contentName : "", // 
-              costPerRecipe : "", // 
-              cta_brand : "", // 
-              cta_category : "", // 
-              cta_onlineRetailer : "", // 
-              cta_productName : "", // 
-              errorMessage : "", // 
-              event_name : "", // 
-              eventAction : "", // 
-              eventCategory : "", // 
-              eventLabel : "", // 
-              eventNonInteractive : "", // 
-              eventValue : "", // 
-              filterApplied : "", // 
-              filterValue : "", // 
-              gaClientID : "", // 
-              googleanalytics_id : "", // 
-              googleanalytics_id_dev : "", // 
-              googleanalytics_id_prod : "", // 
-              httpError : "", // 
-              httpErrorCode : "", // 
-              isLoggedIn : "", // 
-              loginMethod : "", // 
-              menuName : "", // 
-              menuType : "", // 
-              metric_social_clicks : "", // 
-              numberOfServings : "", // 
-              pfw_recID : "", // DMP
-              pfw_recName : "", // 
-              pfw_recProd1Category : "", // DMP
-              pfw_recProd1CompleteBrand : "", // DMP
-              pfw_recProd1LegalBrand : "", // DMP
-              pfw_recProd1Name : "", // DMP
-              pfw_recProd1SecondaryBrand : "", // DMP
-              pfw_recProd2Category : "", // DMP
-              pfw_recProd2CompleteBrand : "", // DMP
-              pfw_recProd2LegalBrand : "", // DMP
-              pfw_recProd2Name : "", // DMP
-              pfw_recProd2SecondaryBrand : "", // DMP
-              pfw_recProd3Category : "", // DMP
-              pfw_recProd3CompleteBrand : "", // DMP
-              pfw_recProd3LegalBrand : "", // DMP
-              pfw_recProd3Name : "", // DMP
-              pfw_recProd3SecondaryBrand : "", // DMP
-              product_brand : "", // 
-              product_category : "", // 
-              product_id : "", // 
-              product_name : "", // 
-              product_quantity : "", // 
-              productName : "", // 
-              publicationType : "", // 
-              recipeName : "", // 
-              recipePrepTime : "", // 
-              recipeStarRating : "", // 
-              recipeTotalTime : "", // 
-              scrollDepthMetrics : "", // 
-              searchAutoResults : "", // 
-              searchResults : "", // 
-              searchTerm : "", // 
-              site_name : "", // 
-              socialAction : "", // 
-              socialClickThroughs : "", // 
-              socialNetwork : "", // 
-              socialTarget : "", // 
-              sortApplied : "", // 
-              sortCommentsBy : "", // 
-              sortValue : "", // 
-              timer_data : "", // 
-              timer_total : "", // 
-              url_path : "", // 
-              useBeacon : "", // 
-              userID : "", // 
-              userType : "", // 
-              videoAction : "", // 
-              videoLabel : "", // 
-              videoViewedMetrics : "", // 
-              event_id : "", // 
-              event_type : "", // 
-              amazon_d : "", // 
-              amazon_ex_fargs : "", // 
-              amazon_ex_fch : "", // 
-              amazon_ex_hargs : "", // 
-              amazon_cb : "", // 
-              amazon_ex_src : "", // 
-              cm_locatorview : "", // custom metric for product locator views
-              transport_type : "", // 
-              page_location : "", // 
-              page_referrer : "", // 
               consent_categories : "", // 
-              tealium_event : "", // 
-              action : "", // 
-              label : "" // 
+              consent_vendors : "", // 
+              event_name : "", // Tealium variable to identify unique events eg. social_share, user_login, etc.
+              tealium_event : "", // Identifies the unique names of tracked events.
+              page_type : "", // Tealium variable to identify page types/templates eg. home, category, search, product, etc.
+              test_variable : "" // 
             }
             </script>
             
             <!-- Loading script asynchronously -->
-            <script type="text/javascript">
-                (function(a,b,c,d){
-                a='https://tags.tiqcdn.com/utag/campbells/goldfishhanddish-dev/prod/utag.js';
-                b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
-                a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
-                })();
-            </script>
+        <script type="text/javascript">
+            (function(a,b,c,d){
+            a='https://tags.tiqcdn.com/utag/crownpeak/justin-onprem-testing/prod/utag.js';
+            b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+            a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+            })();
+        </script>
 
         <canvas id="canvasdonut" width="300" height="240"></canvas>
             
