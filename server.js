@@ -31,6 +31,11 @@ app.get('/views/:fileName',function(req,res){
 
 
 
+app.get('/css/:fileName',function(req,res){
+    var fileName = req.params.fileName
+    res.sendFile('css/'+fileName+'.css',{root: __dirname })
+})
+
 
 
 
