@@ -80,6 +80,13 @@
                     // this is executed if the user explicitly declines giving consent by
                     // using a Decline button
                 }
+
+                setTimeout(function(){
+                    window.evidon.notice.activateTranslations('fr')
+                    window.evidon.notice._pullOptOutDetails(()=>{ 
+                                    var aN = this; 
+                    }) 
+                },2000)
             })(3714);
         </script>
         
