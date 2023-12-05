@@ -3385,6 +3385,7 @@
             aN.push("domain=" + aO)
         }
         var aM = aN.join("; ");
+        console.log(aM)
         document.cookie = aM;
         return (document.cookie.indexOf(aQ) > -1)
     }
