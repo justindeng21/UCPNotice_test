@@ -3350,6 +3350,9 @@
         if (window.evidon.uriEncodeCookie) {
             var aP = decodeURI(document.cookie);
             aN = aP.split(";")
+        } else if(window.evidon.uriEncodeComponentCookie){
+            var aP = decodeURIComponent(document.cookie);
+            aN = aP.split(";")            
         } else {
             aN = document.cookie.split(";")
         }
