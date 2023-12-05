@@ -77,8 +77,10 @@
                     // this is executed if the user explicitly declines giving consent by
                     // using a Decline button
                 }
+
             })(3714);
         </script>
+
 
     </head>
     
@@ -87,6 +89,12 @@
 	
        
 	</body>
+    <script defer>                
+        window.evidon.notice.activateTranslations('fr')
+        window.evidon.notice._pullOptOutDetails(()=>{ 
+                        var aN = this; 
+        })     
+    </script>
 
     <footer>
         <span class="evidon-notice-link"></span>
