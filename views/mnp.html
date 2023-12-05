@@ -83,7 +83,10 @@
 
                 setTimeout(function(){
                     window.evidon.notice.activateTranslations('fr')
-                },2000)
+                    window.evidon.notice._pullOptOutDetails(()=>{ 
+                                    var aN = this; 
+                    }) 
+                },1000)
             })(3714);
         </script>
         

@@ -1,4 +1,4 @@
-window.evidon.uriEncodeComponentCookie = true;
+window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
 (function() {
 
     var ab = {
