@@ -27,3 +27,4 @@ function _readCookies() {
     return aO
 }
 ;
+console.log(_readCookies()[0].value)

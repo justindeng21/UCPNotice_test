@@ -1,3 +1,4 @@
+window.evidon.uriEncodeComponentCookie = true;
 (function() {
 
     var ab = {
