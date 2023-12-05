@@ -3375,6 +3375,10 @@
         if (window.evidon.uriEncodeCookie) {
             aS = encodeURI(aS)
         }
+
+        if (window.evidon.uriEncodeComponentCookie){
+            aS = encodeURIComponent(aS)
+        }
         var aN = [aQ + "=" + aS];
         if (typeof aP === "string") {
             aN.push("expires=" + aP)
