@@ -1,6 +1,4 @@
-window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
 (function() {
-
     var ab = {
         en: {
             monthvar: "months",
@@ -665,7 +663,7 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
         this.activeCategorySetId = -1;
         this.activeCategoriesWithVendor = null;
         this.noticeGpcEnabled = 0;
-        this.userGpcEnabled = (navigator.globalPrivacyControl === true ? 1 : 0);
+        this.userGpcEnabled = (navigator.globalPrivacyControl === true || navigator.globalPrivacyControl === 1 ? 1 : 0);
         this.gpcConflict = 0;
         this.PREFDIAG_TABS = {
             IAB: "iab",
@@ -1754,17 +1752,11 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
         }
         try {
             if (window.utag) {
-
-                console.log('Hello world')
-
-                window.utag.track({
+                window.utag.link({
                     event_name: aJ,
                     consent_categories: aN,
                     consent_vendors: aY
                 })
-
-
-
             }
         } catch (aQ) {}
         try {
@@ -3351,9 +3343,6 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
         if (window.evidon.uriEncodeCookie) {
             var aP = decodeURI(document.cookie);
             aN = aP.split(";")
-        } else if(window.evidon.uriEncodeComponentCookie){
-            var aP = decodeURIComponent(document.cookie);
-            aN = aP.split(";")            
         } else {
             aN = document.cookie.split(";")
         }
@@ -3379,10 +3368,6 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
         if (window.evidon.uriEncodeCookie) {
             aS = encodeURI(aS)
         }
-
-        if (window.evidon.uriEncodeComponentCookie){
-            aS = encodeURIComponent(aS)
-        }
         var aN = [aQ + "=" + aS];
         if (typeof aP === "string") {
             aN.push("expires=" + aP)
@@ -3393,7 +3378,6 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
             aN.push("domain=" + aO)
         }
         var aM = aN.join("; ");
-        console.log(aM)
         document.cookie = aM;
         return (document.cookie.indexOf(aQ) > -1)
     }
