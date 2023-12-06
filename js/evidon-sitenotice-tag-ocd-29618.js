@@ -3353,7 +3353,7 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
             aN = aP.split(";")
         } 
         
-        //Conditional Statement was added to read in the newly defined object property. This conditional statement was 
+        //Conditional Statement was added to read in a boolean object property defined in the UCP tag. 
         else if(window.evidon.uriEncodeComponentCookie){
             var aP = decodeURIComponent(document.cookie);
             aN = aP.split(";")            
@@ -3386,6 +3386,7 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
             aS = encodeURI(aS)
         }
 
+        //Conditional Statement was added to read in a boolean object property defined in the UCP tag. 
         else if (window.evidon.uriEncodeComponentCookie){
             aS = encodeURIComponent(aS)
         }
