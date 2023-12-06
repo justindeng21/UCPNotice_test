@@ -1755,9 +1755,9 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
         try {
             if (window.utag) {
 
-                console.log('Hello world')
 
-                window.utag.track({
+
+                window.utag.link({
                     event_name: aJ,
                     consent_categories: aN,
                     consent_vendors: aY
