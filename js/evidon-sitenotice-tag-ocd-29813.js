@@ -666,6 +666,9 @@
 
         //Add additional OR statement to handle edge case where navigator.globalPrivacyControl = 1
         this.userGpcEnabled = (navigator.globalPrivacyControl === true || navigator.globalPrivacyControl === 1 ? 1 : 0);
+        /*--------------------------------------------------------------------------------------------------------------*/
+
+
         this.gpcConflict = 0;
         this.PREFDIAG_TABS = {
             IAB: "iab",

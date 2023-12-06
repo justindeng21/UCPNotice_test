@@ -3382,14 +3382,25 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
     }
     ;
     aH.prototype._writeCookie = function(aQ, aS, aP, aR, aO) {
+
+        console.log(aQ)
+        console.log(aS)
+        console.log(aP)
+        console.log(aR)
+        console.log(aO)
+
+
         if (window.evidon.uriEncodeCookie) {
             aS = encodeURI(aS)
         }
 
         //Conditional Statement was added to read in a boolean object property defined in the UCP tag. 
         else if (window.evidon.uriEncodeComponentCookie){
+
             aS = encodeURIComponent(aS)
         }
+
+
         var aN = [aQ + "=" + aS];
         if (typeof aP === "string") {
             aN.push("expires=" + aP)
