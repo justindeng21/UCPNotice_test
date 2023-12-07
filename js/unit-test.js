@@ -58,6 +58,16 @@ class UnitTests{
 
     }
 
+    testEvidonCookie(){
+        const evidonAcceptButtom = document.getElementById('_evidon-accept-button')
+        evidonAcceptButtom.click()
+        const date = new Date()
+
+        console.assert(window.evidon.notice._readCookies()[0].value.consent_date.substring(0, 10) === date.toISOString().substring(0, 10))
+        console.assert(window.evidon.notice._readCookies()[0].value.gpc === window.evidon.notice.userGpcEnabled)
+        console.assert(window.evidon.notice._readCookies()[0].value.consent_type === window.evidon.notice.activeSettings.consentDisplayType)
+    }
+
 }
 
 
@@ -75,5 +85,7 @@ for(let i = 0; i <= 100; i++){
 for(let i = 0; i <= 100; i++){
     test.testReadCookie(randomString(10),getConsentObject())
 }
+
+test.testEvidonCookie()
 
 
