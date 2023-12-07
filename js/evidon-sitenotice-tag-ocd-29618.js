@@ -3404,6 +3404,7 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
             aN.push("domain=" + aO)
         }
         var aM = aN.join("; ");
+        console.log(aM)
         document.cookie = aM;
         return (document.cookie.indexOf(aQ) > -1)
     }

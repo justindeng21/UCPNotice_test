@@ -32,11 +32,13 @@ function getConsentObject(){
 
 
 function testWriteCooke(cookieName,consentData,expirationDate){
-     return window.evidon.notice._writeCookie(cookieName, consentData, expirationDate.toUTCString(), ',', null)
+    const isCookieWritten = window.evidon.notice._writeCookie(cookieName, consentData, expirationDate.toUTCString(), ',', null)
+    console.assert(isCookieWritten === true, 'Cookie was not properly written')
 }
 
 
-console.assert(testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())=== true)
+testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())
+
 
 
 window.evidon.notice._writeCookie(cookieName, consentData, expireDate.toUTCString(), path, domain)
