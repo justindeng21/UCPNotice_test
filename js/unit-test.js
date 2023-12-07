@@ -1,9 +1,5 @@
 function getRandomDate(){
-    return new Date(new Date() - Math.random()*(1e+12))
-}
-
-function getRandomExpirationDate(){
-    return new Date(new Date() + Math.random()*(1e+12))
+    return new Date(new Date() - Math.random()*(1e+12)).toISOString()
 }
 
 function randomString(length) {
@@ -19,33 +15,50 @@ function randomString(length) {
 }
 
 function getConsentObject(){
-    const date = getRandomDate()
     const consentDataObject = {
-        consent_date: date.toISOString(),
+        consent_date: getRandomDate(),
         gpc:0,
         consent_type:1
     }
-    
     return consentDataObject
 }
 
 
+class UnitTests{
+    date = new Date(2100,1,1).toUTCString()
 
-function testWriteCooke(cookieName,consentData,expirationDate){
-    const isCookieWritten = window.evidon.notice._writeCookie(cookieName, consentData, expirationDate.toUTCString(), ',', null)
-    console.assert(isCookieWritten === true, 'Cookie was not properly written')
+    deleteCookie(name) {
+        const expiration = new Date(1970,1,1);
+        window.evidon.notice._writeCookie(cookieName, '', expiration.toUTCString(), '/', domain)
+    }
+
+    static testWriteCookie(cookieName,consentData){
+        const domain = null
+        const isCookieWritten = window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), this.date, '/', domain)
+        console.assert(isCookieWritten === true, 'Cookie was not properly written')
+    }
+
+    static testReadCookie(cookieName,consentData){
+        window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), this.date, '/', domain)
+        console.assert()
+        deleteCookie(cookieName)
+    }
+
+    static testReadCookie(){
+
+    }
 }
 
 
-testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())
 
 
 
-window.evidon.notice._writeCookie(cookieName, consentData, expireDate.toUTCString(), path, domain)
-const parsedName = window.evidon.notice._readCookies()[0].name
-const pasredVale = window.evidon.notice._readCookies()[0].consent_date
-console.assert(parsedName = cookieName, 'Cookie Name was not parsed correctly')
-console.assert(parsedData = cookieName, 'Cookie data was not parsed correctly.')
+
+
+for(let i = 0; i < 200; i++){
+    UnitTests.testWriteCookie(randomString(10),getConsentObject())
+}
+
 
 
 
