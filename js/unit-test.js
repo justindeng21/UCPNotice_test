@@ -36,7 +36,7 @@ function testWriteCooke(cookieName,consentData,expirationDate){
 }
 
 
-testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())
+console.assert(testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())=== true)
 
 
 window.evidon.notice._writeCookie(cookieName, consentData, expireDate.toUTCString(), path, domain)
