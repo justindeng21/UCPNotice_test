@@ -23,30 +23,39 @@ function getConsentObject(){
     return consentDataObject
 }
 
+function deleteCookie(cookieName) {
+    const expiration = new Date(1970,1,1);
+    window.evidon.notice._writeCookie(cookieName, '', expiration.toUTCString(), '/', null)
+}
 
 class UnitTests{
-    date = new Date(2100,1,1).toUTCString()
+    
+    
+        
 
-    deleteCookie(name) {
-        const expiration = new Date(1970,1,1);
-        window.evidon.notice._writeCookie(cookieName, '', expiration.toUTCString(), '/', domain)
-    }
+
 
     static testWriteCookie(cookieName,consentData){
-        const domain = null
-        const isCookieWritten = window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), this.date, '/', domain)
+        let expires = new Date()
+        expires.setDate(expires.getDate()+1)
+        const isCookieWritten = window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), expires.toUTCString(), '/', null)
         console.assert(isCookieWritten === true, 'Cookie was not properly written')
-    }
-
-    static testReadCookie(cookieName,consentData){
-        window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), this.date, '/', domain)
-        console.assert()
         deleteCookie(cookieName)
     }
 
-    static testReadCookie(){
+    static testReadCookie(cookieName,consentData){
+        let expires = new Date()
+        expires.setDate(expires.getDate()+1)
+        window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), expires.toUTCString(), '/', null)
+
+        console.assert(window.evidon.notice._readCookies()[0].value.consent_date === consentData.consent_date,'Consent Date does not match')
+        console.assert(window.evidon.notice._readCookies()[0].value.gpc === consentData.gpc,'GPC flag does not match')
+        console.assert(window.evidon.notice._readCookies()[0].value.consent_type === consentData.consent_type,'Consent Type does not match')
+
+        deleteCookie(cookieName)
 
     }
+
 }
 
 
@@ -55,10 +64,14 @@ class UnitTests{
 
 
 
-for(let i = 0; i < 200; i++){
+for(let i = 0; i <= 100; i++){
     UnitTests.testWriteCookie(randomString(10),getConsentObject())
 }
 
 
+
+for(let i = 0; i <= 100; i++){
+    UnitTests.testReadCookie(randomString(10),getConsentObject())
+}
 
 

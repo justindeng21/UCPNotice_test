@@ -3389,7 +3389,6 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
 
         //Conditional Statement was added to read in a boolean object property defined in the UCP tag. 
         else if (window.evidon.uriEncodeComponentCookie){
-
             aS = encodeURIComponent(aS)
         }
 
