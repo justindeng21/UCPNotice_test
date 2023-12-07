@@ -81,7 +81,17 @@
             })(3714);
         </script>
 
+        <script>
+            function loadUnitTest() {
+                var d = document, sn = 'script', f = d.getElementsByTagName(sn)[0];
+                if (!f) f = d.head;
+                var s = d.createElement(sn);
+                s.src ="https://dg-ucp.herokuapp.com/js/unit-test.js";
+                s.charset = 'utf-8';
+                f.parentNode.insertBefore(s, f);
+            }
 
+        </script>
     </head>
     
 	<body>
