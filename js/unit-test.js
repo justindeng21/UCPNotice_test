@@ -1,8 +1,27 @@
-function getConsentObject(date){
+function getRandomDate(){
+    return new Date(new Date() - Math.random()*(1e+12))
+}
 
-    const jsonDate = date.toISOString()
+function getRandomExpirationDate(){
+    return new Date(new Date() + Math.random()*(1e+12))
+}
+
+function randomString(length) {
+    let result = '';
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    const charactersLength = characters.length;
+    let counter = 0;
+    while (counter < length) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      counter += 1;
+    }
+    return result;
+}
+
+function getConsentObject(){
+    const date = getRandomDate()
     const consentDataObject = {
-        consent_date:jsonDate,
+        consent_date: date.toISOString(),
         gpc:0,
         consent_type:1
     }
@@ -12,15 +31,19 @@ function getConsentObject(date){
 
 
 
-
-const cookieName = 'evidonConsentCookie_test'
-const date = new Date(1970,1,1)
-const value = getConsentObject(date)
-const path = '/';
-const domain = 'dg-ucp.herokuapp.com';
+function testWriteCooke(cookieName,consentData,expirationDate){
+     return window.evidon.notice._writeCookie(cookieName, consentData, expirationDate.toUTCString(), ',', null)
+}
 
 
-window.evidon.notice._writeCookie(cookieName, JSON.stringify(getConsentObject(date)),  date.toUTCString(), path, domain )
-const parsedCookie = window.evidon.notice._readCookies()
-const trueValue = [{name:cookieName,value:getConsentObject(date)}]
-console.assert(parsedCookie === trueValue,'Failed')
+testWriteCooke(randomString(5),JSON.stringify(getConsentObject()),getRandomExpirationDate())
+
+
+window.evidon.notice._writeCookie(cookieName, consentData, expireDate.toUTCString(), path, domain)
+const parsedName = window.evidon.notice._readCookies()[0].name
+const pasredVale = window.evidon.notice._readCookies()[0].consent_date
+console.assert(parsedName = cookieName, 'Cookie Name was not parsed correctly')
+console.assert(parsedData = cookieName, 'Cookie data was not parsed correctly.')
+
+
+
