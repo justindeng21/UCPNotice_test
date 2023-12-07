@@ -31,11 +31,13 @@ function deleteCookie(cookieName) {
 class UnitTests{
     
     
-        
+    constructor(){
+        console.log('Begining Unit Testing')
+    }
 
 
 
-    static testWriteCookie(cookieName,consentData){
+    testWriteCookie(cookieName,consentData){
         let expires = new Date()
         expires.setDate(expires.getDate()+1)
         const isCookieWritten = window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), expires.toUTCString(), '/', null)
@@ -43,7 +45,7 @@ class UnitTests{
         deleteCookie(cookieName)
     }
 
-    static testReadCookie(cookieName,consentData){
+    testReadCookie(cookieName,consentData){
         let expires = new Date()
         expires.setDate(expires.getDate()+1)
         window.evidon.notice._writeCookie(cookieName, JSON.stringify(consentData), expires.toUTCString(), '/', null)
@@ -60,18 +62,18 @@ class UnitTests{
 
 
 
-
+test = new UnitTests()
 
 
 
 for(let i = 0; i <= 100; i++){
-    UnitTests.testWriteCookie(randomString(10),getConsentObject())
+    test.testWriteCookie(randomString(10),getConsentObject())
 }
 
 
 
 for(let i = 0; i <= 100; i++){
-    UnitTests.testReadCookie(randomString(10),getConsentObject())
+    test.testReadCookie(randomString(10),getConsentObject())
 }
 
 
