@@ -1,18 +1,13 @@
-var name = '_evidon_consent_cookie';
-var consentData = '{"consent_date":"2023-12-06T06:12:53.341Z","gpc":0,"consent_type":1}'; 
-var date = 'Mon, 06 Jan 2025 06:12:53 GMT';
-var path = '/';
-var domain = null;
-
-var name = 
-
-var cookieDate = date.toUTCString()
+const path = '/';
+const domain = null;
+const date = new Date(1970,1,1)
 
 
 
-function getConsentObject(){
-    
-    const date = new Date(1970,1,1)
+
+
+function getConsentObject(date){
+
     const jsonDate = date.toISOString()
     const consentDataObject = {
         consent_date:jsonDate,
@@ -20,5 +15,8 @@ function getConsentObject(){
         consent_type:1
     }
     
-    return 
+    return JSON.stringify(consentDataObject)
 }
+
+
+window.evidon.notice._writeCookie('evidonConsentCookie_test',getConsentObject(date),  date.toUTCString(), path, domain )
