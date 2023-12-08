@@ -43,6 +43,10 @@ app.get('/tealium/onprem',function(req,res){
     res.sendFile('views/'+fileName+'.html',{root: __dirname })
 })
 
+app.get('/images/ad.jpg',function(req,res){
+    res.sendFile('images/ad.jpg',{root: __dirname })
+})
+
 
 
 var server = app.listen(port)
