@@ -879,7 +879,7 @@
         75: "Right to rectification",
         76: "Options",
         77: "I Understand",
-        78: "Decline All",
+        78: "Decline All Direct JS change",
         79: "Read our policy",
         80: "Reject All",
         81: 'We rely on cookies and other technologies to enhance your experience on our site. In accordance with the General Data Protection Regulation (GDPR), some of what we capture may be considered personal data. Below you will find options which provide you with the ability to exercise your rights over how we use your information and exercise choice over technologies and partners we use to collect and share information. For more information, please see our <a href="{privacyPolicy}" target="_blank">Privacy Policy</a>.',
