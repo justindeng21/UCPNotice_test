@@ -1761,7 +1761,7 @@
                     event_name: aJ,
                     consent_categories: aN,
                     consent_vendors: aY
-                })
+                })  
 
 
 
