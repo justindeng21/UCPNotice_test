@@ -1761,7 +1761,7 @@ window.evidon.uriEncodeComponentCookie = true; // Can be defined in ucp tag
                     event_name: aJ,
                     consent_categories: aN,
                     consent_vendors: aY
-                })
+                })  
 
 
 
