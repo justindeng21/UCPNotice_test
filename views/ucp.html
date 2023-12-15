@@ -9,7 +9,6 @@
         
 	
         
-
         <script type="text/javascript">
             (function (id) {
                 function append(scriptid, url, async) {
@@ -49,6 +48,8 @@
                 window.evidon = {};
                 window.evidon.id = id;
                 window.evidon.test = false;  // set to true for non-production testing.
+                window.evidon.uriEncodeCookie = true
+                window.evidon.uriEncodeComponentCookie = true
                 //window.evidon.userid = '';
         
                 var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
@@ -58,9 +59,7 @@
                 if (rootDomain) append('evidon-settings', noticecdn + id + '/' + rootDomain + (window.evidon.test ? '/test' : '') + '/settingsV2.js', true);
         
                 window.evidon.priorConsentCallback = function (categories, vendors, cookies) {
-                    // add the tags which need to wait for prior consent
-                    // here.  This should be all your advertising tags and
-                    // probably most of your social and tracking tags.
+                    console.log(categories)
                     
                 }
         
@@ -78,7 +77,13 @@
                     // this is executed if the user explicitly declines giving consent by
                     // using a Decline button
                 }
-            })(797);
+
+                setTimeout(()=>{
+                    window.evidon.notice.setDomain('eatonvancerealestate.com')
+                },2000)
+
+
+            })(5136);
         </script>
         
 
