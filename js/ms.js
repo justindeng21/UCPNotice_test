@@ -2545,7 +2545,7 @@
     }
     ;
     aH.prototype.showConsentTool = function(aR) {
-        var aO = (this.activeSettings.consentDisplayType === undefined) ? 1 : (this.activeSettings.consentDisplayType || 1);
+        var aO = true;
         var aS = (aO == W || (aO == X && window.location.protocol.indexOf("https") === -1));
         if (aS) {
             var aM = document.createElement("div");
