@@ -1,8 +1,8 @@
 (function() {
-    const element = document.createElement('div');
-    element.innerHTML = "Modified JS File"
-    document.body.appendChild(element)
 
+    const element = document.createElement('div')
+    element.innerHTML = 'Modified evidon-sitenotice-tag.js'
+    document.body.append(element)
 
     var ab = {
         en: {
@@ -2545,11 +2545,7 @@
     }
     ;
     aH.prototype.showConsentTool = function(aR) {
-
-        var aO = false//(this.activeSettings.consentDisplayType === undefined) ? 1 : (this.activeSettings.consentDisplayType || 1);
-        
-
-
+        var aO = (this.activeSettings.consentDisplayType === undefined) ? 1 : (this.activeSettings.consentDisplayType || 1);
         var aS = (aO == W || (aO == X && window.location.protocol.indexOf("https") === -1));
         if (aS) {
             var aM = document.createElement("div");
