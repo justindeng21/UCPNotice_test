@@ -1,4 +1,8 @@
-=(function() {
+ const element = document.createElement('div');
+ element.innerHTML = "Modified JS File"
+ document.body.appendChild(element)
+
+(function() {
     var ab = {
         en: {
             monthvar: "months",
