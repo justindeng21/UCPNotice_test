@@ -1149,6 +1149,7 @@
             return bc
         }
         var aU = aQ(this.domain)
+        console.log(aU)
           , a1 = aW._getRootDomain(aW.domain)
           , a7 = aW._getTLD(this.domain);
         var a5 = aW.domain.substr(0, aW.domain.indexOf(a1)) + a1 + ".*";
