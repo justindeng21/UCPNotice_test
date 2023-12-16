@@ -816,7 +816,8 @@
             this.activateTranslations(aP.toLowerCase())
         }
         if (!this.blockDomainCheck) {
-            this.setDomain(null, true)
+            //this.setDomain(null, true)
+            console.log('Attepmt to set Domain')
         }
         if (this._isConsentGiven() && this.activeSettings && this.vendorList) {
             if (!this.consentRequired) {
