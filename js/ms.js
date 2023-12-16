@@ -2561,7 +2561,7 @@
             }
             var aN = document.createElement("button");
             aN.style.cssText = "position:absolute; top:4px;right:8px;color:white; background:transparent;font-size:12px;border:0; psdding:4px;cursor:pointer;padding:0;";
-            aN.innerHTML = this.activeTranslations.gdprl2Close + "&nbsp; &#x2716;";
+            aN.innerHTML = 'test'//this.activeTranslations.gdprl2Close + "&nbsp; &#x2716;";
             aN.onclick = this._closeL3;
             aP.appendChild(aN);
             var aQ = document.createElement("iframe");
