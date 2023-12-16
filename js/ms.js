@@ -626,7 +626,7 @@
         this.activeTranslations = null;
         this.activeTranslationId = 0;
         this.settings = null;
-        this.domain = null;
+        this.domain = 'https://www.eatonvancerealestate.com/';
         this.path = null;
         this.activeSettings = null,
         this.regulationId = 0,
@@ -1123,7 +1123,7 @@
         if (!this.domain) {
             return null
         }
-        console.log(a8,a9)
+        
         function aO(a8, a9) {
             if (!a8 || !a9) {
                 return false
@@ -1151,6 +1151,7 @@
         }
         var aU = aQ(this.domain)
         console.log(aU)
+        console.log(this.domain)
           , a1 = aW._getRootDomain(aW.domain)
           , a7 = aW._getTLD(this.domain);
         var a5 = aW.domain.substr(0, aW.domain.indexOf(a1)) + a1 + ".*";
