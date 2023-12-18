@@ -1,8 +1,6 @@
 (function() {
 
-    const element = document.createElement('div')
-    element.innerHTML = 'Modified evidon-sitenotice-tag.js'
-    document.body.append(element)
+    console.log('Hi Justin. The modified evidon-sitenotice-tag.js has been loaded in via ModHeader.')
 
     var ab = {
         en: {
@@ -626,7 +624,7 @@
         this.activeTranslations = null;
         this.activeTranslationId = 0;
         this.settings = null;
-        this.domain = 'https://www.eatonvancerealestate.com/';
+        this.domain = null;
         this.path = null;
         this.activeSettings = null,
         this.regulationId = 0,
@@ -816,8 +814,7 @@
             this.activateTranslations(aP.toLowerCase())
         }
         if (!this.blockDomainCheck) {
-            //this.setDomain(null, true)
-            console.log('Attepmt to set Domain')
+            this.setDomain(null, true)
         }
         if (this._isConsentGiven() && this.activeSettings && this.vendorList) {
             if (!this.consentRequired) {
@@ -1124,7 +1121,6 @@
         if (!this.domain) {
             return null
         }
-        
         function aO(a8, a9) {
             if (!a8 || !a9) {
                 return false
@@ -1151,8 +1147,6 @@
             return bc
         }
         var aU = aQ(this.domain)
-        console.log(aU)
-        console.log(this.domain)
           , a1 = aW._getRootDomain(aW.domain)
           , a7 = aW._getTLD(this.domain);
         var a5 = aW.domain.substr(0, aW.domain.indexOf(a1)) + a1 + ".*";
@@ -2537,9 +2531,7 @@
     }
     ;
     aH.prototype.showOptions = function(aM, aN, aO) {
-        const L2 = true
-        
-        if (true) {
+        if (this.L2Enabled) {
             if (this.getPreferencesDialogV2Enabled()) {
                 this.showPreferencesDialog(aN, aO)
             } else {
@@ -2551,7 +2543,7 @@
     }
     ;
     aH.prototype.showConsentTool = function(aR) {
-        var aO = true;
+        var aO = (this.activeSettings.consentDisplayType === undefined) ? 1 : (this.activeSettings.consentDisplayType || 1);
         var aS = (aO == W || (aO == X && window.location.protocol.indexOf("https") === -1));
         if (aS) {
             var aM = document.createElement("div");
