@@ -1118,6 +1118,7 @@
     ;
     aH.prototype._getSettings = function() {
         var aW = this;
+        console.log('aW():',aW)
         if (!this.domain) {
             return null
         }
