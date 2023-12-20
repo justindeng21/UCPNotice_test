@@ -1,1 +1,0 @@
-console.log('Tag Control has been disabled')
