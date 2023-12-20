@@ -1719,10 +1719,14 @@
                 var aT = ["google-adsense", "doubleclick", "doubleclick-bid-manager-formerly-invite-media", "admeld", "google-adwords", "google-display-network", "admob-google", "adometry", "google-ad-services", "google-mobile-ads", "googleima"];
                 var aU = ["google-analytics"];
                 var aS = "denied"
-                  , aR = "denied";
+                  , aR = "denied"
+                  , ad_user_storage_val = 'denied'
+                  , ad_personalization_cal  = 'denied'
                 if (aY == "all") {
                     aS = "granted";
-                    aR = "granted"
+                    aR = "granted";
+                    ad_user_storage_val = 'granted'
+                    ad_personalization_val = 'granted'
                 } else {
                     if (aY) {
                         var aX = aY.split(",");
@@ -1733,7 +1737,9 @@
                         }
                         for (var aW = 0; aW < aT.length; aW++) {
                             if (aX.indexOf(aT[aW]) !== -1) {
-                                aR = "granted"
+                                aR = "granted";
+                                ad_user_storage_val = 'granted';
+                                ad_personalization_val = 'granted';
                             }
                         }
                     }
@@ -1745,7 +1751,9 @@
                     }
                     aV("consent", "update", {
                         ad_storage: aR,
-                        analytics_storage: aS
+                        analytics_storage: aS,
+                        ad_user_storage: ad_user_storage_val,
+                        ad_personalization: ad_personalization_cal
                     })
                 }
             } catch (aQ) {}
