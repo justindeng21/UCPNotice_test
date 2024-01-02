@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const terminal_link = require('terminal-link');
 let app = express();
 var port = process.env.PORT || 3000
 app.use(bodyParser.json());
@@ -10,8 +9,6 @@ app.use(express.static('public'))
 
 
 var fs = require('fs');
-var files = fs.readdirSync('/assets/photos/');
-
 
 //html
 app.get('/', function(req,res){
