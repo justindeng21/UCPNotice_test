@@ -47,6 +47,7 @@
                 window.evidon.id = id;
                 window.evidon.test = false;  // set to true for non-production testing.
                 //window.evidon.userid = '';
+                window.evidon.uriEncodeComponentCookie = true
         
                 var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
                 append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
@@ -76,10 +77,8 @@
                     // using a Decline button
                 }
 
-                setTimeout(()=>{
-                    window.evidon.notice.setDomain('test-imodules.com/s/601651')
-                },2000)
-            })(8564);
+
+            })(3714);
         </script>
 
 
