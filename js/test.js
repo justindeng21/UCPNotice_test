@@ -2377,9 +2377,10 @@
     }
     ;
     aH.prototype.consentChanged = function(aM, aO, aN) {
-        if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
-            window.evidon.consentChangedCallback(aM, aO, aN)
-        }
+        window.evidon.consentChangedCallback(aM, aO, aN)
+        // if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
+        //     window.evidon.consentChangedCallback(aM, aO, aN)
+        // }
         this.consentChangedCallbackExecuted = false;
         this.tagManagerEventFired = false;
         aO = this._getVendorsReturnObject(aO);
