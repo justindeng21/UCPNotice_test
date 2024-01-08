@@ -2381,7 +2381,6 @@
         // if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
         //     window.evidon.consentChangedCallback(aM, aO, aN)
         // }
-        this.consentChangedCallbackExecuted = false;
         this.tagManagerEventFired = false;
         aO = this._getVendorsReturnObject(aO);
         aN = this._getCookiesReturnObject(aN);
