@@ -1968,7 +1968,7 @@
         function cJ() {
             cM._saveState();
             var cR = (a9.consentIsGiven === false);
-            console.logP('cR:', cR)
+            console.log('cR:', cR)
             if (cR) {
                 a9.shouldCallCMP = false;
                 a9.consentGiven(true, cM.getConsentCategoryInfo(), cM.getConsentVendorInfo(), cM.getConsentCookieInfo());
