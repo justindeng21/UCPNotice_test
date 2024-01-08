@@ -2377,7 +2377,7 @@
     }
     ;
     aH.prototype.consentChanged = function(aM, aO, aN) {
-        window.evidon.consentChangedCallback(aM, aO, aN)
+        window.evidon.consentChangedCallback()
         // if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
         //     window.evidon.consentChangedCallback(aM, aO, aN)
         // }
