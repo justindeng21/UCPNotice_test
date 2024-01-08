@@ -1977,7 +1977,7 @@
             a9._updateConsentedCategories(cM.getConsentCategoryInfo());
             a9._updateConsentedCookies(cM.getConsentCookieInfo());
             a9._updateConsentedVendors(cM.getConsentVendorInfo());
-            if (cR) {
+            if (cR && t._isVirgin == false) {
                 a9.consentChanged(cM.getConsentCategoryInfo(), cM.getConsentVendorInfo(), cM.getConsentCookieInfo())
             }
             if (cM._vendorsPanel.style.display !== "none") {
