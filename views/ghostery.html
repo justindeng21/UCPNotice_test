@@ -76,6 +76,10 @@
                     // this is executed if the user explicitly declines giving consent by
                     // using a Decline button
                 }
+
+                window.evidon.consentChangedCallback = function () {
+                    console.log('Consent Changed Callback ran')
+                }
             })(3714);
         </script>
 
