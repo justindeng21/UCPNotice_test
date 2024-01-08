@@ -5,8 +5,10 @@ var port = process.env.PORT || 3000
 app.use(bodyParser.json());
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public')) // forces external files to be inside /public?
+app.use(express.static('public'))
 
+
+var fs = require('fs');
 
 //html
 app.get('/', function(req,res){
@@ -48,7 +50,8 @@ app.get('/images/ad.jpg',function(req,res){
 })
 
 
-
 var server = app.listen(port)
+
+
 
    
