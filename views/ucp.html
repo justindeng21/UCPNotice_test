@@ -7,6 +7,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="shortcut icon" type="image/png" href="https://crownpeak.com/layout/icons/favicon.png">
         
+
         <script type="text/javascript">
             (function (id) {
                 function append(scriptid, url, async) {
@@ -47,7 +48,6 @@
                 window.evidon.id = id;
                 window.evidon.test = false;  // set to true for non-production testing.
                 //window.evidon.userid = '';
-                window.evidon.uriEncodeComponentCookie = true
         
                 var cdn = '//c.evidon.com/', rootDomain = getRootDomain(), noticecdn = cdn + 'sitenotice/';
                 append('evidon-notice', noticecdn + 'evidon-sitenotice-tag.js', false);
@@ -78,9 +78,11 @@
                 }
 
 
-            })(3714);
+                setTimeout(()=>{
+                    window.evidon.notice.setDomain('mcstaging.nutrafol.com')
+                })
+            })(2523);
         </script>
-
 
 
     </head>
