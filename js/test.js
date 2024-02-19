@@ -1721,7 +1721,7 @@
                 var aS = "denied"
                   , aR = "denied"
                   , ad_user_storage_val = 'denied'
-                  , ad_personalization_cal  = 'denied'
+                  , ad_personalization_val  = 'denied'
                 if (aY == "all") {
                     aS = "granted";
                     aR = "granted";
