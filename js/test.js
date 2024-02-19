@@ -1719,10 +1719,14 @@
                 var aT = ["google-adsense", "doubleclick", "doubleclick-bid-manager-formerly-invite-media", "admeld", "google-adwords", "google-display-network", "admob-google", "adometry", "google-ad-services", "google-mobile-ads", "googleima"];
                 var aU = ["google-analytics"];
                 var aS = "denied"
-                  , aR = "denied";
+                  , aR = "denied"
+                  , ad_user_storage_val = 'denied'
+                  , ad_personalization_cal  = 'denied'
                 if (aY == "all") {
                     aS = "granted";
-                    aR = "granted"
+                    aR = "granted";
+                    ad_user_storage_val = 'granted'
+                    ad_personalization_val = 'granted'
                 } else {
                     if (aY) {
                         var aX = aY.split(",");
@@ -1733,7 +1737,9 @@
                         }
                         for (var aW = 0; aW < aT.length; aW++) {
                             if (aX.indexOf(aT[aW]) !== -1) {
-                                aR = "granted"
+                                aR = "granted";
+                                ad_user_storage_val = 'granted';
+                                ad_personalization_val = 'granted';
                             }
                         }
                     }
@@ -1745,7 +1751,9 @@
                     }
                     aV("consent", "update", {
                         ad_storage: aR,
-                        analytics_storage: aS
+                        analytics_storage: aS,
+                        ad_user_storage: ad_user_storage_val,
+                        ad_personalization: ad_personalization_cal
                     })
                 }
             } catch (aQ) {}
@@ -2377,10 +2385,10 @@
     }
     ;
     aH.prototype.consentChanged = function(aM, aO, aN) {
-        window.evidon.consentChangedCallback()
-        // if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
-        //     window.evidon.consentChangedCallback(aM, aO, aN)
-        // }
+        if (window.evidon.consentChangedCallback !== undefined && this.consentChangedCallbackExecuted) {
+            window.evidon.consentChangedCallback(aM, aO, aN)
+        }
+        this.consentChangedCallbackExecuted = false;
         this.tagManagerEventFired = false;
         aO = this._getVendorsReturnObject(aO);
         aN = this._getCookiesReturnObject(aN);
@@ -3344,12 +3352,7 @@
             var aP = decodeURI(document.cookie);
             aN = aP.split(";")
         } else {
-            if (window.evidon.uriEncodeComponentCookie) {
-                var aP = decodeURIComponent(document.cookie);
-                aN = aP.split(";")
-            } else {
-                aN = document.cookie.split(";")
-            }
+            aN = document.cookie.split(";")
         }
         var aO = [];
         for (var aR = 0; aR < aN.length; aR++) {
@@ -3372,10 +3375,6 @@
     aH.prototype._writeCookie = function(aQ, aS, aP, aR, aO) {
         if (window.evidon.uriEncodeCookie) {
             aS = encodeURI(aS)
-        } else {
-            if (window.evidon.uriEncodeComponentCookie) {
-                aS = encodeURIComponent(aS)
-            }
         }
         var aN = [aQ + "=" + aS];
         if (typeof aP === "string") {
