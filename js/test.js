@@ -1753,7 +1753,7 @@
                         ad_storage: aR,
                         analytics_storage: aS,
                         ad_user_storage: ad_user_storage_val,
-                        ad_personalization: ad_personalization_cal
+                        ad_personalization: ad_personalization_val
                     })
                 }
             } catch (aQ) {}
